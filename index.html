@@ -692,7 +692,7 @@ code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding
 
 <!-- ───── 人員 ───── -->
 <section class="view" id="view-people">
-  <div class="page-h"><div><h1>人員</h1><p>預設只放員工。要送夥伴或廠商時，按「匯入夥伴名錄」或「＋ 新增人員」再加；「整批加入人員」從這裡挑人。</p></div>
+  <div class="page-h"><div><h1>人員</h1><p>員工、外包、夥伴、廠商都放這裡，「＋ 新增人員」或「貼上匯入」整表；「整批加入人員」從這裡挑人。</p></div>
     <div class="toolbar"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnStarter">匯入員工名單</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPartners">匯入夥伴名錄</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnDelType">刪除整個類型</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPCsvOut">匯出 CSV</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPCsvIn">貼上匯入</button><button class="ig-btn ig-btn--gold ig-btn--sm" id="btnAddPerson">＋ 新增人員</button></div></div>
   <div class="card" id="pSummary" style="padding:12px 16px;margin-bottom:12px;font-size:14px"></div>
   <div class="ig-pills" id="pTabs" style="margin-bottom:12px"><button class="ig-pill is-active" data-pt="">全部 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="員工">員工 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="外包">外包 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="夥伴">夥伴 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="廠商">廠商 <span class="ig-pill__n"></span></button></div>
@@ -1539,6 +1539,7 @@ document.addEventListener('keydown',e=>{ if(e.key!=='Escape') return; if($('#mod
 window.addEventListener('online',()=>syncFromSheet(true));
 
 /* ───────── 啟動 ───────── */
+if(!(window.STARTER_PEOPLE||[]).length) $('#btnStarter').classList.add('hide'); if(!(window.PARTNERS||[]).length) $('#btnPartners').classList.add('hide');
 if(S.people.some(p=>!(p.name||'').trim()&&!(p.org||'').trim()&&!(p.email||'').trim())){ S.people=S.people.filter(p=>(p.name||'').trim()||(p.org||'').trim()||(p.email||'').trim()); save(); }
 function mergeStarter(){ const have=new Set(S.people.map(p=>p.name)); let n=0; (window.STARTER_PEOPLE||[]).forEach(p=>{ if(!have.has(p.name)){ S.people.push({...p}); have.add(p.name); n++; } }); return n; }
 (function seed(){ let v=''; try{ v=localStorage.getItem('pgl.seed')||''; }catch(_){}
