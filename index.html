@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南瓜節慶帳本</title>
+<meta name="description" content="記錄公司每年節慶的獎金、活動與禮盒支出，14 天前提醒，附選禮顧問與賀圖工作台。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232D2B2C'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle'%3E🎁%3C/text%3E%3C/svg%3E">
+<style>
+/* ink-gold kit:start */
+/* ==========================================================================
+   🖋️ 南瓜墨金美學 Pumpkin Ink & Gold — CSS Kit v1.2
+   用法：整段貼進 <style>，<body class="ig"> 就生效。
+   中文頁面請寫 <html lang="zh-Hant">（標題字距會自動改成中文友善）。
+   ========================================================================== */
+
+:root {
+  /* ── 墨 Ink：所有文字與主要動作。同一個墨色，靠「透明度」分層，不換色 ── */
+  --ig-ink: #161415;                    /* 100% 標題、重要文字 */
+  --ig-ink-muted: rgba(22, 20, 21, .65); /* 65% 內文、描述 */
+  --ig-ink-soft: rgba(22, 20, 21, .45);  /* 45% 標籤、時間、計數 */
+  --ig-ink-faint: rgba(22, 20, 21, .18); /* 18% hover 邊框、停用 */
+  --ig-ink-hairline: rgba(22, 20, 21, .08); /* 8% 卡片髮絲線 */
+  --ig-ink-wash: rgba(22, 20, 21, .04);  /* 4% 淡底 */
+
+  /* ── 炭 Night：深色舞台（導覽列、收尾區塊、FAQ） ── */
+  --ig-night: #2D2B2C;
+  --ig-night-deep: #242223;
+  --ig-night-hover: #292728;
+  --ig-night-gradient: linear-gradient(135deg, #333233 0%, #242223 60%);
+  --ig-on-night: #FFFFFF;
+  --ig-on-night-muted: rgba(255, 255, 255, .68);
+  --ig-on-night-soft: rgba(255, 255, 255, .45);
+  --ig-night-line: rgba(255, 255, 255, .08);
+  --ig-night-wash: rgba(255, 255, 255, .04);
+
+  /* ── 紙 Paper：舞台底色 ── */
+  --ig-paper: #F5F5F5;
+  --ig-card: #FFFFFF;
+  --ig-card-alt: #FAFAFA;
+  --ig-dot: rgba(22, 20, 21, .10);
+  --ig-dot-gap: 16px;
+
+  /* ── 金 Gold：只畫重點（一個畫面一個主角） ── */
+  --ig-gold: #FDC302;
+  --ig-gold-light: #FFD83A;
+  --ig-gold-soft: #FCD94A;   /* 焦點光圈、深底上的 hover 字 */
+  --ig-gold-deep: #8A6400;   /* 淺底上的金色文字 */
+  --ig-gold-wash: #FEF3C7;
+  --ig-on-gold: #2D2B2C;     /* 金色上面的字：深炭，不是純黑 */
+  --ig-gold-gradient: linear-gradient(to top, #FDC302 0%, #FFD83A 100%);
+
+  /* ── 螢光點綴 Highlighter：只當「螢光筆底」用，少量 ── */
+  --ig-mark-yellow: #FDE68A;
+  --ig-mark-pink: #FDA4AF;
+  --ig-mark-blue: #BAE6FD;
+
+  /* ── 訊號與圖表 ── */
+  --ig-success: #059669;
+  --ig-danger: #DC2626;
+  --ig-chart-1: #FDC302;
+  --ig-chart-2: #4DA770;
+  --ig-chart-3: #D97858;
+  --ig-chart-4: #4D6BFE;
+  --ig-chart-5: #615CED;
+
+  /* ── 字體：英數走 Roboto，中文自動落到思源黑體／蘋方／正黑 ── */
+  --ig-font-sans: "Roboto", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ig-font-mono: "Roboto Mono", "SF Mono", Menlo, Consolas, "Noto Sans TC", "PingFang TC", monospace;
+
+  /* ── 圓角：18px 是招牌 ── */
+  --ig-r-sm: 8px;
+  --ig-r-md: 12px;
+  --ig-r-input: 14px;
+  --ig-r-card: 18px;
+  --ig-r-lg: 22px;
+  --ig-r-xl: 32px;
+  --ig-r-pill: 999px;
+
+  /* ── 陰影：平常幾乎沒有，靠髮絲線分層 ── */
+  --ig-shadow-xs: 0 1px 2px rgba(0, 0, 0, .04);
+  --ig-shadow-hover: 0 16px 32px -18px rgba(22, 20, 21, .22);
+  --ig-shadow-float: 0 14px 36px -16px rgba(0, 0, 0, .55);
+  --ig-shadow-stage: 0 40px 80px -44px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .06);
+  --ig-ring-gold: 0 0 0 1.4px var(--ig-gold);
+  --ig-glow-gold: 0 0 0 1.4px var(--ig-gold), 0 12px 26px -10px rgba(253, 195, 2, .55);
+  --ig-focus: 0 0 0 3px rgba(252, 217, 74, .45);
+
+  /* ── 動態：快、輕、不花俏 ── */
+  --ig-fast: 120ms;
+  --ig-base: 200ms;
+  --ig-slow: 320ms;
+  --ig-reveal: 620ms;
+  --ig-ease: cubic-bezier(.4, 0, .2, 1);
+  --ig-ease-emph: cubic-bezier(.2, 0, 0, 1);
+  --ig-ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --ig-ease-reveal: cubic-bezier(.22, 1, .36, 1);
+
+  /* ── 版寬 ── */
+  --ig-w-narrow: 720px;
+  --ig-w-base: 1100px;
+  --ig-w-wide: 1280px;
+  --ig-nav-h: 60px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --ig-fast: 1ms; --ig-base: 1ms; --ig-slow: 1ms; --ig-reveal: 1ms; }
+}
+
+/* ── 夜間版（中控台、長時間盯螢幕、XR 介面） ── */
+.ig[data-theme="night"] {
+  --ig-paper: #1A1819;
+  --ig-card: #242223;
+  --ig-card-alt: #292728;
+  --ig-ink: #F7F7F7;
+  --ig-ink-muted: rgba(247, 247, 247, .68);
+  --ig-ink-soft: rgba(247, 247, 247, .45);
+  --ig-ink-faint: rgba(247, 247, 247, .20);
+  --ig-ink-hairline: rgba(247, 247, 247, .08);
+  --ig-ink-wash: rgba(247, 247, 247, .04);
+  --ig-dot: rgba(255, 255, 255, .06);
+  --ig-gold-deep: #FCD94A;
+  --ig-shadow-hover: 0 16px 32px -18px rgba(0, 0, 0, .7);
+}
+
+/* ==========================================================================
+   基礎
+   ========================================================================== */
+:where(.ig), :where(.ig) *, :where(.ig) *::before, :where(.ig) *::after { box-sizing: border-box; }
+
+body.ig, .ig-page {
+  margin: 0;
+  font-family: var(--ig-font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ig-ink);
+  background-color: var(--ig-paper);
+  background-image: radial-gradient(var(--ig-dot) 1px, transparent 1.3px);
+  background-size: var(--ig-dot-gap) var(--ig-dot-gap);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 基礎元素規則用 :where() 降到最低權重，元件自己的顏色才不會被蓋掉 */
+:where(.ig) :where(h1, h2, h3, h4) { margin: 0; color: inherit; font-weight: 600; line-height: 1.2; letter-spacing: -.02em; }
+:where(.ig) p { margin: 0; }
+:where(.ig) a { color: inherit; text-decoration: none; }
+:where(.ig) svg { flex-shrink: 0; }
+:where(.ig) :focus-visible { outline: none; box-shadow: var(--ig-focus); border-radius: var(--ig-r-sm); }
+:where(.ig) ::selection { background: var(--ig-mark-yellow); color: var(--ig-ink); }
+
+/* 中文：負字距會把中文擠在一起，改回 0 */
+:where(html[lang^="zh"]) :where(.ig) :where(h1, h2, h3, h4),
+html[lang^="zh"] .ig-display, html[lang^="zh"] .ig-h1, html[lang^="zh"] .ig-h2 { letter-spacing: 0; }
+
+.ig-container { width: 100%; max-width: var(--ig-w-base); margin: 0 auto; padding: 0 24px; }
+.ig-container--wide { max-width: var(--ig-w-wide); }
+.ig-container--narrow { max-width: var(--ig-w-narrow); }
+.ig-section { padding: 96px 0; }
+.ig-center { text-align: center; }
+
+/* ==========================================================================
+   字級
+   ========================================================================== */
+/* 招牌大標：粗黑一行＋細體一行。英文粗的那行可以斜，中文不斜 */
+.ig-display { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.1; letter-spacing: -.03em; margin: 0; }
+html[lang^="zh"] .ig-display { line-height: 1.22; }
+.ig-display__strong { display: block; font-weight: 900; }
+.ig-display__strong em { font-style: italic; }            /* 只把英文/數字包 <em> */
+.ig-display__light { display: block; font-weight: 300; }
+
+.ig-h1 { font-size: clamp(30px, 3.4vw, 40px); font-weight: 600; line-height: 1.15; letter-spacing: -.02em; }
+.ig-h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -.02em; }
+.ig-h3 { font-size: 20px; font-weight: 600; line-height: 1.35; }
+.ig-lead { font-size: 17px; line-height: 1.75; color: var(--ig-ink-muted); max-width: 36em; }
+.ig-body { font-size: 16px; line-height: 1.75; color: var(--ig-ink-muted); }
+.ig-small { font-size: 14px; line-height: 1.6; color: var(--ig-ink-muted); }
+.ig-meta { font-size: 13px; color: var(--ig-ink-soft); }
+.ig-center .ig-lead { margin-left: auto; margin-right: auto; }
+
+/* 眉標：等寬字、全大寫、字距拉開——「系統標籤」的味道 */
+.ig-eyebrow { font-family: var(--ig-font-mono); font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ig-ink-soft); }
+/* 數據：等寬字 */
+.ig-num { font-family: var(--ig-font-mono); font-weight: 500; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+
+/* 螢光筆重點（中文強調首選） */
+.ig-mark { background: linear-gradient(transparent 58%, var(--ig-mark-yellow) 58%, var(--ig-mark-yellow) 92%, transparent 92%); padding: 0 .08em; }
+.ig-mark--pink { background: linear-gradient(transparent 58%, var(--ig-mark-pink) 58%, var(--ig-mark-pink) 92%, transparent 92%); }
+.ig-mark--blue { background: linear-gradient(transparent 58%, var(--ig-mark-blue) 58%, var(--ig-mark-blue) 92%, transparent 92%); }
+.ig-gold-text { color: var(--ig-gold-deep); }
+
+/* ==========================================================================
+   按鈕
+   ========================================================================== */
+.ig-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 44px; padding: 0 20px; border-radius: var(--ig-r-pill);
+  font: 600 15px/1 var(--ig-font-sans); white-space: nowrap; cursor: pointer;
+  border: 1px solid transparent; text-decoration: none;
+  transition: transform var(--ig-base) var(--ig-ease), box-shadow var(--ig-base) var(--ig-ease),
+              background-color var(--ig-fast) var(--ig-ease), border-color var(--ig-fast) var(--ig-ease), color var(--ig-fast) var(--ig-ease);
+}
+.ig-btn svg { width: 16px; height: 16px; }
+.ig-btn:hover { transform: translateY(-1px); }
+.ig-btn:active { transform: translateY(0) scale(.98); }
+
+/* 金：一個畫面只放一顆 */
+.ig-btn--gold { background: var(--ig-gold-gradient); color: var(--ig-on-gold); border-color: rgba(255, 255, 255, .5); box-shadow: var(--ig-ring-gold); }
+.ig-btn--gold:hover { box-shadow: var(--ig-glow-gold); }
+/* 墨：次要主動作 */
+.ig-btn--ink { background: var(--ig-night); color: #fff; }
+.ig-btn--ink:hover { background: var(--ig-ink); }
+/* 白：一般動作 */
+.ig-btn--ghost { background: var(--ig-card); color: var(--ig-ink); border-color: var(--ig-ink-hairline); box-shadow: var(--ig-shadow-xs); }
+.ig-btn--ghost:hover { border-color: var(--ig-ink-faint); }
+/* 框：深色舞台上的次要動作 */
+.ig-btn--line { background: transparent; color: var(--ig-on-night); border-color: rgba(255, 255, 255, .18); }
+.ig-btn--line:hover { background: var(--ig-night-wash); border-color: rgba(255, 255, 255, .32); }
+.ig-btn--sm { height: 32px; padding: 0 14px; font-size: 14px; font-weight: 500; }
+.ig-btn--lg { height: 52px; padding: 0 26px; font-size: 16px; }
+.ig-btn--block { width: 100%; }
+
+/* 文字連結：hover 時出現金色底線 */
+.ig-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--ig-ink); text-decoration: underline; text-decoration-color: var(--ig-ink-faint); text-underline-offset: 4px; text-decoration-thickness: 1.5px; transition: text-decoration-color var(--ig-fast) var(--ig-ease); }
+.ig-link:hover { text-decoration-color: var(--ig-gold); }
+.ig-link svg { width: 16px; height: 16px; }
+
+/* 方形圖示鈕 */
+.ig-icon-btn { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: var(--ig-r-md); border: 1px solid transparent; cursor: pointer; transition: transform var(--ig-base) var(--ig-ease), background-color var(--ig-fast) var(--ig-ease); }
+.ig-icon-btn svg { width: 18px; height: 18px; }
+.ig-icon-btn:hover { transform: translateY(-1px); }
+.ig-icon-btn--gold { background: var(--ig-gold-gradient); color: var(--ig-on-gold); box-shadow: var(--ig-ring-gold); }
+.ig-icon-btn--night { background: var(--ig-night); color: #fff; }
+.ig-icon-btn--wash { background: var(--ig-card); color: var(--ig-ink-muted); border-color: var(--ig-ink-hairline); }
+.ig-icon-btn--danger { background: #FEF2F2; color: var(--ig-danger); border-color: rgba(220, 38, 38, .15); }
+
+/* ==========================================================================
+   膠囊、標籤、徽章
+   ========================================================================== */
+/* 篩選膠囊（附計數） */
+.ig-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.ig-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 14px; border-radius: var(--ig-r-pill); background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); color: var(--ig-ink-muted); font: 500 14px/1 var(--ig-font-sans); cursor: pointer; transition: background-color var(--ig-fast) var(--ig-ease), border-color var(--ig-fast) var(--ig-ease), color var(--ig-fast) var(--ig-ease); }
+.ig-pill:hover { border-color: var(--ig-ink-faint); color: var(--ig-ink); }
+.ig-pill__n { font-size: 12px; color: var(--ig-ink-faint); font-variant-numeric: tabular-nums; }
+.ig-pill.is-active { background: var(--ig-ink); border-color: var(--ig-ink); color: #fff; }
+.ig-pill.is-active .ig-pill__n { color: rgba(255, 255, 255, .5); }
+
+/* 主題晶片（等寬字＋小圖示） */
+.ig-chip { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: var(--ig-r-pill); background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); font: 400 13px/1 var(--ig-font-mono); color: var(--ig-ink); }
+.ig-chip svg { width: 14px; height: 14px; }
+
+/* 小標籤（卡片底部分類） */
+.ig-tag { display: inline-flex; align-items: center; height: 22px; padding: 0 10px; border-radius: var(--ig-r-pill); background: var(--ig-ink-wash); color: var(--ig-ink-soft); font: 500 12px/1 var(--ig-font-sans); }
+/* 區段小徽章（例如「精選」「為什麼」） */
+.ig-kicker { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; border-radius: var(--ig-r-pill); background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); font: 500 12px/1 var(--ig-font-sans); color: var(--ig-ink-muted); }
+.ig-badge { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: var(--ig-r-pill); background: var(--ig-ink); color: #fff; font: 600 12px/1 var(--ig-font-sans); }
+.ig-badge--gold { background: var(--ig-gold); color: var(--ig-on-gold); }
+.ig-live { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--ig-gold); box-shadow: 0 0 8px rgba(253, 195, 2, .7); }
+
+/* ==========================================================================
+   卡片
+   ========================================================================== */
+.ig-card { position: relative; background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); border-radius: var(--ig-r-card); padding: 24px; }
+.ig-card--link { display: block; transition: transform var(--ig-base) var(--ig-ease), box-shadow var(--ig-base) var(--ig-ease), border-color var(--ig-base) var(--ig-ease); }
+.ig-card--link:hover { transform: translateY(-2px); border-color: var(--ig-ink-faint); box-shadow: var(--ig-shadow-hover); }
+
+.ig-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.ig-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.ig-grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+
+/* 工具卡（橫式：左 Logo 方塊＋右文字） */
+.ig-tool { display: flex; gap: 16px; padding: 16px; }
+.ig-tool__logo { width: 72px; height: 72px; flex: 0 0 72px; display: grid; place-items: center; border-radius: var(--ig-r-md); background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); box-shadow: var(--ig-shadow-xs); color: var(--ig-ink); }
+.ig-tool__logo svg { width: 30px; height: 30px; }
+.ig-tool__body { min-width: 0; flex: 1; }
+.ig-tool__title { display: flex; align-items: center; gap: 6px; margin: 2px 0 4px; font-size: 17px; font-weight: 600; line-height: 1.4; color: var(--ig-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ig-tool__desc { font-size: 14px; line-height: 1.55; color: var(--ig-ink-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.1em; }
+.ig-tool__foot { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+.ig-tool__arrow { position: absolute; top: 16px; right: 16px; width: 16px; height: 16px; color: var(--ig-ink-faint); transition: color var(--ig-fast) var(--ig-ease), transform var(--ig-base) var(--ig-ease); }
+.ig-card--link:hover .ig-tool__arrow { color: var(--ig-ink); transform: translate(2px, -2px); }
+
+/* 數據卡 */
+.ig-stat { display: flex; align-items: center; gap: 14px; padding: 16px 20px; }
+.ig-stat svg { width: 20px; height: 20px; color: var(--ig-ink-soft); }
+.ig-stat__n { font-family: var(--ig-font-mono); font-size: 22px; font-weight: 500; line-height: 1.1; color: var(--ig-ink); }
+.ig-stat__l { font-size: 13px; color: var(--ig-ink-soft); }
+
+/* 便當格（上插圖＋下文字） */
+.ig-tile { overflow: hidden; padding: 0; }
+.ig-tile__art { height: 180px; display: grid; place-items: center; border-bottom: 1px solid var(--ig-ink-hairline);
+  background-color: var(--ig-card-alt);
+  background-image: linear-gradient(var(--ig-ink-hairline) 1px, transparent 1px), linear-gradient(90deg, var(--ig-ink-hairline) 1px, transparent 1px);
+  background-size: 44px 44px; background-position: -1px -1px; }
+.ig-tile__body { padding: 20px 22px 24px; }
+.ig-tile--dark { background: var(--ig-night-deep); border-color: var(--ig-night-deep); }
+.ig-tile--dark .ig-tile__art { background-color: var(--ig-night); border-color: var(--ig-night-line); background-image: linear-gradient(var(--ig-night-line) 1px, transparent 1px), linear-gradient(90deg, var(--ig-night-line) 1px, transparent 1px); }
+.ig-tile--dark h3 { color: #fff; }
+.ig-tile--dark .ig-small { color: var(--ig-on-night-muted); }
+
+/* ==========================================================================
+   表單
+   ========================================================================== */
+.ig-search { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 16px; border-radius: var(--ig-r-input); background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); box-shadow: var(--ig-shadow-xs); transition: border-color var(--ig-fast) var(--ig-ease), box-shadow var(--ig-fast) var(--ig-ease); }
+.ig-search:focus-within { border-color: var(--ig-gold-soft); box-shadow: var(--ig-focus); }
+.ig-search svg { width: 18px; height: 18px; color: var(--ig-ink-soft); }
+.ig-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: 400 16px/1 var(--ig-font-sans); color: var(--ig-ink); }
+.ig-search input::placeholder { color: var(--ig-ink-soft); }
+.ig-kbd { font: 500 12px/1 var(--ig-font-mono); color: var(--ig-ink-soft); border: 1px solid var(--ig-ink-hairline); border-bottom-width: 2px; border-radius: 6px; padding: 4px 6px; background: var(--ig-card-alt); }
+
+.ig-input { width: 100%; height: 44px; padding: 0 14px; border-radius: var(--ig-r-md); background: var(--ig-card); border: 1px solid var(--ig-ink-hairline); font: 400 15px/1 var(--ig-font-sans); color: var(--ig-ink); outline: 0; }
+.ig-input:focus { border-color: var(--ig-gold-soft); box-shadow: var(--ig-focus); }
+.ig-stage .ig-input { background: var(--ig-night-wash); border-color: rgba(255, 255, 255, .12); color: #fff; }
+.ig-stage .ig-input::placeholder { color: var(--ig-on-night-soft); }
+
+/* 進度條 */
+.ig-progress { height: 6px; border-radius: var(--ig-r-pill); background: var(--ig-ink-wash); overflow: hidden; }
+.ig-progress > i { display: block; height: 100%; border-radius: inherit; background: var(--ig-gold); }
+.ig-progress--ink > i { background: var(--ig-night); }
+.ig-progress--blue > i { background: var(--ig-chart-4); }
+
+/* ==========================================================================
+   導覽列（深炭浮動膠囊）
+   ========================================================================== */
+.ig-nav { position: sticky; top: 16px; z-index: 20; display: flex; align-items: center; gap: 8px; height: var(--ig-nav-h); margin: 16px auto 0; padding: 0 10px 0 20px; max-width: var(--ig-w-wide); border-radius: var(--ig-r-pill); background: var(--ig-night); box-shadow: var(--ig-shadow-float); color: #fff; }
+.ig-nav__brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; color: #fff; margin-right: auto; }
+.ig-nav__links { display: flex; gap: 2px; }
+.ig-nav__link { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border-radius: var(--ig-r-pill); font-size: 14px; color: rgba(247, 247, 247, .82); transition: background-color var(--ig-fast) var(--ig-ease), color var(--ig-fast) var(--ig-ease); }
+.ig-nav__link:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+.ig-nav__link.is-active { background: rgba(255, 255, 255, .10); color: #fff; }
+.ig-nav__right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+@media (max-width: 860px) { .ig-nav__links { display: none; } }
+
+/* ==========================================================================
+   深色舞台（收尾、重點段落、FAQ）
+   ========================================================================== */
+.ig-stage { position: relative; background: var(--ig-night-gradient); color: var(--ig-on-night); border-radius: var(--ig-r-xl); padding: clamp(28px, 5vw, 64px); box-shadow: var(--ig-shadow-stage); overflow: hidden; }
+.ig-stage h1, .ig-stage h2, .ig-stage h3 { color: #fff; }
+.ig-stage .ig-eyebrow { color: var(--ig-on-night-soft); }
+.ig-stage .ig-lead, .ig-stage .ig-body, .ig-stage .ig-small { color: var(--ig-on-night-muted); }
+.ig-stage .ig-meta { color: var(--ig-on-night-soft); }
+.ig-stage-card { background: var(--ig-night-wash); border: 1px solid var(--ig-night-line); border-radius: var(--ig-r-card); padding: 18px; }
+
+/* 勾選清單 */
+.ig-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ig-checks li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.6; }
+.ig-checks svg { width: 18px; height: 18px; margin-top: 3px; color: var(--ig-gold); }
+.ig-compare { display: grid; gap: 8px; }
+.ig-compare .no { display: flex; gap: 10px; color: var(--ig-ink-muted); font-size: 15px; }
+.ig-compare .yes { display: flex; gap: 10px; color: var(--ig-ink); font-size: 15px; font-weight: 600; }
+.ig-compare .no svg { color: var(--ig-danger); width: 18px; height: 18px; margin-top: 3px; }
+.ig-compare .yes svg { color: var(--ig-success); width: 18px; height: 18px; margin-top: 3px; }
+
+/* 手風琴（FAQ） */
+.ig-acc { display: grid; gap: 10px; }
+.ig-acc details { background: var(--ig-night-wash); border: 1px solid var(--ig-night-line); border-radius: var(--ig-r-input); }
+.ig-acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; font-size: 15px; font-weight: 500; color: #fff; }
+.ig-acc summary::-webkit-details-marker { display: none; }
+.ig-acc summary::after { content: ""; width: 8px; height: 8px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg); opacity: .6; transition: transform var(--ig-base) var(--ig-ease); }
+.ig-acc details[open] summary::after { transform: rotate(225deg); }
+.ig-acc details p { padding: 0 18px 16px; color: var(--ig-on-night-muted); font-size: 15px; line-height: 1.75; }
+
+/* 頁尾 */
+.ig-footer { margin-top: 96px; background: var(--ig-paper); border-top: 1px solid var(--ig-ink-hairline); padding: 48px 0 28px; font-size: 14px; }
+.ig-footer h4 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.ig-footer a { display: block; color: var(--ig-ink-muted); padding: 4px 0; }
+.ig-footer a:hover { color: var(--ig-ink); }
+
+/* 進場動畫（加 .is-in 觸發） */
+.ig-reveal { opacity: 0; transform: translateY(14px); transition: opacity var(--ig-reveal) var(--ig-ease-reveal), transform var(--ig-reveal) var(--ig-ease-reveal); }
+.ig-reveal.is-in { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .ig-container { padding: 0 16px; }
+  .ig-section { padding: 64px 0; }
+  .ig-nav { margin: 12px 12px 0; }
+  .ig-tool__logo { width: 56px; height: 56px; flex-basis: 56px; }
+}
+
+/* 1.1 · Directory profile — exact content width, quieter hierarchy */
+:root{--ig-w-directory:1200px;--ig-grid-gap:12px;--ig-logo-size:76px;--ig-label-readable:rgba(22,20,21,.64);--ig-focus-ink:rgba(22,20,21,.8);--ig-dot-quiet:rgba(22,20,21,.055)}
+html:has(body.ig),body.ig{overflow-x:clip}
+body.ig.ig-directory{background-image:radial-gradient(var(--ig-dot-quiet) .7px,transparent 1px)}
+.ig-directory .ig-container{max-width:1248px;padding:0 24px}
+.ig-directory .ig-nav{width:calc(100% - 48px);max-width:var(--ig-w-directory);top:24px;margin:24px auto 0}
+.ig-directory .ig-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ig-grid-gap)}
+.ig-directory .ig-tool__logo{width:var(--ig-logo-size);height:var(--ig-logo-size);flex-basis:var(--ig-logo-size)}
+.ig-directory .ig-tool__logo svg{width:40px;height:40px}
+.ig-directory .ig-tool__title{display:block;padding-right:12px;line-height:1.5}
+.ig-directory .ig-tool__desc{line-height:1.6;min-height:3.2em}
+.ig-directory .ig-tool__foot{margin-top:10px}
+.ig-directory .ig-tool__foot .ig-tag{padding:0;background:transparent;font-size:12px;color:var(--ig-label-readable)}
+.ig-directory .ig-card--link:hover{transform:translateY(-1px)}
+.ig-directory .ig-pill__n{color:var(--ig-label-readable)}
+.ig-directory .ig-pill.is-active .ig-pill__n{color:var(--ig-on-night-muted)}
+.ig-directory .ig-tool__arrow{opacity:0}
+.ig-directory .ig-tool:hover .ig-tool__arrow,.ig-directory .ig-tool:focus-visible .ig-tool__arrow{opacity:1}
+.ig-directory .ig-tool__logo[data-tone="文件"]{color:var(--ig-chart-3)}
+.ig-directory .ig-tool__logo[data-tone="設計"]{color:var(--ig-chart-4)}
+.ig-directory .ig-tool__logo[data-tone="影像"]{color:var(--ig-chart-5)}
+.ig-directory .ig-tool__logo[data-tone="自動化"]{color:var(--ig-chart-2)}
+.ig-directory .ig-tool__logo[data-tone="生活"]{color:var(--ig-gold-deep)}
+.ig-directory :focus-visible{outline:2px solid var(--ig-focus-ink);outline-offset:3px;box-shadow:var(--ig-focus)}
+.ig[data-theme="night"]{--ig-label-readable:rgba(247,247,247,.65);--ig-focus-ink:rgba(255,255,255,.8)}
+@media(max-width:1023px){.ig-directory .ig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.ig-directory .ig-grid{grid-template-columns:minmax(0,1fr)}.ig-directory .ig-container{padding:0 16px}.ig-directory .ig-nav{width:calc(100% - 24px);top:12px;margin-top:12px}.ig-directory .ig-tool__logo{width:64px;height:64px;flex-basis:64px}}
+@media(prefers-reduced-motion:reduce){.ig-card--link:hover,.ig-btn:hover,.ig-tool__arrow{transform:none!important}}
+
+
+/* 1.2 · interactive dots, optical icon system, complete day / night surfaces */
+body.ig.ig-has-dotfield{position:relative;isolation:isolate;background-image:none}
+.ig-dotfield{position:fixed;inset:0;pointer-events:none;z-index:-1;display:block}
+.ig{--ig-label-readable:rgba(22,20,21,.64);color-scheme:light}
+.ig[data-theme="night"]{--ig-label-readable:rgba(247,247,247,.68);--ig-focus-ink:#FCD94A;--ig-gold-wash:#483D20;color-scheme:dark}
+.ig[data-theme="night"] .ig-pill.is-active,.ig[data-theme="night"] .ig-badge{background:#F7F7F7;border-color:#F7F7F7;color:#242223}
+.ig[data-theme="night"] .ig-pill.is-active .ig-pill__n{color:#5D595B}
+.ig[data-theme="night"] .ig-btn--ink{background:#F7F7F7;color:#242223}
+.ig-theme-toggle{display:inline-grid;place-items:center;flex:none;width:36px;height:36px;padding:0;border:1px solid var(--ig-ink-hairline);border-radius:999px;background:var(--ig-card);color:var(--ig-ink);cursor:pointer}
+.ig-theme-toggle svg{width:18px;height:18px}
+.ig-theme-toggle:hover{border-color:var(--ig-ink-faint)}
+.ig-nav .ig-theme-toggle{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff}
+.ig-brand-logo{display:block;width:112px;height:auto;flex:none}
+.ig-nav .ig-brand-logo,.mini-nav .ig-brand-logo,.ig[data-theme="night"] .head>.ig-brand-logo{filter:invert(1)}
+.ig-tool__logo:has(img){overflow:hidden;border:0;box-shadow:none;background:transparent}
+.ig-tool__logo img{display:block;width:100%;height:100%;object-fit:contain}
+.ig-directory .ig-tool__logo:has(img){border-radius:16px}
+.ig[data-theme="night"] .ig-tool__logo img{filter:brightness(.9)}
+.ig[data-theme="night"] .accents button{color:#161415}
+.ig[data-theme="night"] .ig-highlight{color:#161415}
+.ig[data-theme="night"] .cell__font,.ig[data-theme="night"] .spec__note{color:var(--ig-label-readable)}
+@media(max-width:640px){.ig-nav .ig-brand-logo{width:92px}.ig-nav__right{gap:6px}.ig-nav__right>.ig-btn{padding:0 10px;font-size:12px}.ig-nav{padding-left:14px}.head .ig-brand-logo{width:100px}.head__links{margin-left:0}}
+
+/* ink-gold kit:end */
+
+/* ===== 節慶帳本 工作區樣式（墨金延伸） ===== */
+html{scroll-behavior:smooth}
+body.ig{min-height:100vh}
+.app{max-width:1248px;margin:0 auto;padding:0 24px 80px}
+.ig-nav{gap:6px}
+.ig-nav__brand svg{height:28px;width:auto;color:#fff}
+.nav-tabs{display:flex;gap:2px;margin-left:8px;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{height:36px;padding:0 14px;border-radius:999px;border:0;background:transparent;color:rgba(255,255,255,.72);font:500 14px/1 var(--ig-font-sans);cursor:pointer;white-space:nowrap;transition:background-color .15s,color .15s}
+.nav-tab:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-tab.is-active{background:rgba(255,255,255,.14);color:#fff}
+.nav-tab:focus-visible{outline:2px solid var(--ig-gold-soft);outline-offset:2px}
+.year-sel{height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;padding:0 30px 0 12px;font:600 14px/1 var(--ig-font-mono);appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;cursor:pointer}
+.year-sel option{color:#161415}
+.sync{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;font:500 12px/1 var(--ig-font-mono);background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);white-space:nowrap}
+.sync i{width:7px;height:7px;border-radius:50%;background:#9ca3af}
+.sync.ok i{background:#4ade80}.sync.err i{background:#f87171}.sync.local i{background:var(--ig-gold)}
+.ig-theme-toggle{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.ig-theme-toggle svg{width:16px;height:16px}
+.view{display:none;padding-top:28px}
+.view.is-active{display:block}
+.page-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 18px}
+.page-h h1{font-size:26px;font-weight:600;line-height:1.3;letter-spacing:0;margin:0}
+.page-h p{margin:4px 0 0;font-size:14px;color:var(--ig-ink-muted)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.card{background:var(--ig-card);border:1px solid var(--ig-ink-hairline);border-radius:18px;padding:16px}
+.card + .card{margin-top:12px}
+.card h2{font-size:17px;font-weight:600;margin:0 0 10px;line-height:1.5}
+.card h3{font-size:15px;font-weight:600;margin:14px 0 6px}
+.grid{display:grid;gap:12px}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stat{padding:16px 18px}
+.stat .n{font:500 24px/1.1 var(--ig-font-mono);color:var(--ig-ink);margin-top:6px;word-break:break-all}
+.stat .l{font-size:13px;color:var(--ig-label-readable)}
+.stat .d{font:400 12px/1.4 var(--ig-font-mono);color:var(--ig-ink-soft);margin-top:6px}
+.stat .d.up{color:#b45309}.stat .d.down{color:#15803d}
+/* 下一個節慶 */
+.next{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:20px 24px}
+.next .days{font:500 44px/1 var(--ig-font-mono);color:var(--ig-ink);min-width:110px}
+.next .days small{display:block;font:500 12px/1.4 var(--ig-font-sans);color:var(--ig-label-readable);margin-top:6px;letter-spacing:.04em}
+.next .t{font-size:20px;font-weight:600;line-height:1.4}
+.next .m{font-size:14px;color:var(--ig-ink-muted);margin-top:4px;line-height:1.7}
+.next.urgent{border-color:var(--ig-gold);box-shadow:0 0 0 3px var(--ig-gold-wash)}
+.next .acts{display:flex;flex-direction:column;gap:8px}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.tl{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:999px;border:1px solid var(--ig-ink-hairline);background:var(--ig-card);font:500 13px/1 var(--ig-font-sans);color:var(--ig-ink-muted)}
+.tl b{font:500 12px/1 var(--ig-font-mono);color:var(--ig-ink)}
+.tl.past{opacity:.55}.tl.now{border-color:var(--ig-ink);color:var(--ig-ink)}
+.tl .dot{width:8px;height:8px;border-radius:50%;background:var(--ig-ink-faint)}
+.tl.done .dot{background:#16a34a}.tl.plan .dot{background:var(--ig-gold)}
+/* 節慶卡 */
+.fest{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
+.fest .sum{font:500 20px/1.2 var(--ig-font-mono);text-align:right}
+.fest .sum small{display:block;font:400 12px/1.5 var(--ig-font-sans);color:var(--ig-label-readable)}
+.fest ul{margin:8px 0 0;padding:0;list-style:none;font-size:14px;color:var(--ig-ink-muted);line-height:1.7}
+.fest ul li::before{content:"· ";color:var(--ig-ink-soft)}
+.fest .cmp{display:inline-flex;gap:6px;align-items:center;font:500 12px/1 var(--ig-font-mono);padding:5px 9px;border-radius:999px;background:var(--ig-ink-wash);color:var(--ig-ink-muted);margin-top:8px}
+/* 篩選列 */
+.filters{display:grid;grid-template-columns:1.4fr repeat(4,1fr) auto;gap:8px;align-items:center}
+.filters select,.filters input,.f-input{height:40px;border-radius:12px;border:1px solid var(--ig-ink-hairline);background:var(--ig-card);padding:0 12px;font:400 14px/1 var(--ig-font-sans);color:var(--ig-ink);outline:0;width:100%}
+.filters select:focus,.filters input:focus,.f-input:focus{border-color:var(--ig-gold-soft);box-shadow:var(--ig-focus)}
+/* 表格 */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--ig-ink-hairline);border-radius:14px;background:var(--ig-card)}
+table.tbl{width:100%;border-collapse:collapse;min-width:1600px;font-size:14px}
+.tbl th{position:sticky;top:0;background:var(--ig-card-alt);font:500 12px/1.4 var(--ig-font-sans);color:var(--ig-label-readable);text-align:left;padding:10px 8px;border-bottom:1px solid var(--ig-ink-hairline);white-space:nowrap;z-index:1}
+.tbl td{padding:4px 4px;border-bottom:1px solid var(--ig-ink-hairline);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tr:hover td{background:var(--ig-ink-wash)}
+.tbl input,.tbl select{width:100%;height:34px;border:1px solid transparent;border-radius:8px;background:transparent;padding:0 8px;font:400 14px/1 var(--ig-font-sans);color:var(--ig-ink);outline:0;min-width:0}
+.tbl input:hover,.tbl select:hover{border-color:var(--ig-ink-hairline)}
+.tbl input:focus,.tbl select:focus{border-color:var(--ig-gold-soft);background:var(--ig-card);box-shadow:var(--ig-focus)}
+.tbl input.num{font-family:var(--ig-font-mono);text-align:right}
+.tbl td.sub{font:500 14px/1 var(--ig-font-mono);text-align:right;padding-right:12px;white-space:nowrap}
+.tbl .w-date{width:128px}.tbl .w-fest{width:150px}.tbl .w-type{width:104px;min-width:104px}.tbl .w-name{width:130px}.tbl .w-item{width:104px;min-width:104px}.tbl .w-price{width:104px;min-width:104px}.tbl .w-qty{width:70px}.tbl .w-sub{width:100px}.tbl .w-status{width:100px}.tbl .w-act{width:76px}.tbl .w-itemname{min-width:220px}.tbl .w-note{min-width:170px}.tbl .w-vendor{width:140px}
+.tbl tfoot td{background:var(--ig-card-alt);font:500 14px/1.4 var(--ig-font-mono);padding:10px 8px}
+.status-已發放{color:#15803d}.status-已下單{color:#b45309}.status-規劃中{color:var(--ig-ink-soft)}
+.row-act{display:flex;gap:2px;justify-content:flex-end}
+.ib{width:30px;height:30px;border-radius:8px;border:0;background:transparent;color:var(--ig-ink-soft);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.ib:hover{background:var(--ig-ink-wash);color:var(--ig-ink)}
+.ib svg{width:15px;height:15px}
+.ib.danger:hover{background:#fee2e2;color:#b91c1c}
+.empty{padding:40px 16px;text-align:center;color:var(--ig-ink-muted);font-size:14px;line-height:1.8}
+/* 顧問 */
+.adv-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.adv-sec{margin-top:14px}
+.adv-sec h3{display:flex;align-items:center;gap:8px;font-size:15px;margin:0 0 8px}
+.adv-sec ul{margin:0;padding:0;list-style:none}
+.adv-sec li{padding:8px 0;border-bottom:1px dashed var(--ig-ink-hairline);font-size:14px;line-height:1.7;color:var(--ig-ink)}
+.adv-sec li:last-child{border-bottom:0}
+.src{font:400 12px/1.4 var(--ig-font-mono);color:var(--ig-ink-soft);margin-left:6px;white-space:nowrap}
+.src a{color:var(--ig-gold-deep);text-decoration:none}
+.src a:hover{text-decoration:underline}
+.diy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.diy .card{padding:14px}
+.diy .n{font-weight:600;font-size:15px}
+.diy .i{font-size:13px;color:var(--ig-ink-muted);margin-top:6px;line-height:1.6}
+.diy .c{font:500 12px/1 var(--ig-font-mono);margin-top:8px;color:var(--ig-gold-deep)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.two .card{padding:14px;background:var(--ig-card-alt)}
+.notice{padding:12px 14px;border-radius:12px;background:var(--ig-gold-wash);font-size:13px;line-height:1.7;color:var(--ig-ink)}
+/* 賀圖 */
+.prompt-box{position:relative;background:var(--ig-card-alt);border:1px solid var(--ig-ink-hairline);border-radius:12px;padding:14px 14px 14px;font:400 13px/1.7 var(--ig-font-mono);white-space:pre-wrap;word-break:break-word;color:var(--ig-ink);max-height:280px;overflow:auto}
+.prompt-h{display:flex;align-items:center;justify-content:space-between;margin:14px 0 6px}
+.prompt-h h3{margin:0}
+.steps{counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{counter-increment:s;position:relative;padding:8px 0 8px 34px;font-size:14px;line-height:1.7;border-bottom:1px dashed var(--ig-ink-hairline)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;background:var(--ig-ink);color:#fff;font:600 12px/24px var(--ig-font-mono);text-align:center}
+.steps li:last-child{border:0}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.form label,.fld label{display:block;font-size:12px;color:var(--ig-label-readable);margin-bottom:4px;font-weight:500}
+.form .full{grid-column:1/-1}
+.fld{margin-bottom:12px}
+textarea.f-input{height:auto;min-height:88px;padding:10px 12px;line-height:1.6;resize:vertical;font-family:var(--ig-font-sans)}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.kv{font:400 13px/1.7 var(--ig-font-mono);color:var(--ig-ink-muted)}
+code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding:2px 6px;border-radius:6px}
+/* 彈窗 */
+.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(22,20,21,.45);backdrop-filter:blur(4px)}
+.modal.is-open{display:flex}
+.modal .box{width:min(520px,100%);background:var(--ig-card);border-radius:18px;padding:26px;border:1px solid var(--ig-ink-hairline);box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.modal .box h2{font-size:22px;margin:0 0 6px;line-height:1.4}
+.modal .box p{font-size:14px;color:var(--ig-ink-muted);line-height:1.7;margin:0 0 12px}
+.modal ul.todo{margin:0 0 16px;padding:0;list-style:none}
+.modal ul.todo li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:14px;line-height:1.6;border-bottom:1px dashed var(--ig-ink-hairline)}
+.modal ul.todo li:last-child{border:0}
+.modal ul.todo input{margin-top:4px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;z-index:60;background:var(--ig-night);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;transition:.2s;pointer-events:none;max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.hide{display:none!important}
+.muted{color:var(--ig-ink-muted)}
+.right{text-align:right}
+.mono{font-family:var(--ig-font-mono)}
+/* 夜間補色 */
+.ig[data-theme="night"] .status-已發放{color:#4ade80}.ig[data-theme="night"] .status-已下單{color:#fbbf24}
+.ig[data-theme="night"] .ib.danger:hover{background:#7f1d1d;color:#fecaca}
+.ig[data-theme="night"] .stat .d.up{color:#fbbf24}.ig[data-theme="night"] .stat .d.down{color:#4ade80}
+.ig[data-theme="night"] .src a{color:var(--ig-gold-soft)}
+.ig[data-theme="night"] .diy .c{color:var(--ig-gold-soft)}
+/* 響應式 */
+@media (max-width:1023px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3,.diy{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:1fr 1fr}.filters .full{grid-column:1/-1}}
+@media (max-width:768px){.app{padding:0 16px 60px}.ig-nav{position:static;margin:12px 0 0;height:auto;flex-wrap:wrap;padding:10px 12px;gap:8px;border-radius:24px}.nav-tabs{order:5;width:100%;margin:0}.next{grid-template-columns:1fr}.next .acts{flex-direction:row;flex-wrap:wrap}.grid-4,.grid-3,.grid-2,.diy,.two,.form{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.fest{grid-template-columns:1fr}.fest .sum{text-align:left}.page-h h1{font-size:22px}.next .days{font-size:36px}}
+@media print{.ig-nav,.toolbar,.btns,.ib,.modal,.toast,canvas{display:none!important}.view{display:block!important}.card{break-inside:avoid}}
+
+.tbl tr.is-cur td{background:var(--ig-gold-wash)}
+
+/* v1.2：釘住的操作欄、照片、整批、Logo */
+.tbl th.act-col,.tbl td.act-col{position:sticky;right:0;background:var(--ig-card);box-shadow:-8px 0 8px -8px rgba(0,0,0,.18);z-index:1;width:76px;min-width:76px;text-align:right}
+.tbl th.act-col{background:var(--ig-card-alt);z-index:2}
+.tbl tr:hover td.act-col{background:var(--ig-card-alt)}
+.tbl .w-photo{width:96px}
+.photo-cell{white-space:nowrap}
+.thumb{width:48px;height:36px;border:1px solid var(--ig-ink-hairline);border-radius:8px;overflow:hidden;padding:0;background:var(--ig-card-alt);cursor:zoom-in;vertical-align:middle;margin-right:2px}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.blist{max-height:260px;overflow:auto;border:1px solid var(--ig-ink-hairline);border-radius:12px;padding:6px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.bp{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;font-size:14px;cursor:pointer}
+.bp:hover{background:var(--ig-ink-wash)}
+.bp small{color:var(--ig-ink-soft);font-size:12px;margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45%}
+.modal.lb .lbbox{max-width:min(900px,96vw)}
+.modal.lb img{max-width:100%;max-height:78vh;border-radius:14px;display:block;background:#fff}
+.lbcap{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff;font-size:14px;margin-top:10px}
+.logo-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.logo-box{border-radius:14px;padding:22px;display:flex;flex-direction:column;align-items:center;gap:14px;border:1px solid var(--ig-ink-hairline)}
+.logo-box.light{background:#F5F5F5}.logo-box.dark{background:var(--ig-night)}
+.logo-box img{width:min(320px,90%);height:auto}
+@media (max-width:768px){.blist{grid-template-columns:1fr}.logo-row{grid-template-columns:1fr}}
+
+/* 選人清單 */
+.namebox{display:flex;align-items:center;gap:0}
+.namebox input{flex:1;min-width:0}
+.namebtn{width:24px;height:30px;color:var(--ig-ink-soft)}
+.namebtn svg{width:14px;height:14px}
+.namepop{position:fixed;z-index:70;display:none;width:270px;max-height:280px;overflow:auto;background:var(--ig-card);border:1px solid var(--ig-ink-faint);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18);padding:4px}
+.namepop.is-open{display:block}
+.np{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;border:0;background:transparent;padding:8px 10px;border-radius:8px;font:400 14px/1.3 var(--ig-font-sans);color:var(--ig-ink);cursor:pointer}
+.np b{font-weight:500}
+.np small{color:var(--ig-ink-soft);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55%}
+.np:hover,.np.is-active{background:var(--ig-ink-wash)}
+.tbl .w-name{width:150px;min-width:150px}
+
+/* 人員表欄寬（南瓜 09-26：姓名縮窄、類型往左） */
+#ptbl .w-idx{width:36px;min-width:36px}
+#ptbl .w-pname{width:104px;min-width:104px}
+#ptbl .w-type{width:96px;min-width:96px}
+#ptbl .w-gift{width:92px;min-width:92px}
+#ptbl td:first-child{padding-left:8px}
+
+</style>
+</head>
+<body class="ig">
+<div class="app">
+<nav class="ig-nav" aria-label="主導覽">
+  <a class="ig-nav__brand" href="#overview" aria-label="南瓜節慶帳本"><svg fill="currentColor" role="img" aria-label="Pumpkin VR" id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 320"><path d="M327.4,175.1v92.26h48.8l.15-21,.22-21.08,12.82-7.32c7.07-4,24.48-14.06,38.83-22.26l26-14.94-.21-41.8c-.22-41.74-.22-41.81-1.83-44.89a25.38,25.38,0,0,0-9.54-9.51c-2.55-1.25-6.12-1.32-58.93-1.54l-56.31-.15Zm76.19-50.3,1.75,2v37.86l-14.2,8.49c-7.8,4.69-14.35,8.49-14.57,8.49s-.37-13.4-.37-29.72V122.32l12.82.22,12.83.21Z"/><path d="M462.89,166.68c0,81,.08,84,1.39,87.5,2,5.41,4.44,8.2,9.25,10.61l4.3,2.2,55.94.22,55.88.15V82.85H540.84V228l-12.75-.3c-12.09-.22-12.82-.29-14.35-1.9l-1.67-1.68-.22-70.58-.15-70.66H462.89Z"/><path d="M598.39,175.1v92.26H647.2v-145h29.14v145h48.81v-145l12.82.22,12.82.21,1.75,2,1.75,2V267.36h48.8L803,181.91c-.22-71.53-.37-85.81-1.24-87.34a23.7,23.7,0,0,0-9-9.23l-3.86-2.12L693.68,83l-95.29-.15Z"/><path d="M811.84,175.1v92.26h48.8V247c0-15.15.22-20.65,1-21.52.44-.66,6.12-4.1,12.53-7.69s23.53-13.47,38.1-21.82l26.44-15.23-.21-41.8c-.22-47.3.07-44.52-6.2-50.74-5.75-5.57-3.13-5.35-65.2-5.35H811.84ZM888,124.8l1.75,2v37.78l-14,8.5c-7.73,4.61-14.28,8.27-14.57,8.05-.73-.44-.73-57.62-.08-58.35.3-.29,6.05-.44,12.82-.29l12.32.21Z"/><path d="M947.33,175.1v92.26h48.81v-57l6.78-4.1c3.71-2.2,7.14-4,7.57-4,1.53,0,12.61,6.67,13.7,8.28.94,1.32,1.09,5.63,1.09,29.21v27.68h48.81v-32.8c0-36.39-.15-37.86-4.52-42.4-1.31-1.39-5.9-4.54-10.2-7s-7.86-4.68-7.86-5,5.1-3.81,11.29-7.91l11.29-7.4v-82h-48.81v65.09l-1.6.88c-.95.44-7.07,4.25-13.7,8.42s-12.45,7.61-13,7.61-.88-9.37-.88-41v-41H947.33Z"/><path d="M1082.83,175.1v92.26h48.81V82.85h-48.81Z"/><path d="M1141.11,175.1v92.26h48.81v-145h11.65c13.19,0,15.3.58,16.69,4.46.58,1.69.8,22.77.8,71.39v69.12h48.08V182.94c0-55-.3-85.3-.73-87.06-1.17-4.17-6.63-9.73-11.37-11.49-3.86-1.54-5.24-1.54-58.93-1.54h-55Z"/><path d="M199.19,174.89l-42.56,69.48c-6.26,10.21,1.57,23,14.09,23h24.34a16.47,16.47,0,0,0,14.09-7.67l52-84.8a14.58,14.58,0,0,0,0-15.32l-14.28-23.3a16.44,16.44,0,0,0-14.08-7.67H208.39c-12.52,0-20.35,12.78-14.09,23l4.89,8a14.53,14.53,0,0,1,0,15.32"/><path d="M76.38,128.6H53.5a16.47,16.47,0,0,0-14.09,7.67l-14.28,23.3a14.58,14.58,0,0,0,0,15.32l25.72,42c6.26,10.23,21.91,10.23,28.17,0l25.72-42a14.53,14.53,0,0,0,0-15.32l-14.27-23.3a16.47,16.47,0,0,0-14.09-7.67"/><path d="M137.74,98.56H110.6c-12.5,0-20.33,12.74-14.1,23l23.17,38.06a14.56,14.56,0,0,1,0,15.3L77.08,244.37a14.58,14.58,0,0,0,0,15.32,16.5,16.5,0,0,0,14.09,7.67h27.09a16.48,16.48,0,0,0,14.08-7.67l52-84.81a14.56,14.56,0,0,0,0-15.3l-32.47-53.32a16.45,16.45,0,0,0-14.11-7.7"/><path d="M130.81,86.82H117c-7.08,0-11.51-7.23-8-13l22-35.88a9.31,9.31,0,0,1,8-4.33h49.05a9.31,9.31,0,0,1,8,4.33,8.23,8.23,0,0,1,0,8.68l-6.47,10.57a9.34,9.34,0,0,1-8,4.33H156.94a9.32,9.32,0,0,0-8,4.34L138.78,82.48a9.32,9.32,0,0,1-8,4.34"/></svg></a>
+  <div class="nav-tabs" role="tablist">
+    <button class="nav-tab is-active" data-view="overview" role="tab">總覽</button>
+    <button class="nav-tab" data-view="records" role="tab">紀錄</button>
+    <button class="nav-tab" data-view="people" role="tab">人員</button>
+    <button class="nav-tab" data-view="advisor" role="tab">選禮顧問</button>
+    <button class="nav-tab" data-view="cards" role="tab">賀圖</button>
+    <button class="nav-tab" data-view="settings" role="tab">設定</button>
+  </div>
+  <div class="ig-nav__right">
+    <select class="year-sel" id="yearSel" aria-label="年度"></select>
+    <span class="sync local" id="syncBadge" title="資料狀態"><i></i><span>本機</span></span>
+    <button class="ig-theme-toggle" data-ig-theme-toggle type="button"></button>
+  </div>
+</nav>
+
+<!-- ───── 總覽 ───── -->
+<section class="view is-active" id="view-overview">
+  <div class="page-h"><div><h1><span id="ovYear"></span> 年節慶總覽</h1><p>這一年做了什麼、花了多少、下一個節慶何時到。</p></div>
+    <div class="toolbar"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPrint">列印／存 PDF</button><button class="ig-btn ig-btn--gold ig-btn--sm" data-go="records">＋ 新增紀錄</button></div></div>
+  <div class="card next" id="nextCard"></div>
+  <div class="timeline" id="timeline"></div>
+  <div class="grid grid-4" id="stats" style="margin-top:14px"></div>
+  <div class="card" style="margin-top:14px"><h2>歷年一覽</h2><div id="multiYear"></div></div>
+  <h2 style="font-size:17px;font-weight:600;margin:20px 0 10px"><span id="ovYear2"></span> 年各節慶明細</h2>
+  <div id="festCards"></div>
+</section>
+
+<!-- ───── 紀錄 ───── -->
+<section class="view" id="view-records">
+  <div class="page-h"><div><h1>紀錄</h1><p>直接在格子裡改，改完自動存。Enter 在最後一列新增、Tab 跳下一格。</p></div>
+    <div class="toolbar">
+      <button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnDup">複製上一列</button>
+      <button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnCsvOut">匯出 CSV</button>
+      <button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnCsvIn">貼上匯入</button>
+      <button class="ig-btn ig-btn--ink ig-btn--sm" id="btnBatch">＋ 整批加入人員</button>
+      <button class="ig-btn ig-btn--gold ig-btn--sm" id="btnAdd">＋ 新增一筆</button>
+    </div></div>
+  <div class="card">
+    <div class="filters">
+      <input class="full" id="fKey" type="search" placeholder="搜尋品名、對象、供應商、備註…" aria-label="關鍵字">
+      <select id="fFest" aria-label="節慶"><option value="">全部節慶</option></select>
+      <select id="fTarget" aria-label="對象"><option value="">全部對象</option><option>員工</option><option>外包</option><option>夥伴</option><option>廠商</option></select>
+      <select id="fItem" aria-label="項目"><option value="">全部項目</option><option>禮盒</option><option>獎金</option><option>活動</option><option>賀卡</option><option>其他</option></select>
+      <select id="fStatus" aria-label="狀態"><option value="">全部狀態</option><option>規劃中</option><option>已下單</option><option>已發放</option></select>
+      <button class="ig-btn ig-btn--ghost ig-btn--sm" id="fClear">清除</button>
+    </div>
+    <p class="ig-small hide" id="fHint" style="margin:8px 0 0;color:var(--ig-gold-deep)"></p>
+  </div>
+  <div class="tbl-wrap" style="margin-top:12px">
+    <table class="tbl" id="tbl">
+      <thead><tr><th class="w-date">日期</th><th class="w-fest">節慶</th><th class="w-type">對象</th><th class="w-name">對象名稱</th><th class="w-item">項目</th><th class="w-itemname">品名／內容</th><th class="w-photo">照片</th><th class="w-price right">單價</th><th class="w-qty right">數量</th><th class="w-sub right">小計</th><th class="w-vendor">供應商／連結</th><th class="w-status">狀態</th><th class="w-note">備註</th><th class="act-col"></th></tr></thead>
+      <tbody id="tbody"></tbody>
+      <tfoot><tr id="tfoot"></tr></tfoot>
+    </table>
+  </div>
+  <div class="card hide" id="csvBox" style="margin-top:12px">
+    <h2>貼上匯入</h2>
+    <p class="ig-small">從 Excel／Sheets 複製表格貼進來（第一列是標題：日期、節慶、對象、對象名稱、項目、品名、單價、數量、供應商、狀態、備註；順序不拘、缺欄可留空）。</p>
+    <textarea class="f-input" id="csvText" placeholder="日期	節慶	對象	對象名稱	項目	品名	單價	數量	供應商	狀態	備註"></textarea>
+    <div class="btns"><button class="ig-btn ig-btn--ink ig-btn--sm" id="csvGo">匯入</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="csvCancel">取消</button></div>
+  </div>
+</section>
+
+<!-- ───── 人員 ───── -->
+<section class="view" id="view-people">
+  <div class="page-h"><div><h1>人員</h1><p>預設只放員工。要送夥伴或廠商時，按「匯入夥伴名錄」或「＋ 新增人員」再加；「整批加入人員」從這裡挑人。</p></div>
+    <div class="toolbar"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnStarter">匯入員工名單</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPartners">匯入夥伴名錄</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnDelType">刪除整個類型</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPCsvOut">匯出 CSV</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPCsvIn">貼上匯入</button><button class="ig-btn ig-btn--gold ig-btn--sm" id="btnAddPerson">＋ 新增人員</button></div></div>
+  <div class="card" id="pSummary" style="padding:12px 16px;margin-bottom:12px;font-size:14px"></div>
+  <div class="ig-pills" id="pTabs" style="margin-bottom:12px"><button class="ig-pill is-active" data-pt="">全部 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="員工">員工 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="外包">外包 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="夥伴">夥伴 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="廠商">廠商 <span class="ig-pill__n"></span></button></div>
+  <div class="card hide" id="pcsvBox" style="margin-bottom:12px">
+    <h2>貼上匯入人員</h2>
+    <p class="ig-small">從 Google Sheet 或 Excel 複製整表貼進來（第一列標題：姓名、類型、單位、職稱、負責區塊、Email、收禮、備註；順序不拘）。同名會更新，不會重複。</p>
+    <textarea class="f-input" id="pcsvText" placeholder="姓名	類型	單位	職稱	負責區塊	Email	備註"></textarea>
+    <div class="btns"><button class="ig-btn ig-btn--ink ig-btn--sm" id="pcsvGo">匯入</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="pcsvCancel">取消</button></div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl" id="ptbl" style="min-width:1100px">
+    <thead><tr><th class="w-idx">#</th><th class="w-pname">姓名</th><th class="w-type">類型</th><th class="w-name">單位／公司</th><th class="w-name">職稱／窗口</th><th class="w-itemname">負責什麼</th><th class="w-vendor">Email</th><th class="w-gift" title="是＝這個人在送禮名單裡；「整批加入人員」預設只列「是」的人">送禮名單 <span class="muted" style="font-weight:400">ⓘ</span></th><th class="w-note">備註</th><th class="act-col"></th></tr></thead>
+    <tbody id="pbody"></tbody></table></div>
+  <datalist id="peopleList"></datalist>
+  <div id="personUpcoming" class="hide"></div>
+</section>
+
+<!-- ───── 選禮顧問 ───── -->
+<section class="view" id="view-advisor">
+  <div class="page-h"><div><h1>選禮顧問 <span id="advYear" class="mono muted" style="font-size:16px"></span></h1><p id="advMeta">每年由 AI 上網研究一次，只用最近兩年的資料。老闆看預算與 CP 值，員工看心意與比較。</p></div>
+    <div class="toolbar"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnAdvPrompt">複製「明年重跑」咒語</button></div></div>
+  <div class="notice" id="advTake"></div>
+  <div class="adv-tabs" style="margin-top:14px" id="advTabs">
+    <button class="ig-pill is-active" data-aud="employee">員工</button>
+    <button class="ig-pill" data-aud="partner">合作夥伴</button>
+    <button class="ig-pill" data-aud="vendor">廠商</button>
+  </div>
+  <div id="advBody"></div>
+</section>
+
+<!-- ───── 賀圖 ───── -->
+<section class="view" id="view-cards">
+  <div class="page-h"><div><h1>賀圖工作台</h1><p>選節慶與風格 → 複製咒語 → GPT 出主視覺 → Canva 排成明信片。做好的連結記回紀錄裡。</p></div></div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h2>設定</h2>
+      <div class="form">
+        <div><label>節慶</label><select class="f-input" id="cFest"></select></div>
+        <div><label>年度</label><input class="f-input" id="cYear" type="number"></div>
+        <div><label>風格</label><select class="f-input" id="cStyle">
+          <option value="inkgold">墨金極簡（公司調性）</option><option value="watercolor">手繪水彩暖島</option><option value="paper">紙雕層次</option><option value="photo">攝影靜物感</option><option value="playful">可愛插畫</option></select></div>
+        <div><label>用途</label><select class="f-input" id="cUse"><option value="postcard">明信片 A6（148×105mm）</option><option value="square">社群方圖 1:1</option><option value="banner">Email 橫幅 3:1</option></select></div>
+        <div class="full"><label>祝福語（留白會自動產生）</label><input class="f-input" id="cMsg" placeholder="例：中秋佳節，謝謝一起打拚的你"></div>
+        <div class="full"><label>要放進畫面的元素（選填）</label><input class="f-input" id="cElem" placeholder="例：南瓜、月亮、VR 頭盔、皮克球拍"></div>
+        <div class="full"><label>署名</label><input class="f-input" id="cSign" placeholder="南瓜虛擬科技 全體夥伴"></div>
+      </div>
+      <div class="btns"><button class="ig-btn ig-btn--gold ig-btn--sm" id="cGen">產生咒語</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="cGenAI">✦ 用 Claude 重新產生</button></div>
+      <p class="ig-small" style="margin-top:8px">有設定 Claude API 金鑰時，「產生咒語」會由 AI 依節慶、風格、今年禮盒即時撰寫，每次不同；沒有金鑰就用內建範本。</p>
+    </div>
+    <div class="card">
+      <h2>怎麼做（約 10 分鐘）</h2>
+      <ol class="steps">
+        <li>複製「GPT 生圖咒語」，雙擊桌面的 <code>GPT生圖.command</code> 貼上，圖會存到桌面。</li>
+        <li>把「Canva 排版咒語」貼給 Claude（要開 Canva 連接器），它會建明信片、放 Logo、放祝福語、匯出 PNG／PDF。</li>
+        <li>把 Canva 連結貼回「紀錄」的賀卡那一列，明年就找得到。</li>
+        <li>要印：A6 明信片 300dpi，出血 3mm；要傳：PNG 1:1 或橫幅。</li>
+        <li>要做影片：複製「④ 影片咒語」貼給南瓜中控的 AI 影片工坊（15 秒、16:9、左下角白色 Logo），之後接其他影片工具的 MCP 也用同一段。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px" id="cOut"><p class="empty">按「產生咒語」就會出現四段可複製的內容：GPT 生圖、Canva 排版、卡片文案、影片咒語。</p></div>
+  <div class="card" style="margin-top:12px">
+    <h2>公司 Logo 素材（固定位置，不用再找）</h2>
+    <div class="logo-row">
+      <div class="logo-box light"><img src="assets/pumpkin-logo-black.png" alt="南瓜虛擬科技 Logo 黑色版"><div class="btns"><a class="ig-btn ig-btn--ghost ig-btn--sm" href="assets/pumpkin-logo-black.png" download>黑色 PNG</a><a class="ig-btn ig-btn--ghost ig-btn--sm" href="assets/pumpkin-logo-black.svg" download>SVG</a></div></div>
+      <div class="logo-box dark"><img src="assets/pumpkin-logo-white.png" alt="南瓜虛擬科技 Logo 白色版"><div class="btns"><a class="ig-btn ig-btn--line ig-btn--sm" href="assets/pumpkin-logo-white.png" download>白色 PNG</a></div></div>
+    </div>
+    <p class="ig-small" style="margin-top:10px">檔案在 <code>節慶帳本/assets/</code>；原稿在 Google Drive「LOGO」資料夾（連結見 README）。影片浮水印用白色版、左下角、高度約畫面 6%；明信片用黑色版。</p>
+  </div>
+</section>
+
+<!-- ───── 設定 ───── -->
+<section class="view" id="view-settings">
+  <div class="page-h"><div><h1>設定</h1><p>沒接 Google Sheet 也能用（資料存在這台電腦的瀏覽器）。接上之後三人看同一份，並由 Apps Script 每天寄提醒。</p></div></div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h2>連線 Google Sheet</h2>
+      <div class="fld"><label>Apps Script 網頁應用程式網址（…/exec）</label><input class="f-input" id="sUrl" placeholder="https://script.google.com/macros/s/…/exec"></div>
+      <div class="fld"><label>你的名字（寫進「更新者」欄）</label><input class="f-input" id="sUser" placeholder="南瓜"></div>
+      <div class="btns"><button class="ig-btn ig-btn--gold ig-btn--sm" id="sTest">測試連線並同步</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sPush">把本機資料推上 Sheet</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sDisconnect">斷開（改回本機）</button></div>
+      <p class="ig-small" id="sStatus" style="margin-top:10px"></p>
+      <h3>Claude API（賀圖即時生成）</h3>
+      <div class="fld"><label>Claude API 金鑰（sk-ant-…，只存在這台電腦的瀏覽器，不會進 Sheet）</label><input class="f-input" id="sKey" type="password" placeholder="sk-ant-api03-…" autocomplete="off"></div>
+      <div class="btns"><button class="ig-btn ig-btn--ink ig-btn--sm" id="sKeySave">儲存金鑰</button></div>
+      <p class="ig-small" id="sKeyStatus" style="margin-top:8px"></p>
+      <p class="ig-small">金鑰在 <a class="ig-link" href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">platform.claude.com → API keys</a> 建立；每次產生約 0.1 元美金以內。</p>
+      <h3>部署步驟</h3>
+      <ol class="steps">
+        <li>用公司帳號開新 Google Sheet，命名「南瓜節慶帳本」。</li>
+        <li>擴充功能 → Apps Script → 貼上 <code>apps-script/Code.gs</code> → 選 <code>setup</code> 執行一次並授權。</li>
+        <li>部署 → 新增部署 → 網頁應用程式 → 執行身分「我」、存取權「公司網域」或「任何人」→ 複製網址貼到上面。</li>
+        <li>（選）專案設定 → 指令碼屬性 加 <code>TG_TOKEN</code>、<code>TG_CHAT</code> 就會發 Telegram。</li>
+        <li>編輯器跑 <code>testReminderNow</code> 收一封測試信，確認 Email／Calendar 都通。</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h2>提醒與預算</h2>
+      <div class="form">
+        <div><label>提前提醒天數</label><input class="f-input" id="sLead" type="number" min="1" max="90"></div>
+        <div><label>年度總預算（0＝不限）</label><input class="f-input" id="sBudget" type="number" min="0"></div>
+        <div class="full"><label>提醒收件人 Email（逗號分隔）</label><input class="f-input" id="sRecip"></div>
+        <div><label>員工每人預算帶</label><input class="f-input" id="sBE" placeholder="800-1500"></div>
+        <div><label>夥伴每份預算帶</label><input class="f-input" id="sBP" placeholder="1500-3000"></div>
+        <div><label>廠商每份預算帶</label><input class="f-input" id="sBV" placeholder="1000-2000"></div>
+        <div><label>公司名稱（署名）</label><input class="f-input" id="sCo"></div>
+        <div class="full"><label>index.html 放在 Drive 的連結（寫進提醒信）</label><input class="f-input" id="sTool"></div>
+      </div>
+      <div class="btns"><button class="ig-btn ig-btn--ink ig-btn--sm" id="sSave">儲存設定</button></div>
+      <h3>節慶日期（2026–2030）</h3>
+      <div class="tbl-wrap"><table class="tbl" id="ftbl" style="min-width:640px"><thead><tr><th>節慶</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th class="w-qty">啟用</th></tr></thead><tbody id="fbody"></tbody></table></div>
+      <p class="ig-small" style="margin-top:8px">農曆節慶已依 2026–2030 換算，明年若政府公告有異動可在此修改。</p>
+      <h3>備份</h3>
+      <div class="btns"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sJsonOut">匯出 JSON 備份</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sJsonIn">匯入 JSON</button><input type="file" id="sJsonFile" accept="application/json" class="hide"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sReset">清空本機資料</button></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- 提醒彈窗 -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box">
+    <span class="ig-badge ig-badge--gold">節慶提醒</span>
+    <h2 id="mTitle" style="margin-top:10px"></h2>
+    <p id="mBody"></p>
+    <ul class="todo" id="mTodo"></ul>
+    <div class="btns"><button class="ig-btn ig-btn--gold" id="mGo">開始準備</button><button class="ig-btn ig-btn--ghost" id="mLater">今天先不提醒</button></div>
+  </div>
+</div>
+<div class="modal" id="batch" role="dialog" aria-modal="true" aria-labelledby="bTitle">
+  <div class="box" style="width:min(760px,100%)">
+    <h2 id="bTitle" style="font-size:20px">整批加入人員</h2>
+    <p>一次幫一群人各建一筆紀錄。例如中秋禮盒：選「員工」、填品名與單價，按建立就是每人一列。</p>
+    <div class="form">
+      <div><label>節慶</label><select class="f-input" id="bFest"></select></div>
+      <div><label>日期</label><input class="f-input" id="bDate" type="date"></div>
+      <div><label>項目</label><select class="f-input" id="bItemType"><option>禮盒</option><option>獎金</option><option>活動</option><option>賀卡</option><option>其他</option></select></div>
+      <div><label>狀態</label><select class="f-input" id="bStatus"><option>規劃中</option><option>已下單</option><option>已發放</option></select></div>
+      <div class="full"><label>品名／內容（禮盒請寫清楚是什麼）</label><input class="f-input" id="bItemName" placeholder="例：皮克球拍＋蛋黃酥三顆組"></div>
+      <div><label>單價</label><input class="f-input" id="bPrice" type="number" min="0" placeholder="0"></div>
+      <div><label>每人數量</label><input class="f-input" id="bQty" type="number" min="1" value="1"></div>
+      <div class="full"><label>供應商／連結</label><input class="f-input" id="bVendor" placeholder="選填"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0 8px">
+      <div class="ig-pills" id="bTypes"><button class="ig-pill" data-t="員工">員工</button><button class="ig-pill" data-t="外包">外包</button><button class="ig-pill" data-t="夥伴">夥伴</button><button class="ig-pill" data-t="廠商">廠商</button></div>
+      <label style="font-size:13px;display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="bOnlyGift" checked>只列「收禮＝是」</label>
+      <input class="f-input" id="bSearch" placeholder="搜尋姓名／單位" style="width:180px;height:32px;margin-left:auto">
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:6px"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="bAll">全選</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="bNone">全不選</button><span class="mono muted" id="bCount" style="margin-left:auto;font-size:13px;align-self:center"></span></div>
+    <div class="blist" id="bList"></div>
+    <div class="btns"><button class="ig-btn ig-btn--gold" id="bGo">建立</button><button class="ig-btn ig-btn--ghost" id="bCancel">取消</button></div>
+  </div>
+</div>
+<div class="modal lb" id="lightbox"><div class="lbbox"><img id="lbImg" alt="禮盒照片"><div class="lbcap"><span id="lbCap"></span><button class="ig-btn ig-btn--line ig-btn--sm" id="lbClose">關閉</button></div></div></div>
+<input type="file" id="photoFile" accept="image/*" class="hide">
+<div class="namepop" id="namePop" role="listbox"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== 選禮顧問資料（每年重跑一次研究後整段替換） ===== */
+window.ADVISOR = {"researchDate": "2026-09-25", "dataYears": "2025–2026", "takeaways": ["員工最想收的不是月餅，是「可自選」：禮券連兩年第一（2025 年 55.6%），電子票券滿意度 85%；月餅、文旦、公司自家產品最雷。", "送夥伴／廠商抓 600～1,200 元、送員工 500～800 元最安全；客戶端「現金／禮券」是地雷，員工端則相反。", "中秋 7 月中就有超早鳥 8 折、8 月底主力優惠截止；客製小卡至少提前 4 週、全客製禮盒 8～10 週。", "2026 年輕人吃「有梗＋用得到」：IP 聯名（皮克敏月餅 599 元）、可重複使用的盒子、露營／運動小物。", "「皮克球拍＋蛋黃酥」目前沒找到真實品牌案例（無法確認），但零件都買得到，可以自己組。"], "audiences": {"employee": {"title": "員工", "trends": [{"text": "2025 中秋最想收到前五：百貨／超商禮券 55.6%、冰淇淋月餅 43.8%、甜點零嘴 37.7%、咖啡禮盒 34%、養生保健 32.9%。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "2026 中秋最想收到前五：禮券、冰淇淋月餅、甜點零嘴、咖啡、文創商品（文創首次進前五）。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "企業用電子票券發福利比例 25%→34%，員工滿意度 85%；首要理由是「可依個人需求兌換」32%。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"text": "年輕消費者偏好可重複使用的禮盒、會發光的互動設計、跨界組合、卡通角色聯名。", "source": "https://supertaste.tvbs.com.tw/esg/361015", "year": 2026}, {"text": "體驗型手作課程正取代聚餐成為員工福利新選擇，人均 650～1,680 元。", "source": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026}, {"text": "非食品替代（野餐墊、快乾毛巾、防水手機袋）比月餅更容易被留下來用。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}], "avoid": [{"text": "最不想收到：公司自家產品或服務（墊底 6.4%）。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "最不想收到：文旦 7.6%、傳統月餅 8.7%、包裝米 9.7%、酒類 10.9%。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "月餅太油太膩（雙黃月餅近 800 大卡）且價格飆漲，公司收到的幾乎都改成餅乾與鳳梨酥。", "source": "https://udn.com/news/story/120912/9740894", "year": 2026}, {"text": "員工禮物規格不一致會引發比較；過度裝飾、LOGO 太大像廣告會扣分。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "budget": [{"text": "全體員工禮盒建議 500～800 元／人。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "春節內部員工 500～700 元／人。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}, {"text": "2026 年 44% 企業發中秋獎金，平均 1,349 元；員工期待 1,864 元，落差約 27.6%。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "送同事：易分食、多入數、380～800 元。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}], "bossView": [{"text": "某科技公司 160 萬月餅預算改電子票券後，行政時間減少 70%；38.4% 使用者曾為禮盒管理困擾。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"text": "送員工的禮品視為員工所得；購入時若已扣抵進項稅額，轉作員工酬勞需開發票。", "source": "https://udn.com/news/story/7243/9275556", "year": 2026}, {"text": "CP 值看四點：成分透明、辦公室吃得完、包裝方便提拿、份量真實而非外盒華麗。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}], "staffView": [{"text": "員工偏好電子票券的三大理由：可依個人需求兌換 32%、領取方便 27%、使用方便 23%。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"text": "企業愛送月餅（2025 年 56.5%）但員工最不想收的前三就有月餅，送收之間有落差。", "source": "https://www.storm.mg/lifestyle/11164308", "year": 2026}, {"text": "禮物被留下的三條件：實用、品質不錯、設計不尷尬。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "diy": [{"name": "XR 公司的皮克球開球禮", "items": "迪卡儂入門匹克球拍組＋三顆蛋黃酥（當球）＋手寫卡「下班來打一場」", "why": "2026 台灣匹克球參與人口推估 120 萬、球場破 200 座，梗有時效性又能真的用；蛋黃酥只放三顆不負擔。", "estCost": "約 900～1,200 元／人（估算值）", "source": "https://udn.com/news/story/7266/9545132", "year": 2026}, {"name": "連假露營咖啡包", "items": "露營濾掛咖啡 5 包＋印 LOGO 快乾毛巾＋皮克敏月餅 1 顆分裝", "why": "中秋 4 天連假出遊用得到，咖啡不受節慶情境限制；皮克敏月餅是 2026 真實 IP 案例。", "estCost": "約 500～700 元／人（估算值）", "source": "https://www.nownews.com/amp/news/6849010", "year": 2026}, {"name": "自己選最有心", "items": "700 元電子票券＋員工名字客製明信片（南瓜暖島風插畫）", "why": "禮券連兩年第一、電子票券滿意度 85%；名字客製補上心意，行政作業最省。", "estCost": "約 750 元／人", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}], "heart": [{"text": "個人化認可讓員工投入度高 4 倍，但只有 10% 員工曾被問過喜歡怎麼被認可。", "source": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026}, {"text": "認可需求被滿足的員工，68% 打算待 5 年以上。", "source": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026}, {"text": "手作成品帶回家會被反覆看見，記憶比一頓聚餐長（該站自述 70% 員工一週內展示給家人，原始調查待確認）。", "source": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026}, {"text": "專門針對「手寫卡提升員工感受」的 2025–2026 量化研究：無法確認（僅找到 2016 年 Ipsos 調查，已排除）。", "source": "", "year": 2026}]}, "partner": {"title": "合作夥伴", "trends": [{"text": "企業採購從高油高糖月餅轉向手工餅乾、精品咖啡、名茶；「送體驗」與「跨界聯名」是 2026 三大方向。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "客製化（企業色包裝、客製賀卡）與永續（在地小農、可回收包裝）是 2026 企業送禮兩大主軸；茶禮不分宗教年齡。", "source": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}, {"text": "禮盒設計五大趨勢：跨界聯名、永續材質用完不丟、文化轉譯、五感體驗、客製企業禮盒。", "source": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}, {"text": "B 型企業聯名案例：綠藤×茶日子微香沐浴喫茶禮 1,400 元，滿 20 組享企業價，1% 銷售額捐環保組織。", "source": "https://www.greenvines.com.tw/pages/gifts", "year": 2026}, {"text": "送客戶重話題性與品牌背景；公益部分收益捐慈善、環保紙材成加分。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}, {"text": "端午也去粽子化：改送茶、雞精、果醋、常溫甜點，標準是「好保存、好配送、好分享」。", "source": "https://city9.tw/blogs/news/dragon-boat-festival-non-zongzi-gift-box", "year": 2026}], "avoid": [{"text": "送客戶地雷：現金或禮券、刀具時鐘等不吉利物、化妝品等太私人、違反對方業界或宗教禁忌。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}, {"text": "太甜或太小眾口味、需冷鏈的冷藏品、包裝不一致、太晚下單。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "酒類是員工端最不想收的前五（10.9%），送夥伴也要先確認對方喝不喝。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "採購人員依《採購人員倫理準則》只能收 500 元以下餽贈（現行法規，非年度資料；送公部門窗口先問規範）。", "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}], "budget": [{"text": "重要商務夥伴 900～1,200 元；VIP 核心客戶 1,300～1,800 元。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "600～1,000 元＝重要客戶、主管、長期夥伴；1,000 元以上＝VIP 客戶、關鍵窗口。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "春節：董事／重要長輩客戶 800～1,000 元；一般客戶／合作夥伴 600～800 元。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}, {"text": "104 分法：低 1,000 以下、中 1,000～3,000（客製咖啡、保溫瓶）、高 3,000 以上（酒、皮件、體驗券）。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}], "bossView": [{"text": "提前 6～8 週詢價索樣；客製 LOGO 燙金／賀卡至少 4 週前下單；2026 中秋早鳥多在 9/8 前截止。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "飯店早鳥：洲際 7/15 前 8 折、國泰 8/10 前最低 7 折、六福 9/7 前 88 折；企業大宗另有專案價。", "source": "https://travel.udn.com/travel/story/7193/9595936", "year": 2026}, {"text": "送客戶禮品列交際費，進項稅額不得扣抵。", "source": "https://udn.com/news/story/7243/9275556", "year": 2026}, {"text": "全客製禮盒要 8～10 週；500 組約 20～40 萬，單組 80～300 元。", "source": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}], "staffView": [{"text": "會被記住的：送禮前後有溝通、包裝依對象調整、選對時機（合作週年或專案完成，不只節慶）。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "客戶重「體面、安全、代表門面」，選綜合口味、有提把的精緻盒。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "客製禮物被留下的條件：實用、品質、設計不尷尬；VIP 重質感與專屬感。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "diy": [{"name": "跨界共創禮", "items": "綠藤×茶日子微香禮（1,400 元）＋用 XR 場景做的客製明信片", "why": "B 型企業＋永續是 2026 主軸，明信片把南瓜的專業放進去，不用多花錢就有故事。", "estCost": "約 1,200～1,500 元／份（企業價待詢）", "source": "https://www.greenvines.com.tw/pages/gifts", "year": 2026}, {"name": "公益＋話題", "items": "庇護工場咖啡禮盒（500～1,000 元）＋手寫卡說明「這盒幫了誰」", "why": "25 家公益單位一頁選完，價位剛好落在夥伴帶；卡片讓收禮者記住的是理由而非盒子。", "estCost": "約 600～1,000 元／份", "source": "https://harvest365.org/news/2/711", "year": 2026}, {"name": "皮克球體驗券", "items": "皮克球場地＋教練體驗 2 人券，附一小盒蛋黃酥", "why": "匹克球已進入 EMBA 商務社交圈，邀對方一起打比送盒子更能延續關係。", "estCost": "約 1,000～1,500 元／份（估算值）", "source": "https://howlife.cna.com.tw/financial/20260504s002.aspx", "year": 2026}], "heart": [{"text": "送客戶附祝福卡片感謝合作，是端午／中秋的基本禮節。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "禮盒附企業專屬小卡已是標配服務，可多點寄送。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"text": "客製化元素：專屬企業色包裝、客製掛牌／封條／賀卡，讓禮品成為企業文化象徵。", "source": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}]}, "vendor": {"title": "廠商窗口", "trends": [{"text": "300 元以下適合大量發送；300～600 元＝一般客戶／夥伴。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "公關拜訪禮盒建議 500～800 元。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "送同事／窗口強調易分食、多入數、親民價 380～800 元。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}, {"text": "文創商品 2026 首次進入員工最想收到前五，小額文創當窗口禮有機會。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "公益禮盒多數落在 300～900 元，適合窗口帶。", "source": "https://harvest365.org/news/2/711", "year": 2026}], "avoid": [{"text": "太貴會給對方回禮壓力；新合作關係避免高金額。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}, {"text": "需冷藏的冷鏈品、太小眾口味、包裝不一致。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "中秋前一至兩週是物流高峰，太晚寄會延誤。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"text": "公部門窗口 500 元以上餽贈依《採購人員倫理準則》不能收（現行法規，非年度資料）。", "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}], "budget": [{"text": "300～600 元／份為標準窗口帶。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "義大企業採購 13 款 346～1,168 元，低價帶選擇多。", "source": "https://n.yam.com/Article/20260825800273", "year": 2026}, {"text": "中秋輕巧款 300～500 元、主流款 501～1,000 元。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}], "bossView": [{"text": "Sweetfull 20 盒以上優惠、最高 8 折、50 盒以上要預留產能。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"text": "GiftU B2B 一萬元以上有專人報價，含客製、配送、發票。", "source": "https://giftub2b.com/", "year": 2026}, {"text": "大宗訂購最低可到 68～8 折，主力早鳥期是即日起到 8 月底。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}, {"text": "大量訂單建議提前 3～4 週。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}], "staffView": [{"text": "獨立包裝、常溫、可放辦公室當提神零嘴的甜點零食最受歡迎。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "咖啡禮盒能融入早餐、下午茶，不受中秋情境限制。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "禮物設計不尷尬、LOGO 不過度凸顯才會被留著用。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "diy": [{"name": "辦公室分享包", "items": "濾掛咖啡 10 入＋獨立包裝堅果，貼公司貼紙", "why": "「請大家一起享用」降低收禮壓力，咖啡與零嘴都在員工最想收前五。", "estCost": "約 400 元／份", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"name": "連假出遊包", "items": "野餐墊小物＋兩顆蛋黃酥", "why": "非食品替代品比月餅更容易被留下來用，蛋黃酥兩顆剛好不膩。", "estCost": "約 500 元／份（估算值）", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}, {"name": "文創小物", "items": "南瓜自家插畫明信片組＋茶包", "why": "文創商品 2026 首次進入員工最想收到前五，自家插畫又能展現 XR 公司的美術實力。", "estCost": "約 300 元／份", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}], "heart": [{"text": "附公司名片卡與一句手寫謝語，讓分享型禮盒有署名。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "客製小卡 60 字內、7～10 個工作天，要提早排。", "source": "https://www.jsy-tea.com/pages/bulkpurchase", "year": 2026}, {"text": "選對時機（專案完成、合作週年）比只在節慶送更會被記住。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}]}}, "calendar": {"2026": {"春節": "2026-02-17", "端午": "2026-06-19", "中秋": "2026-09-25"}, "2027": {"春節": "2027-02-06", "端午": "2027-06-09", "中秋": "2027-09-15"}, "2028": {"春節": "2028-01-26", "端午": "2028-05-28", "中秋": "2028-10-03"}, "2029": {"春節": "2029-02-13", "端午": "2029-06-16", "中秋": "2029-09-22"}, "2030": {"春節": "2030-02-03", "端午": "2030-06-05", "中秋": "2030-09-12"}}, "sources": [{"title": "今周刊 2026 企業中秋採購指南", "url": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"title": "食力 2026 中秋禮盒懶人包", "url": "https://www.foodnext.net/life/recipes/dessert/paper/6731186952", "year": 2026}, {"title": "美麗佳人 2026 中秋禮盒 80+ 品牌", "url": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}, {"title": "品得時光 2026 企業送禮趨勢", "url": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}, {"title": "好心地文創 2026 中秋禮盒設計趨勢", "url": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}, {"title": "善耕365 2026 中秋公益禮盒懶人包", "url": "https://harvest365.org/news/2/711", "year": 2026}, {"title": "綠藤生機企業採購（×茶日子）", "url": "https://www.greenvines.com.tw/pages/gifts", "year": 2026}, {"title": "city9 2026 端午非粽子禮盒趨勢", "url": "https://city9.tw/blogs/news/dragon-boat-festival-non-zongzi-gift-box", "year": 2026}, {"title": "風傳媒 yes123 中秋送禮冠軍", "url": "https://www.storm.mg/lifestyle/11164308", "year": 2026}, {"title": "Newtalk yes123 2025 中秋獎金禮品調查", "url": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"title": "自由財經 yes123 2026 中秋禮金調查", "url": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"title": "Edenred 中秋員工禮盒 vs 電子票券", "url": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"title": "Edenred×104 2026 員工福利大調查", "url": "https://www.edenred.com.tw/2026_employee_welfare_survey/", "year": 2026}, {"title": "聯合新聞網 月餅快成時代眼淚", "url": "https://udn.com/news/story/120912/9740894", "year": 2026}, {"title": "食尚玩家 2026 中秋禮盒推薦 40 間", "url": "https://supertaste.tvbs.com.tw/esg/361015", "year": 2026}, {"title": "Shinygoods 2026 中秋禮盒 10 大品牌", "url": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}, {"title": "Cheerful Candy 企業送禮全年攻略", "url": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"title": "萬歲牌 2026 企業過年送禮 CP 值", "url": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}, {"title": "104 職場力 2026 企業送禮策略", "url": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}, {"title": "聯合新聞網 年節送禮報營業稅", "url": "https://udn.com/news/story/7243/9275556", "year": 2026}, {"title": "採購人員倫理準則第 8 條（現行法規）", "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}, {"title": "聯合新聞網 台灣 120 萬人瘋匹克球", "url": "https://udn.com/news/story/7266/9545132", "year": 2026}, {"title": "中央社 匹克球旋風吹進台灣 EMBA", "url": "https://howlife.cna.com.tw/financial/20260504s002.aspx", "year": 2026}, {"title": "JNICE 匹克球拍套組（年份待確認）", "url": "https://www.jnice.com.tw/Pickleball", "year": 2026}, {"title": "迪卡儂企業服務中心", "url": "https://grouporder.decathlon.tw/", "year": 2026}, {"title": "NOWnews 皮克敏中秋月餅禮盒", "url": "https://www.nownews.com/amp/news/6849010", "year": 2026}, {"title": "暖窩咖啡露營系列（年份待確認）", "url": "https://shop.cozyhousecoffee.com/pages/camping", "year": 2026}, {"title": "GIFTPARTY 路跑／露營／運動贈品", "url": "https://www.giftparty.com.tw/product-40.html", "year": 2026}, {"title": "夏本好 2026 員工福利手作課程", "url": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026}, {"title": "Workhuman 員工認可統計", "url": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026}, {"title": "禮品PARTY 2026 客製化禮物 TOP 10", "url": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}, {"title": "Sweetfull 2026 中秋企業大量採購指南", "url": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"title": "京盛宇大宗採購（年份待確認）", "url": "https://www.jsy-tea.com/pages/bulkpurchase", "year": 2026}, {"title": "聯合新聞網 2026 中秋禮盒飯店早鳥", "url": "https://travel.udn.com/travel/story/7193/9595936", "year": 2026}, {"title": "蕃新聞 義大中秋企業採購", "url": "https://n.yam.com/Article/20260825800273", "year": 2026}, {"title": "GiftU 禮尚網 B2B", "url": "https://giftub2b.com/", "year": 2026}, {"title": "凱哥寫程式 2026 行事曆（轉載官方）", "url": "https://calendar.talllkai.com/2026", "year": 2026}, {"title": "104 職場力 2027 行事曆", "url": "https://blog.104.com.tw/2027-taiwan-government-calendar/", "year": 2026}, {"title": "PublicHolidays.tw 中秋節", "url": "https://publicholidays.tw/zh/mid-autumn-festival/", "year": 2026}, {"title": "PublicHolidays.tw 端午節", "url": "https://publicholidays.tw/zh/dragon-boat-festival/", "year": 2026}, {"title": "Wikipedia Chinese New Year 日期表", "url": "https://en.wikipedia.org/wiki/Chinese_New_Year", "year": 2026}, {"title": "MoonCal 2028 節日", "url": "https://usemooncal.com/zh-CN/festivals/2028", "year": 2026}, {"title": "MoonCal 2029 節日", "url": "https://usemooncal.com/zh-CN/festivals/2029", "year": 2026}, {"title": "MoonCal 2030 節日", "url": "https://usemooncal.com/zh-CN/festivals/2030", "year": 2026}, {"title": "中國日曆在線 中秋節", "url": "https://www.chinesecalendaronline.com/zh/jieri/zhongqiu/", "year": 2026}, {"title": "中國日曆在線 端午節", "url": "https://www.chinesecalendaronline.com/zh/jieri/duanwu/", "year": 2026}]};
+/* ===== 首批公司名單（來源：【Pumpkin VR】公司信箱_2026；生日／到職日待補） ===== */
+window.STARTER_PEOPLE = [];
+/* ===== 合作夥伴與廠商名錄（不預設載入，人員頁按「匯入夥伴名錄」才加） ===== */
+window.PARTNERS = [];
+</script>
+<script>
+/* Pumpkin Ink & Gold 1.2 · 主題切換 ＋ 互動點格
+   兩種點格模式，用 <body data-dots="…"> 或 <script data-dots="…"> 指定：
+   - magnetic（預設，南瓜 2026-09-20 定案＝Pumpkin Notes 首頁的效果）：16px 細點，像被小磁鐵吸引，
+       往游標靠、沿按鈕輪廓收攏，離開後回到原位。
+   - glow（選用，Pumpkin Notes 報告頁舊版）：點不移動，游標靠近的點變亮、變大。
+   兩種都不用金色、都尊重 prefers-reduced-motion。無外部相依。 */
+(() => {
+  'use strict';
+  const body = document.body;
+  if (!body || body.dataset.igUiReady) return;
+  body.dataset.igUiReady = 'true';
+  const externalTheme = document.currentScript?.dataset.theme === 'external';
+  const mode = (body.dataset.dots || document.currentScript?.dataset.dots || 'magnetic') === 'glow' ? 'glow' : 'magnetic';
+  body.dataset.dotsMode = mode;
+  const toggles = [...document.querySelectorAll('[data-ig-theme-toggle]')];
+  const moon = '<path d="M20.5 13a8.7 8.7 0 0 1-9.5-9.5A8.7 8.7 0 1 0 20.5 13Z"/>';
+  const sun = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>';
+  function updateButtons() {
+    const night = body.dataset.theme === 'night';
+    toggles.forEach(b => {
+      b.setAttribute('aria-label', night ? '切換淺色模式' : '切換深色模式');
+      b.setAttribute('title', night ? '切換淺色模式' : '切換深色模式');
+      b.setAttribute('aria-pressed', String(night));
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(night ? sun : moon)+'</svg>';
+    });
+  }
+  if (!externalTheme) {
+    let theme = 'day';
+    try { if (localStorage.getItem('igTheme') === 'night') theme = 'night'; } catch (_) {}
+    try { const q=new URLSearchParams(location.search).get('theme'); if (q==='night'||q==='day') theme=q; } catch (_) {}
+    body.dataset.theme = theme;
+    toggles.forEach(b => b.addEventListener('click', () => {
+      body.dataset.theme = body.dataset.theme === 'night' ? 'day' : 'night';
+      try { localStorage.setItem('igTheme', body.dataset.theme); } catch (_) {}
+    }));
+  }
+  updateButtons();
+  const canvas = document.querySelector('#pn-dots') || document.createElement('canvas');
+  canvas.classList.add('ig-dotfield');
+  canvas.setAttribute('aria-hidden','true');
+  if (!canvas.isConnected) body.prepend(canvas);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  body.classList.add('ig-has-dotfield');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const fine = matchMedia('(any-pointer: fine)');
+  let width=0, height=0, scale=1, spacing=16, radius=.6, raf=0, last=0;
+  let ink='45,43,44', opacity=.3;
+  const pointer={x:-1000,y:-1000,tx:-1000,ty:-1000,p:0,target:0};
+  let active=null, shapes=[];
+  const smooth = v => { const t=Math.max(0,Math.min(1,v)); return t*t*(3-2*t); };
+  const interactive = 'a,button,summary,[role="button"],select,input,textarea';
+  function enabled(){return !reduce.matches && fine.matches && (mode==='glow' || width>768) && !document.hidden;}
+  function color(){
+    const dark=body.dataset.theme==='night';
+    if(mode==='glow'){ink=dark?'255,255,255':'22,20,21'; opacity=dark?.06:.10;}
+    else{ink=dark?'247,247,247':'45,43,44'; opacity=dark?.18:.3;}
+  }
+  function size(){
+    width=innerWidth; height=innerHeight; scale=Math.min(devicePixelRatio||1,2);
+    canvas.width=Math.round(width*scale);canvas.height=Math.round(height*scale);
+    canvas.style.width=width+'px';canvas.style.height=height+'px';
+    ctx.setTransform(scale,0,0,scale,0,0);
+    const responsive=.8+.2*Math.max(0,Math.min(1,(width-360)/408));
+    if(mode==='glow'){spacing=24;radius=1;}else{spacing=16*responsive;radius=.6*responsive;}
+    if(!enabled()) reset(true); else wake();
+    draw();
+  }
+  function rectangle(el){
+    const b=el.getBoundingClientRect();
+    const css=getComputedStyle(el);
+    const value=css.borderTopLeftRadius;
+    const corner=value.includes('%')?Math.min(b.width,b.height)*parseFloat(value)/100:parseFloat(value)||0;
+    return {cx:b.x+b.width/2,cy:b.y+b.height/2,hw:b.width/2,hh:b.height/2,r:Math.min(corner,b.width/2,b.height/2)};
+  }
+  function distance(x,y,b){
+    const qx=Math.abs(x-b.cx)-b.hw+b.r, qy=Math.abs(y-b.cy)-b.hh+b.r;
+    return Math.hypot(Math.max(qx,0),Math.max(qy,0))+Math.min(Math.max(qx,qy),0)-b.r;
+  }
+  function select(el){
+    if(el===active)return;
+    shapes.forEach(s=>s.target=0); active=el;
+    if(el)shapes.push({el,b:rectangle(el),p:0,target:1});
+    shapes=shapes.slice(-2);
+  }
+  function hit(){
+    if(mode==='glow'){select(null);return;}
+    const el=document.elementFromPoint(pointer.tx,pointer.ty)?.closest(interactive);
+    const b=el?.getBoundingClientRect();
+    select(el && !el.closest('[data-dots-still]') && b.width*b.height<width*height*.4 ? el : null);
+  }
+  function draw(){
+    ctx.clearRect(0,0,width,height);
+    const startX=mode==='glow'?spacing/2:-((scrollX%spacing+spacing)%spacing),startY=mode==='glow'?spacing/2:-((scrollY%spacing+spacing)%spacing);
+    const motion=enabled();
+    for(let y=startY;y<height+spacing;y+=spacing){
+      for(let x=startX;x<width+spacing;x+=spacing){
+        let dx=0,dy=0,strength=0;
+        if(mode==='glow'){
+          const k=motion&&pointer.p>.001?Math.max(0,1-Math.hypot(x-pointer.x,y-pointer.y)/140)*pointer.p:0;
+          ctx.beginPath();ctx.arc(x,y,radius*(1+.8*k),0,Math.PI*2);
+          ctx.fillStyle=`rgba(${ink},${(opacity+(.45-opacity)*k).toFixed(3)})`;ctx.fill();
+          continue;
+        }
+        if(motion && pointer.p>.001){
+          const attraction=smooth(1-Math.hypot(x-pointer.x,y-pointer.y)/160)*pointer.p;
+          dx=(pointer.x-x)*.26*attraction;dy=(pointer.y-y)*.26*attraction;strength=attraction;
+        }
+        if(motion){
+          let best=0, chosen=null, dist=0;
+          for(const s of shapes){
+            if(s.p<.001)continue;
+            const d=distance(x,y,s.b);
+            const pull=smooth(1-Math.abs(d)/64)*smooth(1-Math.hypot(x-pointer.x,y-pointer.y)/260)*s.p;
+            if(pull>best){best=pull;chosen=s.b;dist=d;}
+          }
+          if(chosen && best>.001){
+            const gx=distance(x+.5,y,chosen)-distance(x-.5,y,chosen),gy=distance(x,y+.5,chosen)-distance(x,y-.5,chosen);
+            const len=Math.hypot(gx,gy);
+            if(len>.001){dx-=gx/len*dist*best;dy-=gy/len*dist*best;strength=Math.max(strength,best);}
+          }
+        }
+        const r=radius*(1+.45*strength);
+        ctx.beginPath();ctx.arc(x+dx,y+dy,r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${ink},${opacity+.25*strength})`;ctx.fill();
+      }
+    }
+  }
+  function frame(time){
+    raf=0;
+    const dt=last?Math.min(32,time-last):16.67;last=time;
+    const ease=1-Math.exp(-dt/110), shapeEase=1-Math.exp(-dt/150);
+    pointer.x+=(pointer.tx-pointer.x)*ease;pointer.y+=(pointer.ty-pointer.y)*ease;
+    const goal=active?0:pointer.target;
+    pointer.p+=(goal-pointer.p)*ease;
+    let moving=Math.hypot(pointer.tx-pointer.x,pointer.ty-pointer.y)>.2 || Math.abs(goal-pointer.p)>.002;
+    shapes.forEach(s=>{
+      s.p+=(s.target-s.p)*shapeEase;
+      if(s.target && s.el.isConnected)s.b=rectangle(s.el);
+      if(Math.abs(s.target-s.p)>.002)moving=true;
+    });
+    shapes=shapes.filter(s=>s.target||s.p>.002);
+    draw();
+    if(moving && enabled())raf=requestAnimationFrame(frame);else last=0;
+  }
+  function wake(){if(!raf && !document.hidden)raf=requestAnimationFrame(frame);}
+  function reset(immediate=false){
+    pointer.target=0;select(null);
+    if(immediate){pointer.p=0;shapes=[];if(raf)cancelAnimationFrame(raf);raf=0;last=0;draw();}else wake();
+  }
+  window.addEventListener('pointermove',e=>{
+    if(!enabled() || e.pointerType==='touch')return;
+    if(!pointer.target){pointer.x=e.clientX;pointer.y=e.clientY;}
+    pointer.tx=e.clientX;pointer.ty=e.clientY;pointer.target=1;hit();wake();
+  },{passive:true});
+  document.documentElement.addEventListener('pointerleave',()=>reset());
+  window.addEventListener('blur',()=>reset());
+  window.addEventListener('resize',size,{passive:true});
+  window.addEventListener('scroll',()=>{if(enabled()&&pointer.target)hit();wake();},{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)reset(true);else draw();});
+  reduce.addEventListener('change',()=>reset(true));fine.addEventListener('change',()=>reset(true));
+  new MutationObserver(()=>{updateButtons();color();draw();}).observe(body,{attributes:true,attributeFilter:['data-theme']});
+  color();size();
+})();
+
+</script>
+<script>
+/* ===== 南瓜節慶帳本 · 前端 v1.0 ===== */
+(() => {
+'use strict';
+const $ = (s, el=document) => el.querySelector(s);
+const $$ = (s, el=document) => [...el.querySelectorAll(s)];
+const KEY = 'pgl.v1';
+const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+const todayStr = fmtDate(TODAY);
+const YEARS = [2026,2027,2028,2029,2030];
+const DEFAULT_FESTIVALS = [
+  {name:'春節（年終／紅包／尾牙春酒）',type:'農曆',d2026:'2026-02-17',d2027:'2027-02-06',d2028:'2028-01-26',d2029:'2029-02-13',d2030:'2030-02-03',leadDays:14,enabled:true,note:'尾牙通常在春節前 2～4 週'},
+  {name:'端午',type:'農曆',d2026:'2026-06-19',d2027:'2027-06-09',d2028:'2028-05-28',d2029:'2029-06-16',d2030:'2030-06-05',leadDays:14,enabled:true,note:''},
+  {name:'中秋',type:'農曆',d2026:'2026-09-25',d2027:'2027-09-15',d2028:'2028-10-03',d2029:'2029-09-22',d2030:'2030-09-12',leadDays:14,enabled:true,note:''},
+  {name:'聖誕／跨年',type:'國曆',d2026:'2026-12-25',d2027:'2027-12-25',d2028:'2028-12-25',d2029:'2029-12-25',d2030:'2030-12-25',leadDays:14,enabled:true,note:''},
+  {name:'員工生日',type:'個人',leadDays:14,enabled:true,note:'由人員分頁展開'},
+  {name:'到職週年',type:'個人',leadDays:14,enabled:true,note:'由人員分頁展開'}
+];
+const DEFAULT_SETTINGS = {recipients:'',leadDays:'14',yearlyBudget:'0',budgetEmployee:'800-1500',budgetPartner:'1500-3000',budgetVendor:'1000-2000',companyName:'南瓜虛擬科技',toolUrl:'',calendarId:'primary'};
+const TYPES=['員工','外包','夥伴','廠商'];
+const TODO = ['選定禮盒與預算（看「選禮顧問」）','確認名單與數量（員工／夥伴／廠商）','下單並確認到貨日','賀卡／明信片與發放安排'];
+const TODO_P = ['準備一份小心意或手寫卡','安排當天的祝福（群組、午餐或小蛋糕）'];
+
+let S = load();
+let filters = {key:'',fest:'',target:'',item:'',status:''};
+let advAud = 'employee';
+let syncTimer = null, pendingUpserts = new Map(), pendingDeletes = new Set();
+
+/* ───────── 工具 ───────── */
+function fmtDate(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function daysTo(s){ const d=new Date(s+'T00:00:00'); return Math.round((d-TODAY)/86400000); }
+function money(n){ return 'NT$ '+Math.round(Number(n)||0).toLocaleString('zh-TW'); }
+function uid(){ return 'r'+Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function esc(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2400); }
+function festShort(n){ return String(n).split('（')[0]; }
+function copy(text){ navigator.clipboard?.writeText(text).then(()=>toast('已複製')).catch(()=>{ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); toast('已複製'); }); }
+
+function load(){
+  let s={}; try{ s=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(_){}
+  return {
+    records: Array.isArray(s.records)? s.records:[],
+    festivals: Array.isArray(s.festivals)&&s.festivals.length? s.festivals: JSON.parse(JSON.stringify(DEFAULT_FESTIVALS)),
+    people: Array.isArray(s.people)? s.people:[],
+    settings: Object.assign({}, DEFAULT_SETTINGS, s.settings||{}),
+    apiUrl: s.apiUrl||'', user: s.user||'', year: s.year||TODAY.getFullYear(), lastSync: s.lastSync||''
+  };
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ toast('瀏覽器不允許儲存：'+e.message); } }
+function lead(){ return Number(S.settings.leadDays)||14; }
+function enabled(f){ return f.enabled===true || f.enabled==='true' || f.enabled==='TRUE'; }
+
+/* ───────── 與 Apps Script 同步 ───────── */
+function badge(state, text){ const b=$('#syncBadge'); b.className='sync '+state; b.querySelector('span').textContent=text; }
+async function apiGet(){ const r=await fetch(S.apiUrl+'?action=all&t='+Date.now(),{method:'GET'}); return r.json(); }
+async function apiPost(action,payload){ const r=await fetch(S.apiUrl,{method:'POST',body:JSON.stringify({action,payload,user:S.user})}); return r.json(); }
+function applyServer(d){
+  if(!d||!d.ok) throw new Error(d&&d.error||'伺服器回應異常');
+  const localPhoto={}; S.records.forEach(r=>{ if(r.photo) localPhoto[r.id]=r.photo; });
+  S.records=d.records.map(normRec).map(r=>({...r, photo: r.photoUrl? '' : (localPhoto[r.id]||'')})); S.festivals=d.festivals.length? d.festivals.map(f=>({...f,leadDays:Number(f.leadDays)||14})) : S.festivals;
+  S.people=d.people; S.settings=Object.assign({},DEFAULT_SETTINGS,d.settings||{}); S.lastSync=new Date().toISOString(); save();
+}
+async function syncFromSheet(silent){
+  if(!S.apiUrl){ badge('local','本機'); return false; }
+  badge('','同步中…');
+  try{ applyServer(await apiGet()); badge('ok','已同步'); renderAll(); if(!silent) toast('已從 Google Sheet 更新'); return true; }
+  catch(e){ badge('err','離線·唯讀快取'); if(!silent) toast('連不上 Sheet：'+e.message); return false; }
+}
+function queue(action, rec){
+  save();
+  if(!S.apiUrl) return;
+  if(action==='upsert'){ pendingDeletes.delete(rec.id); pendingUpserts.set(rec.id, rec); }
+  else { pendingUpserts.delete(rec.id); pendingDeletes.add(rec.id); }
+  badge('','待同步…'); clearTimeout(syncTimer); syncTimer=setTimeout(flush, 900);
+}
+async function flush(){
+  if(!S.apiUrl) return;
+  const ups=[...pendingUpserts.values()], dels=[...pendingDeletes]; pendingUpserts.clear(); pendingDeletes.clear();
+  try{
+    let d=null;
+    if(dels.length) d=await apiPost('deleteRecords',dels);
+    if(ups.length) d=await apiPost('upsertRecords',ups);
+    if(d){ applyServer(d); renderAll(); }
+    badge('ok','已同步');
+  }catch(e){ badge('err','同步失敗'); toast('寫入 Sheet 失敗，資料先留在本機：'+e.message); }
+}
+async function pushAll(){
+  if(!S.apiUrl) return toast('先填 Apps Script 網址');
+  badge('','上傳中…');
+  try{
+    let d=await apiPost('upsertRecords',S.records);
+    d=await apiPost('replacePeople',S.people);
+    d=await apiPost('replaceFestivals',S.festivals);
+    d=await apiPost('saveSettings',S.settings);
+    applyServer(d); renderAll(); badge('ok','已同步'); toast('本機資料已推上 Sheet');
+  }catch(e){ badge('err','上傳失敗'); toast('上傳失敗：'+e.message); }
+}
+
+/* ───────── 資料 ───────── */
+function normRec(r){ return {...r, year:Number(r.year)||Number(String(r.date).slice(0,4))||S.year, unitPrice:Number(r.unitPrice)||0, qty:Number(r.qty)||0, subtotal:(Number(r.unitPrice)||0)*(Number(r.qty)||0)}; }
+function newRec(base){
+  const nf=nextFest(); const fest=base?.festival || (nf? nf.name : festShort(S.festivals[0].name));
+  const f=S.festivals.find(x=>festShort(x.name)===fest||x.name===fest); const date=base?.date || (f&&f['d'+S.year]) || todayStr;
+  return normRec({id:uid(),year:S.year,festival:fest,date,targetType:'員工',targetName:'',itemType:'禮盒',itemName:'',unitPrice:0,qty:1,vendor:'',status:'規劃中',note:'',...(base||{}),id:uid()});
+}
+function upsert(r){ r=normRec(r); const i=S.records.findIndex(x=>x.id===r.id); if(i<0) S.records.push(r); else S.records[i]=r; queue('upsert',r); }
+function remove(id){ S.records=S.records.filter(x=>x.id!==id); queue('delete',{id}); }
+function yearRecs(y){ return S.records.filter(r=>Number(r.year)===Number(y)); }
+function sum(arr){ return arr.reduce((t,r)=>t+(Number(r.subtotal)||0),0); }
+
+/* 未來事件（與後端同邏輯） */
+function upcoming(horizon){
+  const out=[], y=TODAY.getFullYear();
+  S.festivals.forEach(f=>{
+    if(!enabled(f)) return; const ld=Number(f.leadDays)||lead();
+    if(f.type==='個人'){
+      S.people.forEach(p=>{ if(p.receivesGift===false||p.receivesGift==='false') return; const src=f.name.includes('生日')?p.birthday:p.joinDate; if(!src) return;
+        [y,y+1].forEach(yy=>{ const d=yy+'-'+String(src).slice(5); const diff=daysTo(d); if(diff>=0&&diff<=(horizon??ld)) out.push({name:f.name,short:f.name,date:d,days:diff,kind:'個人',who:p.name,lead:ld,key:f.name+'|'+p.name+'|'+yy,years:yy-Number(String(src).slice(0,4))}); }); });
+      return; }
+    [y,y+1].forEach(yy=>{ const d=f['d'+yy]; if(!d) return; const diff=daysTo(d); if(diff>=0&&diff<=(horizon??ld)) out.push({name:f.name,short:festShort(f.name),date:d,days:diff,kind:'節慶',lead:ld,key:f.name+'|'+yy}); });
+  });
+  return out.sort((a,b)=>a.days-b.days);
+}
+function nextFest(){ const u=upcoming(400).filter(x=>x.kind==='節慶'); return u[0]? {...u[0], name:u[0].short} : null; }
+
+/* ───────── 渲染 ───────── */
+function renderAll(){ renderYearSel(); renderOverview(); renderRecords(); renderPeople(); renderAdvisor(); renderCardsForm(); renderSettings(); }
+function renderYearSel(){
+  const sel=$('#yearSel'); const ys=new Set([...YEARS, ...S.records.map(r=>Number(r.year))]); 
+  sel.innerHTML=[...ys].filter(Boolean).sort().map(y=>`<option value="${y}" ${y==S.year?'selected':''}>${y}</option>`).join('');
+}
+function renderOverview(){
+  $('#ovYear').textContent=S.year; $('#ovYear2').textContent=S.year;
+  const recs=yearRecs(S.year), prev=yearRecs(S.year-1);
+  const nf=nextFest();
+  const card=$('#nextCard');
+  if(nf){
+    const cur=recs.filter(r=>festShort(r.festival)===nf.name && Number(r.year)===Number(nf.date.slice(0,4)));
+    const last=S.records.filter(r=>festShort(r.festival)===nf.name && Number(r.year)===Number(nf.date.slice(0,4))-1);
+    const done=cur.filter(r=>r.status==='已發放').length, urgent=nf.days<=nf.lead && done<cur.length+(cur.length?0:1);
+    card.className='card next'+(urgent?' urgent':'');
+    card.innerHTML=`<div class="days">${nf.days===0?'今天':nf.days}<small>${nf.days===0?nf.date:'天後 · '+nf.date}</small></div>
+      <div><div class="t">下一個節慶：${esc(nf.name)}</div>
+      <div class="m">去年 ${last.length? money(sum(last))+'，'+last.length+' 筆':'沒有紀錄'}｜今年 ${cur.length? money(sum(cur))+'，'+cur.length+' 筆、'+done+' 筆已發放':'尚未規劃'}${urgent?'　<b>· 該開始準備了</b>':''}</div></div>
+      <div class="acts"><button class="ig-btn ig-btn--gold ig-btn--sm" data-go="records" data-fest="${esc(nf.name)}">${cur.length?'看今年規劃':'開始規劃'}</button><button class="ig-btn ig-btn--ghost ig-btn--sm" data-go="advisor">看選禮顧問</button></div>`;
+  } else { card.className='card next'; card.innerHTML='<div class="empty">節慶日期都還沒設定，到「設定」補上。</div>'; }
+  // 時間軸
+  const tl=S.festivals.filter(f=>f.type!=='個人'&&enabled(f)&&f['d'+S.year]).map(f=>({f,d:f['d'+S.year]})).sort((a,b)=>a.d.localeCompare(b.d));
+  $('#timeline').innerHTML=tl.map(({f,d})=>{ const rs=recs.filter(r=>festShort(r.festival)===festShort(f.name)); const diff=daysTo(d); const st=rs.length? (rs.every(r=>r.status==='已發放')?'done':'plan'):''; 
+    return `<button class="tl ${diff<0?'past':''} ${diff>=0&&diff<=lead()?'now':''} ${st}" data-go="records" data-fest="${esc(festShort(f.name))}"><span class="dot"></span>${esc(festShort(f.name))}<b>${d.slice(5).replace('-','/')}</b>${rs.length?`<b>${money(sum(rs))}</b>`:''}</button>`; }).join('');
+  // 統計
+  const by=t=>sum(recs.filter(r=>r.itemType===t)), byP=t=>sum(prev.filter(r=>r.itemType===t));
+  const targets=new Set(recs.filter(r=>r.targetName).map(r=>r.targetType+r.targetName)).size;
+  const tot=sum(recs), totP=sum(prev), budget=Number(S.settings.yearlyBudget)||0;
+  const delta=(a,b)=>b? `<div class="d ${a>b?'up':a<b?'down':''}">${a>b?'▲':a<b?'▼':'＝'} 去年 ${money(b)}</div>` : '<div class="d">去年無資料</div>';
+  $('#stats').innerHTML=[
+    ['年度總支出',money(tot),budget?`<div class="d ${tot>budget?'up':''}">預算 ${money(budget)}，${tot>budget?'超出 '+money(tot-budget):'剩 '+money(budget-tot)}</div>`:delta(tot,totP)],
+    ['禮盒',money(by('禮盒')),delta(by('禮盒'),byP('禮盒'))],
+    ['獎金／紅包',money(by('獎金')),delta(by('獎金'),byP('獎金'))],
+    ['活動＋賀卡＋其他',money(by('活動')+by('賀卡')+by('其他')),`<div class="d">${recs.length} 筆紀錄 · ${targets} 位對象</div>`]
+  ].map(([l,n,d])=>`<div class="card stat"><div class="l">${l}</div><div class="n">${n}</div>${d}</div>`).join('');
+  // 歷年一覽
+  const ys=[...new Set(S.records.map(r=>Number(r.year)).filter(Boolean))].sort();
+  const fnames=[...new Set([...tl.map(x=>festShort(x.f.name)), ...S.records.map(r=>festShort(r.festival))])];
+  $('#multiYear').innerHTML= ys.length>0? `<div class="tbl-wrap"><table class="tbl" style="min-width:640px"><thead><tr><th>年度</th>${fnames.map(n=>`<th class="right">${esc(n)}</th>`).join('')}<th class="right">全年合計</th><th class="right">與前一年</th></tr></thead><tbody>${ys.map((y,i)=>{ const rs=yearRecs(y), t=sum(rs), tp=i?sum(yearRecs(ys[i-1])):0; return `<tr class="${y===S.year?'is-cur':''}"><td><button class="ig-link yr" data-year="${y}" style="font:600 14px/1 var(--ig-font-mono);background:none;border:0;cursor:pointer;color:inherit">${y}${y===S.year?' ◀':''}</button></td>${fnames.map(n=>{ const v=sum(rs.filter(r=>festShort(r.festival)===n)); return `<td class="sub" style="color:${v?'inherit':'var(--ig-ink-soft)'}">${v?money(v):'—'}</td>`; }).join('')}<td class="sub"><b>${money(t)}</b></td><td class="sub" style="color:var(--ig-ink-soft)">${tp?(t>tp?'▲ ':'▼ ')+Math.round((t-tp)/tp*100)+'%':'—'}</td></tr>`; }).join('')}</tbody></table></div><p class="ig-small" style="margin:8px 0 0">點年度可切換；每年的節慶明細在下方與「紀錄」頁。</p>` : '<div class="empty">還沒有任何年度的紀錄。</div>';
+  // 每節慶卡
+  const groups={}; recs.forEach(r=>{ const k=festShort(r.festival)||'未分類'; (groups[k]=groups[k]||[]).push(r); });
+  const order=tl.map(x=>festShort(x.f.name)); const keys=Object.keys(groups).sort((a,b)=>(order.indexOf(a)<0?99:order.indexOf(a))-(order.indexOf(b)<0?99:order.indexOf(b)));
+  $('#festCards').innerHTML= keys.length? keys.map(k=>{ const rs=groups[k], ps=prev.filter(r=>festShort(r.festival)===k); const t=sum(rs), tp=sum(ps);
+    const items=rs.slice().sort((a,b)=>b.subtotal-a.subtotal).slice(0,6).map(r=>`<li>${esc(r.itemType)}｜${esc(r.itemName||'（未填品名）')} × ${r.qty}${r.targetName?'　→ '+esc(r.targetName):'　→ '+esc(r.targetType)}　<span class="mono muted">${money(r.subtotal)}</span>　<span class="status-${esc(r.status)}">${esc(r.status)}</span></li>`).join('');
+    const byT=TYPES.map(tt=>{const n=rs.filter(r=>r.targetType===tt).length; return n?`${tt} ${n}`:null;}).filter(Boolean).join(' · ');
+    return `<div class="card fest"><div><h2 style="margin:0">${esc(k)} <span class="muted mono" style="font-size:13px;font-weight:400">${esc(rs[0].date)}</span></h2><div class="ig-small">${byT||'—'}</div><ul>${items}</ul>${rs.length>6?`<div class="ig-small">…還有 ${rs.length-6} 筆</div>`:''}<span class="cmp">${tp?(t>tp?'▲':t<tp?'▼':'＝')+' 去年 '+money(tp)+'（'+(tp?Math.round((t-tp)/tp*100):0)+'%）':'去年無資料'}</span></div><div><div class="sum">${money(t)}<small>${rs.length} 筆 · ${rs.filter(r=>r.status==='已發放').length} 筆已發放</small></div><div class="btns" style="justify-content:flex-end"><button class="ig-btn ig-btn--ghost ig-btn--sm" data-go="records" data-fest="${esc(k)}">編輯</button></div></div></div>`; }).join('')
+    : `<div class="card"><div class="empty">${S.year} 年還沒有任何紀錄。<br>到「紀錄」按「＋ 新增一筆」開始，或用「貼上匯入」整批貼。</div></div>`;
+}
+
+function photoCell(r){
+  if(r.itemType==='獎金') return '<span class="muted" style="font-size:12px;padding-left:6px">—</span>';
+  const src=r.photoUrl||r.photo;
+  return src? `<button class="thumb" data-act="photo-view" title="看大圖"><img src="${esc(src)}" alt="禮盒照片"></button><button class="ib" data-act="photo-del" title="移除照片" aria-label="移除照片"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>`
+    : `<button class="ig-btn ig-btn--ghost ig-btn--sm" data-act="photo-add" style="height:28px;padding:0 10px;font-size:12px">＋ 照片</button>`;
+}
+function shrinkImage(file, max){ return new Promise((res,rej)=>{ const img=new Image(); img.onload=()=>{ const s=Math.min(1,max/Math.max(img.width,img.height)); const c=document.createElement('canvas'); c.width=Math.round(img.width*s); c.height=Math.round(img.height*s); c.getContext('2d').drawImage(img,0,0,c.width,c.height); res(c.toDataURL('image/jpeg',.82)); }; img.onerror=rej; img.src=URL.createObjectURL(file); }); }
+async function attachPhoto(r, file){
+  if(!file||!file.type.startsWith('image/')) return toast('請選圖片檔');
+  const thumb=await shrinkImage(file, 640);
+  if(S.apiUrl){ badge('','上傳照片…'); try{ const d=await apiPost('uploadPhoto',{id:r.id,name:file.name,dataUrl:thumb}); if(!d.ok) throw new Error(d.error); r.photoUrl=d.url; r.photo=''; badge('ok','已同步'); }catch(e){ r.photo=thumb; badge('err','照片留在本機'); toast('照片上傳 Drive 失敗，先存本機：'+e.message); } }
+  else r.photo=thumb;
+  upsert(r); renderRecords(); renderOverview(); toast('照片已加上');
+}
+function festOptions(sel){ const names=[...new Set([...S.festivals.filter(f=>f.type!=='個人').map(f=>festShort(f.name)),'員工生日','到職週年','其他', ...(sel?[sel]:[])])]; return names.map(n=>`<option ${n===sel?'selected':''}>${esc(n)}</option>`).join(''); }
+function opt(list,sel){ return list.map(n=>`<option ${n===sel?'selected':''}>${n}</option>`).join(''); }
+function filtered(){
+  const k=filters.key.trim().toLowerCase();
+  return yearRecs(S.year).filter(r=>(!filters.fest||festShort(r.festival)===filters.fest)&&(!filters.target||r.targetType===filters.target)&&(!filters.item||r.itemType===filters.item)&&(!filters.status||r.status===filters.status)&&(!k||[r.itemName,r.targetName,r.vendor,r.note,r.festival].join(' ').toLowerCase().includes(k))).sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.id).localeCompare(String(b.id)));
+}
+function renderRecords(){
+  const fs=$('#fFest'); const cur=fs.value; fs.innerHTML='<option value="">全部節慶</option>'+festOptions(); fs.value=filters.fest||cur||'';
+  const rows=filtered();
+  $('#tbody').innerHTML= rows.length? rows.map(r=>`<tr data-id="${r.id}">
+    <td><input type="date" name="date" value="${esc(r.date)}"></td>
+    <td><select name="festival">${festOptions(festShort(r.festival)||r.festival)}</select></td>
+    <td><select name="targetType">${opt(TYPES,r.targetType)}</select></td>
+    <td><div class="namebox"><input name="targetName" value="${esc(r.targetName)}" placeholder="全體／姓名／單位" autocomplete="off"><button type="button" class="ib namebtn" data-act="pick" title="選人" aria-label="選人"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></div></td>
+    <td><select name="itemType">${opt(['禮盒','獎金','活動','賀卡','其他'],r.itemType)}</select></td>
+    <td><input name="itemName" value="${esc(r.itemName)}" placeholder="${r.itemType==='禮盒'?'禮盒是什麼？品牌＋內容':'品名／活動內容'}"></td>
+    <td class="photo-cell">${photoCell(r)}</td>
+    <td><input class="num" name="unitPrice" type="number" min="0" step="1" value="${r.unitPrice}"></td>
+    <td><input class="num" name="qty" type="number" min="0" step="1" value="${r.qty}"></td>
+    <td class="sub">${money(r.subtotal)}</td>
+    <td><input name="vendor" value="${esc(r.vendor)}" placeholder="廠商／網址"></td>
+    <td><select name="status" class="status-${esc(r.status)}">${opt(['規劃中','已下單','已發放'],r.status)}</select></td>
+    <td><input name="note" value="${esc(r.note)}" placeholder="備註／賀卡連結"></td>
+    <td class="act-col"><div class="row-act"><button class="ib" data-act="dup" title="複製這列" aria-label="複製這列"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><button class="ib danger" data-act="del" title="刪除" aria-label="刪除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></div></td></tr>`).join('')
+    : `<tr><td colspan="15"><div class="empty">${S.records.length?'沒有符合篩選的紀錄，試試「清除」。':'還沒有紀錄。按右上「＋ 新增一筆」。'}</div></td></tr>`;
+  renderFoot(rows);
+  const on=Object.values(filters).some(Boolean); $('#fHint').classList.toggle('hide',!on); $('#fHint').textContent=on?`篩選中：只顯示符合條件的 ${rows.length} 筆（全年共 ${yearRecs(S.year).length} 筆）`:'';
+}
+function renderFoot(rows){ rows=rows||filtered(); const t=sum(rows), q=rows.reduce((a,r)=>a+r.qty,0);
+  $('#tfoot').innerHTML=`<td colspan="6">合計（依目前篩選）· ${rows.length} 筆</td><td></td><td class="right">${q}</td><td class="sub">${money(t)}</td><td colspan="6" class="muted" style="font-family:var(--ig-font-sans);font-weight:400">${TYPES.map(t=>t+' '+money(sum(rows.filter(r=>r.targetType===t)))).join(' · ')}</td>`;
+}
+let pFilter='';
+function renderPeople(){
+  const list=S.people.map((p,i)=>({p,i})).filter(({p})=>!pFilter||p.type===pFilter);
+  const named=S.people.filter(p=>(p.name||'').trim());
+  $$('#pTabs .ig-pill').forEach(b=>{ b.classList.toggle('is-active',b.dataset.pt===pFilter); const n=b.querySelector('.ig-pill__n'); if(n) n.textContent=b.dataset.pt?named.filter(p=>p.type===b.dataset.pt).length:named.length; });
+  const gift=p=>!(p.receivesGift===false||p.receivesGift==='false'); const real=S.people.filter(p=>(p.name||'').trim());
+  $('#pSummary').innerHTML=`<b>共 ${real.length} 人</b>　${TYPES.map(t=>{const a=real.filter(p=>p.type===t); return a.length?`${t} ${a.length}（送禮名單 ${a.filter(gift).length}）`:null;}).filter(Boolean).join('　·　')}　·　<span class="muted">送禮名單合計 ${real.filter(gift).length} 人</span>`;
+  $('#pbody').innerHTML= list.length? list.map(({p,i},n)=>`<tr data-i="${i}">
+    <td class="mono muted" style="padding-left:10px">${n+1}</td>
+    <td><input name="name" value="${esc(p.name)}" placeholder="姓名"></td><td><select name="type">${opt(TYPES,p.type||'員工')}</select></td>
+    <td><input name="org" value="${esc(p.org||'')}" placeholder="單位／公司"></td><td><input name="title" value="${esc(p.title||'')}" placeholder="職稱／窗口"></td><td><input name="role" value="${esc(p.role||'')}" placeholder="負責什麼"></td>
+    <td><input name="email" type="email" value="${esc(p.email||'')}"></td><td><select name="receivesGift">${opt(['是','否'],gift(p)?'是':'否')}</select></td>
+    <td><input name="note" value="${esc(p.note||'')}"></td><td class="act-col"><button class="ib danger" data-act="pdel" title="刪除這個人" aria-label="刪除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></td></tr>`).join('')
+    : `<tr><td colspan="10"><div class="empty">${S.people.length?'這個類型還沒有人。':'還沒有人員。按「＋ 新增人員」或「貼上匯入」加入名單。'}</div></td></tr>`;
+  renderPeopleList();
+}
+/* 選人清單 */
+let popInput=null, popIdx=-1;
+function nameChoices(q, type){
+  q=(q||'').trim().toLowerCase();
+  const all=[{n:'全體',s:'所有'+(type||'員工')}].concat(S.people.filter(p=>(p.name||'').trim()).map(p=>({n:p.name,s:[p.type!==type?p.type:'',p.org&&p.org!=='南瓜虛擬科技'?p.org:'',p.title].filter(Boolean).join(' · '),t:p.type})));
+  const list=all.filter(c=>!q||c.n===c.n&&(c.n.toLowerCase().includes(q)||(c.s||'').toLowerCase().includes(q)));
+  const same=list.filter(c=>!c.t||c.t===type), other=list.filter(c=>c.t&&c.t!==type);
+  return same.concat(other);
+}
+function openNamePop(input, showAll){
+  const tr=input.closest('tr'); const type=tr?.querySelector('[name=targetType]')?.value||'員工';
+  const pop=$('#namePop'); popInput=input; popIdx=-1;
+  const items=nameChoices(showAll?'':input.value, type);
+  if(!items.length){ closeNamePop(); return; }
+  pop.innerHTML=items.map((c,i)=>`<button type="button" class="np" data-i="${i}" data-n="${esc(c.n)}"><b>${esc(c.n)}</b><small>${esc(c.s||'')}</small></button>`).join('');
+  const r=input.getBoundingClientRect(); pop.style.left=Math.min(r.left, innerWidth-280)+'px'; pop.style.top=(r.bottom+4)+'px'; pop.classList.add('is-open');
+}
+function closeNamePop(){ $('#namePop').classList.remove('is-open'); popInput=null; popIdx=-1; }
+function pickName(n){ if(!popInput) return; popInput.value=n; popInput.dispatchEvent(new Event('change',{bubbles:true})); const inp=popInput; closeNamePop(); inp.focus(); }
+$('#namePop').addEventListener('mousedown',e=>{ const b=e.target.closest('.np'); if(b){ e.preventDefault(); pickName(b.dataset.n); } });
+document.addEventListener('mousedown',e=>{ if(popInput && !e.target.closest('#namePop') && !e.target.closest('.namebox')) closeNamePop(); });
+document.addEventListener('focusin',e=>{ if(e.target.matches('#tbody input[name=targetName]')) openNamePop(e.target, true); else if(popInput&&e.target!==popInput) closeNamePop(); });
+document.addEventListener('input',e=>{ if(e.target.matches('#tbody input[name=targetName]')) openNamePop(e.target, false); });
+document.addEventListener('keydown',e=>{ if(!popInput||e.isComposing) return; const btns=$$('#namePop .np'); if(!btns.length) return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){ e.preventDefault(); popIdx=(popIdx+(e.key==='ArrowDown'?1:-1)+btns.length)%btns.length; btns.forEach((b,i)=>b.classList.toggle('is-active',i===popIdx)); btns[popIdx].scrollIntoView({block:'nearest'}); }
+  else if(e.key==='Enter'&&popIdx>=0){ e.preventDefault(); e.stopPropagation(); pickName(btns[popIdx].dataset.n); }
+  else if(e.key==='Escape'){ closeNamePop(); }
+},true);
+function renderPeopleList(){ const dl=$('#peopleList'); if(dl) dl.innerHTML=['全體',...new Set(S.people.map(p=>p.name).filter(Boolean)),...new Set(S.people.map(p=>p.org).filter(Boolean))].map(n=>`<option value="${esc(n)}">`).join(''); }
+function renderPeopleUpcoming(){ return;
+  const up=upcoming(60).filter(u=>u.kind==='個人');
+  $('#personUpcoming').innerHTML= up.length? up.map(u=>`<div>${u.date}　<b>${esc(u.who)}</b> ${esc(u.name)}${u.name.includes('週年')?'（滿 '+u.years+' 年）':''}　<span class="mono">還有 ${u.days} 天</span></div>`).join('') : '60 天內沒有生日或到職週年。';
+}
+function pruneBlankPeople(except){ const before=S.people.length; S.people=S.people.filter(p=>p===except||(p.name||'').trim()||(p.org||'').trim()||(p.email||'').trim()); return before-S.people.length; }
+function savePeople(){ save(); if(S.apiUrl){ badge('','待同步…'); apiPost('replacePeople',S.people).then(d=>{applyServer(d);badge('ok','已同步');}).catch(e=>{badge('err','同步失敗');toast(e.message);}); } }
+
+/* 顧問 */
+function renderAdvisor(){
+  const A=window.ADVISOR; 
+  if(!A||!A.audiences){ $('#advBody').innerHTML='<div class="card"><div class="empty">顧問資料尚未載入。</div></div>'; return; }
+  $('#advYear').textContent='· 研究日期 '+A.researchDate; $('#advMeta').textContent=`資料年份 ${A.dataYears}。老闆看預算與 CP 值，員工看心意與跟去年比。明年請用右上角咒語重跑一次。`;
+  $('#advTake').innerHTML='<b>三句話帶走</b><br>'+A.takeaways.map(t=>'• '+esc(t)).join('<br>');
+  $$('#advTabs .ig-pill').forEach(b=>b.classList.toggle('is-active',b.dataset.aud===advAud));
+  const a=A.audiences[advAud]; if(!a){ $('#advBody').innerHTML=''; return; }
+  const li=x=>`<li>${esc(x.text)}${x.source?`<span class="src"><a href="${esc(x.source)}" target="_blank" rel="noopener">來源</a> ${x.year||''}</span>`:(x.year?`<span class="src">${x.year}</span>`:'')}</li>`;
+  const sec=(t,arr,icon)=> arr&&arr.length? `<div class="adv-sec"><h3>${icon} ${t}</h3><ul>${arr.map(li).join('')}</ul></div>`:'';
+  const bud={employee:S.settings.budgetEmployee,partner:S.settings.budgetPartner,vendor:S.settings.budgetVendor}[advAud];
+  $('#advBody').innerHTML=`<div class="card"><h2>${esc(a.title)}　<span class="ig-tag">我們的預算帶 NT$ ${esc(bud||'—')}</span></h2>
+    ${sec('今年流行、會被記住的',a.trends,'✦')}${sec('地雷：別送這些',a.avoid,'✕')}${sec('預算帶與 CP 值判斷',a.budget,'＄')}
+    <div class="two" style="margin-top:14px"><div class="card"><h3 style="margin-top:0">老闆視角</h3><ul class="adv-sec" style="list-style:none;padding:0">${(a.bossView||[]).map(li).join('')}</ul></div><div class="card"><h3 style="margin-top:0">員工／收禮者視角</h3><ul style="list-style:none;padding:0">${(a.staffView||[]).map(li).join('')}</ul></div></div>
+    ${a.diy&&a.diy.length?`<div class="adv-sec"><h3>✎ DIY 組合點子（有梗、不負擔）</h3><div class="diy">${a.diy.map(d=>`<div class="card"><div class="n">${esc(d.name)}</div><div class="i"><b>內容：</b>${esc(d.items)}</div><div class="i"><b>為什麼：</b>${esc(d.why)}</div><div class="c">${esc(d.estCost||'')}${d.source?` · <a href="${esc(d.source)}" target="_blank" rel="noopener" style="color:inherit">來源</a>`:''}</div></div>`).join('')}</div></div>`:''}
+    ${sec('心意元素：讓人感覺公司有花心思',a.heart,'♥')}</div>
+    <div class="card"><h2>來源總表</h2><ul class="adv-sec" style="list-style:none;padding:0">${(A.sources||[]).map(s=>`<li><a class="ig-link" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a><span class="src">${s.year||''}</span></li>`).join('')}</ul></div>`;
+}
+const ADV_PROMPT=()=>`請幫「南瓜節慶帳本」重跑選禮顧問研究（${TODAY.getFullYear()+1} 年版）。
+規則：只用 ${TODAY.getFullYear()} 與 ${TODAY.getFullYear()+1} 年發布的資料，每條附來源網址與年份，查不到就寫「無法確認」。
+主題：台灣企業節慶禮盒趨勢（中秋／春節／端午）、20–35 歲員工喜歡／不喜歡收到什麼、合作夥伴與廠商送禮行情與禮節、有梗又不負擔的 DIY 組合案例（如運動熱潮＋小點心）、心意元素（手寫卡／客製小物）是否提升感受、老闆視角的 CP 值與採購時程、${TODAY.getFullYear()+1}–${TODAY.getFullYear()+5} 農曆節慶國曆日期複核。
+輸出：① Markdown 研究報告存 ~/節慶帳本/顧問研究/${TODAY.getFullYear()+1}_禮盒趨勢研究.md ② 同結構的 advisor JSON（researchDate、dataYears、takeaways、audiences.employee/partner/vendor 各含 trends/avoid/budget/bossView/staffView/diy/heart、calendar、sources），並把 JSON 更新進 ~/節慶帳本/index.html 裡的 window.ADVISOR 區塊，日期表同步更新設定分頁。`;
+
+/* 賀圖 */
+const STYLE={inkgold:{zh:'墨金極簡：淺灰紙面、單一墨色線條插畫、只用一處金色點睛，大量留白',en:'minimal ink-and-gold aesthetic, light warm-gray paper background, single dark-ink line illustration, one restrained gold accent, generous negative space, premium corporate stationery'},
+  watercolor:{zh:'手繪水彩：柔和暖色、紙紋、邊緣暈染、溫馨',en:'hand-painted watercolor, soft warm palette, visible paper texture, gentle bleeding edges, cozy and heartfelt'},
+  paper:{zh:'紙雕層次：多層剪紙、柔和陰影、立體感',en:'layered paper-cut art, soft drop shadows between layers, tactile depth, craft feel'},
+  photo:{zh:'攝影靜物：真實禮盒與節慶物件、自然側光、淺景深',en:'editorial still-life photography, real festive objects and gift box, natural side light, shallow depth of field, clean styling'},
+  playful:{zh:'可愛插畫：圓潤角色、明亮但不刺眼、有趣',en:'cute playful illustration, rounded friendly characters, bright but soft colors, fun and lighthearted'}};
+const USE={postcard:{zh:'A6 明信片 148×105mm 橫式，300dpi，出血 3mm',en:'A6 postcard 148x105mm landscape, 3:2 aspect, print-ready composition',size:'1536x1024'},square:{zh:'社群方圖 1:1',en:'square 1:1 social post',size:'1024x1024'},banner:{zh:'Email 橫幅 3:1',en:'wide 3:1 email banner',size:'1536x1024（後裁 3:1）'}};
+const FEST_EN={'春節':'Lunar New Year (Spring Festival), red envelopes, lanterns, plum blossoms, year of the horse 2026','端午':'Dragon Boat Festival, zongzi rice dumplings, dragon boats, calamus and mugwort','中秋':'Mid-Autumn Festival, full moon, rabbit, pomelo, mooncakes, lanterns','聖誕／跨年':'Christmas and New Year, warm lights, snow-free Taiwanese winter, celebration','員工生日':'birthday celebration, cake, confetti, warmth','到職週年':'work anniversary, milestone, gratitude'};
+const FEST_MSG={'春節':'新春如意，謝謝你這一年的並肩作戰。','端午':'端午安康，願你划得穩、走得遠。','中秋':'中秋團圓，謝謝一起追光的你。','聖誕／跨年':'感謝這一年有你，明年繼續一起造夢。','員工生日':'生日快樂！謝謝你成為團隊的一部分。','到職週年':'謝謝你與我們同行的每一年。'};
+function renderCardsForm(){ const sel=$('#cFest'); const cur=sel.value; sel.innerHTML=festOptions(); const nf=nextFest(); sel.value=cur||(nf?nf.name:sel.value); if(!$('#cYear').value) $('#cYear').value=S.year; if(!$('#cSign').value) $('#cSign').value=(S.settings.companyName||'南瓜虛擬科技')+' 全體夥伴'; }
+const AI_KEY='pgl.claudeKey';
+function getKey(){ try{ return localStorage.getItem(AI_KEY)||''; }catch(_){ return ''; } }
+function cardBrief(){
+  const fest=$('#cFest').value, year=$('#cYear').value, st=STYLE[$('#cStyle').value], use=USE[$('#cUse').value];
+  return {fest,year,style:st.zh,styleEn:st.en,use:use.zh,useEn:use.en,size:use.size,msg:$('#cMsg').value.trim(),elem:$('#cElem').value.trim(),sign:$('#cSign').value.trim()||'南瓜虛擬科技 全體夥伴'};
+}
+async function genWithAI(){
+  const key=getKey(); if(!key){ toast('先到「設定」貼上 Claude API 金鑰'); go('settings'); $('#sKey').focus(); return; }
+  const b=cardBrief(); const btn=$('#cGenAI'); btn.disabled=true; btn.textContent='Claude 思考中…';
+  const y=Number(b.year); const recs=S.records.filter(r=>festShort(r.festival)===b.fest&&Number(r.year)===y); const gifts=[...new Set(recs.filter(r=>r.itemType==='禮盒').map(r=>r.itemName).filter(Boolean))];
+  const last=S.records.filter(r=>festShort(r.festival)===b.fest&&Number(r.year)===y-1).map(r=>r.itemName).filter(Boolean);
+  const system=`你是南瓜虛擬科技（台灣 XR 內容公司，約 16 人，做 VR/AR 訓練與體驗）的節慶賀圖總監。每次產出都要新鮮、具體、可直接使用，不要套模板句。
+公司視覺：墨金美學（淺暖灰紙面、墨色線條、只用一處金色點睛）；品牌吉祥物候選＝圓滾滾的白兔（曾做過〈玉兔外送〉15 秒 3D 動畫：白兔騎粉紅小綿羊機車、背綁繩禮盒穿過台灣老巷弄、最後滿月映在兔眼；左下角壓白色 Pumpkin Logo）。
+輸出必須是純 JSON（不要 markdown 圍欄），欄位：
+{"gpt":"英文生圖 prompt（一段，含構圖、風格、光線、留白給文字的位置、no text/letters/watermark）","gptNote":"用繁中兩三句說明這張圖的想法與尺寸建議","canva":"給 Claude 用 Canva 排版的繁中步驟（編號 1-6：尺寸、底圖、文字位置與字型 Noto Sans TC、Logo 位置、金色點綴、匯出）","card":"隨禮盒附的卡片文案 3～5 行，真誠、不油、不要成語堆疊，最後署名","video":"15 秒 16:9 影片分鏡（繁中，依秒數 0-3/3-9/9-13/13-15 四段，主角白兔、對應節慶元素、結尾定格祝福語與左下 Logo）＋最後附一段 English prompt","alt":["另外 3 個不同方向的一句話點子"]}`;
+  const user=`節慶：${b.fest} ${b.year}
+風格：${b.style}（${b.styleEn}）
+用途：${b.use}；生圖尺寸 ${b.size}
+祝福語：${b.msg||'（請你想一句，20 字內，台灣口語）'}
+要放進畫面的元素：${b.elem||'（由你決定，但要跟公司 XR 本業有一點連結）'}
+署名：${b.sign}
+今年這個節慶要送的禮盒：${gifts.length?gifts.join('、'):'（尚未決定）'}
+去年送過：${last.length?last.join('、'):'（無紀錄）'}
+隨機種子：${Date.now()%1000}（請確保跟上一次不同）`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-opus-5',max_tokens:6000,output_config:{effort:'medium'},system,messages:[{role:'user',content:user}]})});
+    const d=await r.json(); if(!r.ok) throw new Error(d.error?.message||('HTTP '+r.status));
+    if(d.stop_reason==='refusal') throw new Error('模型拒絕了這個請求');
+    const text=(d.content||[]).filter(c=>c.type==='text').map(c=>c.text).join('');
+    const m=text.match(/\{[\s\S]*\}/); if(!m) throw new Error('回覆不是 JSON');
+    const j=JSON.parse(m[0]);
+    const gptFull=`【給 GPT生圖.command 貼的英文咒語，尺寸選 ${b.size}】\n${j.gpt}\n\n（${j.gptNote||''}）`;
+    renderPrompts({gpt:gptFull,canva:j.canva,card:j.card,video:j.video,alt:j.alt||[],by:'Claude（'+(d.model||'claude-opus-5')+'）'});
+    toast('Claude 已產生新一組咒語');
+  }catch(e){ toast('AI 產生失敗：'+e.message+'，已改用內建範本'); genPrompts(); }
+  finally{ btn.disabled=false; btn.textContent='✦ 用 Claude 重新產生'; }
+}
+function renderPrompts(p){
+  const sec=(n,t,id,body)=>`<div class="prompt-h"><h3>${n} ${t}</h3><button class="ig-btn ig-btn--ink ig-btn--sm" data-copy="${id}">複製</button></div><div class="prompt-box" id="${id}">${esc(body)}</div>`;
+  $('#cOut').innerHTML=`<p class="ig-small" style="margin:0 0 4px">${p.by?'由 '+esc(p.by)+' 產生，每按一次都不同。':'內建範本（到「設定」貼 Claude API 金鑰，就能每次由 AI 重新想）。'}</p>`+sec('①','GPT 生圖咒語','p1',p.gpt)+sec('②','Canva 排版咒語（貼給 Claude）','p2',p.canva)+sec('③','卡片文案','p3',p.card)+sec('④','影片咒語（南瓜中控 AI 影片工坊）','p4',p.video)+(p.alt&&p.alt.length?`<div class="prompt-h"><h3>⑤ 其他方向</h3></div><ul class="adv-sec" style="list-style:none;padding:0">${p.alt.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>`:'');
+}
+function genPrompts(){
+  const fest=$('#cFest').value, year=$('#cYear').value, st=STYLE[$('#cStyle').value], use=USE[$('#cUse').value];
+  const msg=$('#cMsg').value.trim()||FEST_MSG[fest]||`${fest}快樂，謝謝有你。`; const elem=$('#cElem').value.trim(); const sign=$('#cSign').value.trim();
+  const gpt=`${use.en}. ${FEST_EN[fest]||fest+' festival'}. ${st.en}. ${elem?'Include: '+elem+'. ':''}Leave a clean empty area on the right third for text overlay. No text, no letters, no watermark. Company brand feel: Taiwanese XR studio, modern, sincere, not kitschy.`;
+  const gptZh=`【給 GPT生圖.command 貼的英文咒語，尺寸選 ${use.size}】\n${gpt}\n\n（中文說明：${use.zh}；${fest} ${year}；${st.zh}${elem?'；元素：'+elem:''}；右側 1/3 留白給文字；畫面不要有任何文字）`;
+  const canva=`請用 Canva 連接器幫我做一張 ${year} ${fest} 賀卡（${use.zh}）：
+1. 建立新設計（${$('#cUse').value==='postcard'?'A6 橫式明信片 148×105mm':$('#cUse').value==='square'?'1080×1080 社群貼文':'1500×500 橫幅'}）。
+2. 底圖用我上傳的 GPT 生圖（桌面最新一張），滿版置底。
+3. 右側 1/3 留白區放文字：主標「${msg}」（Noto Sans TC 600，墨色 #161415），副標「${year} ${fest}」（小字），署名「${sign}」。
+4. 左下或右下放南瓜虛擬科技 Logo（黑色版，高度約畫面 8%）。
+5. 只用一處金色 #FDC302 當點綴（例如一條細線或署名底線），其他保持墨色與留白。
+6. 匯出 PNG（傳送用）與 PDF 列印檔（含出血），把連結給我。`;
+  const video=`【給「南瓜中控 AI 影片工坊」的影片咒語｜${year} ${fest}｜15 秒 16:9】
+風格參考：公司已做過的〈玉兔外送〉——3D 動畫、皮克斯質感、一隻圓滾滾的白兔騎粉紅小綿羊機車，背著綁繩的禮盒穿過台灣老巷弄，最後一顆滿月映在兔子眼裡；左下角全程壓南瓜虛擬科技 Logo（白色版）＋「南瓜虛擬科技」小字。
+這支要做：${fest}版。主角同一隻白兔（品牌吉祥物感，不要換角色），情境換成 ${FEST_EN[fest]? '對應 '+fest+' 的元素（'+(fest==='春節'?'紅包、春聯、鞭炮聲、圍爐':fest==='端午'?'龍舟、粽子、艾草':fest==='中秋'?'滿月、柚子、月餅、烤肉香':fest==='聖誕／跨年'?'燈串、倒數煙火、冬夜暖光':'蛋糕、彩帶、掌聲')+'）':fest}${elem?'，並帶到：'+elem:''}。
+鏡頭：0–3 秒 建立場景（台灣街景、傍晚暖光）→ 3–9 秒 白兔送禮的小旅程（一個可愛的小意外，例如禮盒差點掉了又接住）→ 9–13 秒 收禮的人打開門，兩人對視微笑 → 13–15 秒 定格：「${msg}」白字置中，署名「${sign}」，Logo 收尾。
+規格：1920×1080、15 秒、無旁白、輕音樂；文字只在最後 2 秒出現；Logo 用 assets/pumpkin-logo-white.png，高度約畫面 6%，左下角，離邊 4%。
+English prompt: Pixar-style 3D animation, 15s, 16:9. A round fluffy white rabbit mascot rides a pink scooter through a warm Taiwanese alley at dusk, carrying a gift box tied with string. ${FEST_EN[fest]||fest}. Small charming mishap, recovery, doorstep hand-off, smile. Final 2 seconds: centered greeting text and company logo bottom-left. Soft light, cinematic, no narration.`;
+  const send=`【隨禮盒附的卡片文案】\n${msg}\n\n${fest==='中秋'?'今年這盒不是最貴的，但每一樣都是我們挑過、覺得你會喜歡的。':'這份小心意不重，但我們有認真挑。'}\n${sign}\n${year} ${fest}`;
+  renderPrompts({gpt:gptZh,canva,card:send,video});
+}
+
+/* 設定 */
+function renderSettings(){
+  $('#sUrl').value=S.apiUrl; $('#sUser').value=S.user; const s=S.settings; $('#sKey').value=getKey(); $('#sKeyStatus').textContent=getKey()?'✅ 已設定，賀圖會由 Claude 即時產生':'尚未設定，賀圖用內建範本';
+  $('#sLead').value=s.leadDays; $('#sBudget').value=s.yearlyBudget; $('#sRecip').value=s.recipients; $('#sBE').value=s.budgetEmployee; $('#sBP').value=s.budgetPartner; $('#sBV').value=s.budgetVendor; $('#sCo').value=s.companyName; $('#sTool').value=s.toolUrl;
+  $('#sStatus').textContent= S.apiUrl? (S.lastSync?'上次同步：'+new Date(S.lastSync).toLocaleString('zh-TW'):'尚未同步') : '目前為本機模式：資料只存在這台電腦的瀏覽器，記得定期匯出 JSON 備份。';
+  $('#fbody').innerHTML=S.festivals.filter(f=>f.type!=='個人').map((f,i)=>`<tr data-fi="${S.festivals.indexOf(f)}"><td><input name="name" value="${esc(f.name)}"></td>${YEARS.map(y=>`<td><input type="date" name="d${y}" value="${esc(f['d'+y]||'')}"></td>`).join('')}<td><select name="enabled">${opt(['是','否'],enabled(f)?'是':'否')}</select></td></tr>`).join('');
+}
+function saveSettingsForm(){
+  S.user=$('#sUser').value.trim(); Object.assign(S.settings,{leadDays:$('#sLead').value||'14',yearlyBudget:$('#sBudget').value||'0',recipients:$('#sRecip').value,budgetEmployee:$('#sBE').value,budgetPartner:$('#sBP').value,budgetVendor:$('#sBV').value,companyName:$('#sCo').value,toolUrl:$('#sTool').value});
+  save(); toast('設定已儲存'); renderAll();
+  if(S.apiUrl){ apiPost('saveSettings',S.settings).then(()=>apiPost('replaceFestivals',S.festivals)).then(d=>{applyServer(d);badge('ok','已同步');}).catch(e=>toast('設定寫入 Sheet 失敗：'+e.message)); }
+}
+
+/* CSV */
+function csvOut(){
+  const h=['日期','節慶','對象','對象名稱','項目','品名','單價','數量','小計','供應商','狀態','備註','年度','id'];
+  const rows=filtered().map(r=>[r.date,r.festival,r.targetType,r.targetName,r.itemType,r.itemName,r.unitPrice,r.qty,r.subtotal,r.vendor,r.status,r.note,r.year,r.id]);
+  const csv='﻿'+[h,...rows].map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');
+  dl(csv,`節慶帳本_${S.year}.csv`,'text/csv');
+}
+function dl(text,name,type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
+function parseTable(text){
+  const sep=text.includes('\t')?'\t':','; const lines=text.replace(/\r/g,'').split('\n').filter(l=>l.trim());
+  const split=l=>{ const out=[]; let cur='',q=false; for(let i=0;i<l.length;i++){ const c=l[i]; if(c==='"'){ if(q&&l[i+1]==='"'){cur+='"';i++;} else q=!q; } else if(c===sep&&!q){ out.push(cur); cur=''; } else cur+=c; } out.push(cur); return out.map(s=>s.trim()); };
+  const head=split(lines[0]); const map={'日期':'date','節慶':'festival','對象':'targetType','對象類型':'targetType','對象名稱':'targetName','項目':'itemType','項目類型':'itemType','品名':'itemName','內容':'itemName','單價':'unitPrice','數量':'qty','供應商':'vendor','連結':'vendor','狀態':'status','備註':'note','年度':'year','id':'id'};
+  return lines.slice(1).map(split).map(cells=>{ const o={}; head.forEach((h,i)=>{ const k=map[h]||map[h.replace(/／.*/,'')]; if(k) o[k]=cells[i]??''; }); return o; }).filter(o=>Object.values(o).some(v=>v));
+}
+function parsePeople(text){
+  const sep=text.includes('\t')?'\t':','; const lines=text.replace(/\r/g,'').split('\n').filter(l=>l.trim()); if(lines.length<2) return [];
+  const split=l=>{ const out=[]; let cur='',q=false; for(let i=0;i<l.length;i++){ const c=l[i]; if(c==='"'){ if(q&&l[i+1]==='"'){cur+='"';i++;} else q=!q; } else if(c===sep&&!q){ out.push(cur); cur=''; } else cur+=c; } out.push(cur); return out.map(s=>s.trim()); };
+  const head=split(lines[0]); const map={'姓名':'name','name':'name','類型':'type','單位':'org','公司':'org','職稱':'title','負責區塊':'role','負責':'role','生日':'birthday','到職日':'joinDate','起始日':'joinDate','email':'email','e-mail':'email','電話':'phone','收禮':'receivesGift','備註':'note','類別':'category','相關專案':'projects','地點':'place','證據連結':'link'};
+  return lines.slice(1).map(split).map(cells=>{ const o={}; head.forEach((h,i)=>{ const k=map[h]||map[h.toLowerCase()]; if(k) o[k]=cells[i]??''; }); if(!o.name) return null; o.type=TYPES.includes(o.type)?o.type:'夥伴'; if('receivesGift' in o) o.receivesGift=o.receivesGift!=='否'; else o.receivesGift=true; const extra=[o.category,o.projects,o.place,o.phone,o.link].filter(Boolean).join('｜'); if(extra) o.note=[o.note,extra].filter(Boolean).join('｜'); ['category','projects','place','phone','link'].forEach(k=>delete o[k]); return o; }).filter(Boolean);
+}
+function csvIn(){
+  const rows=parseTable($('#csvText').value); if(!rows.length) return toast('沒讀到資料，確認第一列是標題');
+  rows.forEach(o=>{ const r=newRec({date:o.date||todayStr,festival:o.festival||'其他',targetType:TYPES.includes(o.targetType)?o.targetType:'員工',targetName:o.targetName||'',itemType:['禮盒','獎金','活動','賀卡','其他'].includes(o.itemType)?o.itemType:'禮盒',itemName:o.itemName||'',unitPrice:Number(String(o.unitPrice).replace(/[^\d.]/g,''))||0,qty:Number(o.qty)||1,vendor:o.vendor||'',status:['規劃中','已下單','已發放'].includes(o.status)?o.status:'已發放',note:o.note||''}); if(o.year) r.year=Number(o.year); else r.year=Number(String(r.date).slice(0,4))||S.year; if(o.id) r.id=o.id; upsert(r); });
+  $('#csvBox').classList.add('hide'); $('#csvText').value=''; toast(`已匯入 ${rows.length} 筆`); renderAll();
+}
+
+/* 彈窗 */
+function maybePopup(){
+  if(new URLSearchParams(location.search).get('nopop')==='1') return;
+  const list=upcoming().filter(u=>{ try{ return localStorage.getItem('pgl.dismiss.'+u.key)!==todayStr; }catch(_){ return true; } });
+  const u=list.find(x=>{ if(x.kind!=='節慶') return true; const y=Number(x.date.slice(0,4)); const cur=S.records.filter(r=>festShort(r.festival)===x.short&&Number(r.year)===y); return !cur.length||cur.some(r=>r.status!=='已發放'); });
+  if(!u) return;
+  const y=Number(u.date.slice(0,4)); const last=S.records.filter(r=>festShort(r.festival)===u.short&&Number(r.year)===y-1); const cur=S.records.filter(r=>festShort(r.festival)===u.short&&Number(r.year)===y);
+  $('#mTitle').textContent=(u.kind==='個人'?u.who+' 的':'')+u.short+(u.days===0?' 就是今天':' 還有 '+u.days+' 天');
+  $('#mBody').innerHTML=`${u.date}。去年${last.length?'花了 '+money(sum(last))+'（'+last.length+' 筆）':'沒有紀錄'}；今年${cur.length?'已規劃 '+money(sum(cur))+'，'+cur.filter(r=>r.status==='已發放').length+'／'+cur.length+' 筆已發放':'還沒開始規劃'}。`;
+  $('#mTodo').innerHTML=(u.kind==='個人'?TODO_P:TODO).map((t,i)=>`<li><input type="checkbox" id="td${i}"><label for="td${i}">${t}</label></li>`).join('');
+  $('#modal').classList.add('is-open'); $('#mGo').focus();
+  $('#mGo').onclick=()=>{ $('#modal').classList.remove('is-open'); go('records',u.short); };
+  $('#mLater').onclick=()=>{ try{ localStorage.setItem('pgl.dismiss.'+u.key,todayStr); }catch(_){}; $('#modal').classList.remove('is-open'); };
+}
+
+/* ───────── 導覽與事件 ───────── */
+function go(view,fest){
+  $$('.nav-tab').forEach(b=>b.classList.toggle('is-active',b.dataset.view===view)); $$('.view').forEach(v=>v.classList.toggle('is-active',v.id==='view-'+view));
+  if(fest!=null){ filters={key:'',fest,target:'',item:'',status:''}; ['fKey','fTarget','fItem','fStatus'].forEach(id=>$('#'+id).value=''); $('#fFest').value=fest; renderRecords(); }
+  location.hash=view; window.scrollTo({top:0});
+}
+document.addEventListener('click',e=>{
+  const nav=e.target.closest('.nav-tab'); if(nav) return go(nav.dataset.view);
+  const g=e.target.closest('[data-go]'); if(g) return go(g.dataset.go, g.dataset.fest);
+  const cp=e.target.closest('[data-copy]'); if(cp) return copy($('#'+cp.dataset.copy).textContent);
+  const aud=e.target.closest('#advTabs .ig-pill'); if(aud){ advAud=aud.dataset.aud; return renderAdvisor(); }
+  const act=e.target.closest('[data-act]'); if(act){
+    const tr=act.closest('tr'); 
+    if(act.dataset.act==='del'){ const id=tr.dataset.id; const r=S.records.find(x=>x.id===id); if(confirm(`刪除「${r?.itemName||'這筆'}」？`)){ remove(id); renderAll(); toast('已刪除'); } }
+    if(act.dataset.act==='dup'){ const r=S.records.find(x=>x.id===tr.dataset.id); if(r){ upsert(newRec({...r,photo:'',photoUrl:''})); renderAll(); toast('已複製一列'); } }
+    if(act.dataset.act==='pick'){ const inp=tr.querySelector('input[name=targetName]'); const wasOpen=popInput===inp&&$('#namePop').classList.contains('is-open'); if(wasOpen&&act.dataset.toggled==='1'){ closeNamePop(); act.dataset.toggled=''; } else { inp.focus(); openNamePop(inp,true); act.dataset.toggled='1'; } }
+    if(act.dataset.act==='photo-add'){ const r=S.records.find(x=>x.id===tr.dataset.id); const f=$('#photoFile'); f.onchange=()=>{ attachPhoto(r,f.files[0]); f.value=''; }; f.click(); }
+    if(act.dataset.act==='photo-del'){ const r=S.records.find(x=>x.id===tr.dataset.id); if(r&&confirm('移除這張照片？')){ r.photo=''; r.photoUrl=''; upsert(r); renderRecords(); } }
+    if(act.dataset.act==='photo-view'){ const r=S.records.find(x=>x.id===tr.dataset.id); $('#lbImg').src=r.photoUrl||r.photo; $('#lbCap').textContent=`${r.festival}｜${r.itemName||''}${r.vendor?'｜'+r.vendor:''}`; $('#lightbox').classList.add('is-open'); }
+    if(act.dataset.act==='pdel'){ const p=S.people[Number(tr.dataset.i)]; if(confirm(`刪除「${p?.name||'這個人'}」？`)){ S.people.splice(Number(tr.dataset.i),1); savePeople(); renderPeople(); toast('已刪除'); } }
+  }
+});
+$('#tbody').addEventListener('change',e=>{
+  const tr=e.target.closest('tr'); if(!tr) return; const r=S.records.find(x=>x.id===tr.dataset.id); if(!r) return;
+  const k=e.target.name; let v=e.target.value; if(k==='unitPrice'||k==='qty') v=Number(v)||0; r[k]=v; if(k==='date') r.year=Number(v.slice(0,4))||r.year;
+  upsert(r); if(k==='unitPrice'||k==='qty') tr.querySelector('.sub').textContent=money(r.subtotal); if(k==='status') e.target.className='status-'+v; if(k==='itemType'){ tr.querySelector('.photo-cell').innerHTML=photoCell(r); tr.querySelector('input[name=itemName]').placeholder= v==='禮盒'?'禮盒是什麼？品牌＋內容':'品名／活動內容'; } if(k==='date'&&r.year!==S.year){ renderAll(); toast('這筆已移到 '+r.year+' 年'); } else { renderOverview(); renderFoot(); }
+});
+$('#tbody').addEventListener('keydown',e=>{
+  if(e.isComposing||e.keyCode===229) return;
+  if(e.key==='Enter'&&e.target.matches('input')){ e.preventDefault(); const tr=e.target.closest('tr'); const all=$$('#tbody tr'); if(tr===all[all.length-1]){ const last=S.records.find(x=>x.id===tr.dataset.id); upsert(newRec({festival:last?.festival,date:last?.date,targetType:last?.targetType,itemType:last?.itemType})); renderRecords(); const rows=$$('#tbody tr'); rows[rows.length-1].querySelector('input[name=targetName]').focus(); } else { const next=all[all.indexOf(tr)+1]; next?.querySelector(`[name=${e.target.name}]`)?.focus(); } }
+});
+$('#pbody').addEventListener('change',e=>{ const tr=e.target.closest('tr'); const p=S.people[Number(tr.dataset.i)]; if(!p) return; let v=e.target.value; if(e.target.name==='receivesGift') v=v==='是'; p[e.target.name]=v; savePeople(); renderPeopleUpcoming(); renderPeopleList(); renderOverview(); });
+$('#pbody').addEventListener('focusout',e=>{ setTimeout(()=>{ const inside=document.activeElement&&document.activeElement.closest('#pbody tr'); const keep=inside? S.people[Number(inside.dataset.i)] : null; if(pruneBlankPeople(keep)){ save(); renderPeople(); } },80); });
+$('#pbody').addEventListener('keydown',e=>{ if(e.isComposing||e.keyCode===229) return; if(e.key==='Enter'&&e.target.matches('input')){ e.preventDefault(); const tr=e.target.closest('tr'); const next=tr.nextElementSibling; if(next) next.querySelector(`[name=${e.target.name}]`)?.focus(); else $('#btnAddPerson').click(); } });
+$('#fbody').addEventListener('change',e=>{ const f=S.festivals[Number(e.target.closest('tr').dataset.fi)]; if(!f) return; let v=e.target.value; if(e.target.name==='enabled') v=v==='是'; f[e.target.name]=v; save(); renderOverview(); renderRecords(); renderCardsForm(); });
+function openBatch(){
+  const m=$('#batch'); const nf=nextFest(); $('#bFest').innerHTML=festOptions(filters.fest||(nf?nf.name:'')); $('#bDate').value=(()=>{ const f=S.festivals.find(x=>festShort(x.name)===$('#bFest').value); return (f&&f['d'+S.year])||todayStr; })();
+  if(!$('#bQty').value) $('#bQty').value=1; renderBatchPeople(); m.classList.add('is-open'); $('#bItemName').focus();
+}
+let bTypes=new Set(['員工']);
+function renderBatchPeople(){
+  $$('#bTypes .ig-pill').forEach(b=>b.classList.toggle('is-active',bTypes.has(b.dataset.t)));
+  const onlyGift=$('#bOnlyGift').checked; const kw=$('#bSearch').value.trim().toLowerCase();
+  const list=S.people.filter(p=>(p.name||'').trim()&&bTypes.has(p.type)&&(!onlyGift||!(p.receivesGift===false||p.receivesGift==='false'))&&(!kw||[p.name,p.org,p.title].join(' ').toLowerCase().includes(kw)));
+  const checked=new Set($$('#bList input:checked').map(i=>i.value));
+  $('#bList').innerHTML= list.length? list.map(p=>`<label class="bp"><input type="checkbox" value="${esc(p.name)}" ${checked.size&&!checked.has(p.name)?'':'checked'}><span>${esc(p.name)}</span><small>${esc([p.org!=='南瓜虛擬科技'?p.org:'',p.title].filter(Boolean).join(' · '))}</small></label>`).join('') : '<div class="empty">沒有符合的人。到「人員」頁加，或把「只列收禮者」關掉。</div>';
+  updateBatchCount();
+}
+function updateBatchCount(){ const n=$$('#bList input:checked').length; const price=Number($('#bPrice').value)||0, qty=Number($('#bQty').value)||0; $('#bCount').textContent=`${n} 人 × ${qty} × ${money(price)} ＝ ${money(n*qty*price)}`; $('#bGo').textContent=`建立 ${n} 筆`; $('#bGo').disabled=!n; }
+$('#bTypes').addEventListener('click',e=>{ const b=e.target.closest('.ig-pill'); if(!b) return; bTypes.has(b.dataset.t)?bTypes.delete(b.dataset.t):bTypes.add(b.dataset.t); renderBatchPeople(); });
+['bOnlyGift','bSearch'].forEach(id=>$('#'+id).addEventListener('input',renderBatchPeople));
+['bPrice','bQty'].forEach(id=>$('#'+id).addEventListener('input',updateBatchCount));
+$('#bList').addEventListener('change',updateBatchCount);
+$('#bAll').onclick=()=>{ $$('#bList input').forEach(i=>i.checked=true); updateBatchCount(); }; $('#bNone').onclick=()=>{ $$('#bList input').forEach(i=>i.checked=false); updateBatchCount(); };
+$('#bFest').addEventListener('change',()=>{ const f=S.festivals.find(x=>festShort(x.name)===$('#bFest').value); if(f&&f['d'+S.year]) $('#bDate').value=f['d'+S.year]; });
+$('#bCancel').onclick=()=>$('#batch').classList.remove('is-open');
+$('#bGo').onclick=()=>{ const names=$$('#bList input:checked').map(i=>i.value); if(!names.length) return; const base={festival:$('#bFest').value,date:$('#bDate').value||todayStr,itemType:$('#bItemType').value,itemName:$('#bItemName').value.trim(),unitPrice:Number($('#bPrice').value)||0,qty:Number($('#bQty').value)||1,vendor:$('#bVendor').value.trim(),status:$('#bStatus').value,note:''};
+  names.forEach(n=>{ const p=S.people.find(x=>x.name===n); upsert(newRec({...base,targetType:p?.type||'員工',targetName:n})); }); $('#batch').classList.remove('is-open'); filters={key:'',fest:base.festival,target:'',item:'',status:''}; ['fKey','fTarget','fItem','fStatus'].forEach(id=>$('#'+id).value=''); renderAll(); $('#fFest').value=base.festival; renderRecords(); toast(`已建立 ${names.length} 筆`); };
+$('#btnBatch').onclick=openBatch;
+$('#lbClose').onclick=()=>$('#lightbox').classList.remove('is-open'); $('#lightbox').addEventListener('click',e=>{ if(e.target.id==='lightbox') $('#lightbox').classList.remove('is-open'); });
+$('#btnAdd').onclick=()=>{ const r=newRec({festival:filters.fest||undefined}); upsert(r); renderAll(); const rows=$$('#tbody tr'); const tr=rows.find(t=>t.dataset.id===r.id); tr?.querySelector('input[name=targetName]')?.focus(); };
+$('#btnDup').onclick=()=>{ const rows=filtered(); const last=rows[rows.length-1]; if(!last) return toast('沒有可複製的列'); upsert(newRec({...last})); renderAll(); toast('已複製上一列'); };
+$('#btnAddPerson').onclick=()=>{ S.people.push({name:'',type:pFilter||'員工',org:'',title:'',role:'',birthday:'',joinDate:'',email:'',receivesGift:true,note:''}); savePeople(); renderPeople(); $$('#pbody input[name=name]').pop()?.focus(); };
+$('#btnStarter').onclick=()=>{ const n=mergeStarter(); savePeople(); renderPeople(); toast(n?`已加入 ${n} 位`:'內建名單都已經在裡面了'); };
+$('#btnPartners').onclick=()=>{ const list=window.PARTNERS||[]; if(!confirm(`要把合作夥伴與廠商名錄 ${list.length} 筆加進人員嗎？（之後可逐筆刪，或用「刪除整個類型」）`)) return; const have=new Set(S.people.map(p=>p.name)); let n=0; list.forEach(p=>{ if(!have.has(p.name)){ S.people.push({...p}); n++; } }); savePeople(); renderPeople(); toast(`已加入 ${n} 筆`); };
+$('#btnDelType').onclick=()=>{ if(!pFilter) return toast('先在上面選一個類型（外包／夥伴／廠商）再按'); const n=S.people.filter(p=>p.type===pFilter).length; if(!n) return toast('這個類型沒有人'); if(confirm(`刪除全部「${pFilter}」${n} 人？`)){ S.people=S.people.filter(p=>p.type!==pFilter); savePeople(); pFilter=''; renderPeople(); toast(`已刪除 ${n} 人`); } };
+$('#btnPCsvIn').onclick=()=>{ $('#pcsvBox').classList.toggle('hide'); $('#pcsvText').focus(); }; $('#pcsvCancel').onclick=()=>$('#pcsvBox').classList.add('hide');
+$('#btnPCsvOut').onclick=()=>{ const h=['姓名','類型','單位','職稱','負責區塊','生日','到職日','Email','收禮','備註']; const rows=S.people.map(p=>[p.name,p.type,p.org||'',p.title||'',p.role||'',p.birthday||'',p.joinDate||'',p.email||'',(p.receivesGift===false||p.receivesGift==='false')?'否':'是',p.note||'']); dl('\ufeff'+[h,...rows].map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n'),'人員名單.csv','text/csv'); };
+$('#pcsvGo').onclick=()=>{ const rows=parsePeople($('#pcsvText').value); if(!rows.length) return toast('沒讀到資料，確認第一列是標題'); const have=new Map(S.people.map(p=>[p.name,p])); let add=0,upd=0; rows.forEach(o=>{ const ex=have.get(o.name); if(ex){ Object.keys(o).forEach(k=>{ if(o[k]!=='' && o[k]!=null) ex[k]=o[k]; }); upd++; } else { S.people.push(o); add++; } }); savePeople(); renderPeople(); $('#pcsvBox').classList.add('hide'); $('#pcsvText').value=''; toast(`新增 ${add} 位、更新 ${upd} 位`); };
+$('#pTabs').addEventListener('click',e=>{ const b=e.target.closest('.ig-pill'); if(!b) return; pFilter=b.dataset.pt; renderPeople(); });
+$('#btnCsvOut').onclick=csvOut; $('#btnCsvIn').onclick=()=>{ $('#csvBox').classList.toggle('hide'); $('#csvText').focus(); }; $('#csvGo').onclick=csvIn; $('#csvCancel').onclick=()=>$('#csvBox').classList.add('hide');
+$('#btnPrint').onclick=()=>window.print();
+['fKey','fFest','fTarget','fItem','fStatus'].forEach(id=>$('#'+id).addEventListener('input',()=>{ filters={key:$('#fKey').value,fest:$('#fFest').value,target:$('#fTarget').value,item:$('#fItem').value,status:$('#fStatus').value}; renderRecords(); }));
+$('#fClear').onclick=()=>{ filters={key:'',fest:'',target:'',item:'',status:''}; ['fKey','fFest','fTarget','fItem','fStatus'].forEach(id=>$('#'+id).value=''); renderRecords(); };
+document.addEventListener('click',e=>{ const b=e.target.closest('button.yr'); if(b){ S.year=Number(b.dataset.year); save(); renderAll(); } });
+$('#yearSel').addEventListener('change',e=>{ S.year=Number(e.target.value); save(); renderAll(); });
+$('#btnAdvPrompt').onclick=()=>copy(ADV_PROMPT());
+$('#cGen').onclick=()=>{ getKey()? genWithAI() : genPrompts(); };
+$('#cGenAI').onclick=genWithAI;
+$('#sKeySave').onclick=()=>{ const k=$('#sKey').value.trim(); try{ if(k) localStorage.setItem(AI_KEY,k); else localStorage.removeItem(AI_KEY); }catch(_){}; toast(k?'金鑰已存在這台電腦的瀏覽器':'已清除金鑰'); renderSettings(); };
+$('#sTest').onclick=async()=>{ S.apiUrl=$('#sUrl').value.trim().replace(/\/$/,''); S.user=$('#sUser').value.trim(); save(); if(!S.apiUrl){ badge('local','本機'); return toast('請先貼上 Apps Script 網址'); } $('#sStatus').textContent='連線中…'; const ok=await syncFromSheet(); $('#sStatus').textContent= ok? '✅ 連線成功，已改用 Google Sheet 的資料。' : '❌ 連不上。檢查網址是否以 /exec 結尾、部署存取權是否為「任何人」或你已登入公司帳號。'; };
+$('#sPush').onclick=()=>{ S.apiUrl=$('#sUrl').value.trim().replace(/\/$/,''); save(); pushAll(); };
+$('#sDisconnect').onclick=()=>{ if(confirm('斷開後改用本機資料（目前快取會保留）。確定？')){ S.apiUrl=''; save(); badge('local','本機'); renderSettings(); toast('已改回本機模式'); } };
+$('#sSave').onclick=saveSettingsForm;
+$('#sJsonOut').onclick=()=>dl(JSON.stringify(S,null,2),`節慶帳本_備份_${todayStr}.json`,'application/json');
+$('#sJsonIn').onclick=()=>$('#sJsonFile').click();
+$('#sJsonFile').addEventListener('change',e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>{ try{ const d=JSON.parse(rd.result); if(!Array.isArray(d.records)) throw new Error('格式不對'); S=Object.assign(load(), {records:d.records.map(normRec),people:d.people||[],festivals:d.festivals||S.festivals,settings:Object.assign({},DEFAULT_SETTINGS,d.settings||{})}); save(); renderAll(); toast('已匯入備份'); }catch(err){ toast('匯入失敗：'+err.message); } }; rd.readAsText(f); e.target.value=''; });
+$('#sReset').onclick=()=>{ if(confirm('清空這台電腦的本機資料？（Google Sheet 上的不受影響）')){ localStorage.removeItem(KEY); S=load(); renderAll(); toast('已清空'); } };
+document.addEventListener('keydown',e=>{ if(e.key!=='Escape') return; if($('#modal').classList.contains('is-open')) $('#mLater').click(); $('#batch').classList.remove('is-open'); $('#lightbox').classList.remove('is-open'); });
+window.addEventListener('online',()=>syncFromSheet(true));
+
+/* ───────── 啟動 ───────── */
+if(S.people.some(p=>!(p.name||'').trim()&&!(p.org||'').trim()&&!(p.email||'').trim())){ S.people=S.people.filter(p=>(p.name||'').trim()||(p.org||'').trim()||(p.email||'').trim()); save(); }
+function mergeStarter(){ const have=new Set(S.people.map(p=>p.name)); let n=0; (window.STARTER_PEOPLE||[]).forEach(p=>{ if(!have.has(p.name)){ S.people.push({...p}); have.add(p.name); n++; } }); return n; }
+(function seed(){ let v=''; try{ v=localStorage.getItem('pgl.seed')||''; }catch(_){}
+  if(v==='v3'){ if(!S.people.length && !S.records.length && !S.apiUrl){ mergeStarter(); save(); } return; }
+  // v3（南瓜 2026-09-25 指示）：名單只留員工，外包／夥伴／廠商全部移除；缺的員工補上，不覆蓋南瓜已改過的欄位
+  const before=S.people.length; S.people=S.people.filter(p=>p.type==='員工'&&p.name!=='吳沿霖'); const removed=before-S.people.length;
+  const n=mergeStarter(); save(); try{ localStorage.setItem('pgl.seed','v3'); }catch(_){}
+  if(n||removed) setTimeout(()=>toast(`名單已整理：只留員工 ${S.people.length} 人${removed?'，移除 '+removed+' 筆':''}`),600);
+})();
+renderAll();
+const h=location.hash.replace('#',''); if(['overview','records','people','advisor','cards','settings'].includes(h)) go(h);
+if(S.apiUrl){ badge('','同步中…'); syncFromSheet(true).then(()=>maybePopup()); } else { badge('local','本機'); maybePopup(); }
+})();
+
+</script>
+</body>
+</html>

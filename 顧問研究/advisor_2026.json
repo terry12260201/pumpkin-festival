@@ -1,0 +1,198 @@
+{
+  "researchDate": "2026-09-25",
+  "dataYears": "2025–2026",
+  "takeaways": [
+    "員工最想收的不是月餅，是「可自選」：禮券連兩年第一（2025 年 55.6%），電子票券滿意度 85%；月餅、文旦、公司自家產品最雷。",
+    "送夥伴／廠商抓 600～1,200 元、送員工 500～800 元最安全；客戶端「現金／禮券」是地雷，員工端則相反。",
+    "中秋 7 月中就有超早鳥 8 折、8 月底主力優惠截止；客製小卡至少提前 4 週、全客製禮盒 8～10 週。",
+    "2026 年輕人吃「有梗＋用得到」：IP 聯名（皮克敏月餅 599 元）、可重複使用的盒子、露營／運動小物。",
+    "「皮克球拍＋蛋黃酥」目前沒找到真實品牌案例（無法確認），但零件都買得到，可以自己組。"
+  ],
+  "audiences": {
+    "employee": {
+      "title": "員工",
+      "trends": [
+        {"text": "2025 中秋最想收到前五：百貨／超商禮券 55.6%、冰淇淋月餅 43.8%、甜點零嘴 37.7%、咖啡禮盒 34%、養生保健 32.9%。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+        {"text": "2026 中秋最想收到前五：禮券、冰淇淋月餅、甜點零嘴、咖啡、文創商品（文創首次進前五）。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026},
+        {"text": "企業用電子票券發福利比例 25%→34%，員工滿意度 85%；首要理由是「可依個人需求兌換」32%。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025},
+        {"text": "年輕消費者偏好可重複使用的禮盒、會發光的互動設計、跨界組合、卡通角色聯名。", "source": "https://supertaste.tvbs.com.tw/esg/361015", "year": 2026},
+        {"text": "體驗型手作課程正取代聚餐成為員工福利新選擇，人均 650～1,680 元。", "source": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026},
+        {"text": "非食品替代（野餐墊、快乾毛巾、防水手機袋）比月餅更容易被留下來用。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}
+      ],
+      "avoid": [
+        {"text": "最不想收到：公司自家產品或服務（墊底 6.4%）。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+        {"text": "最不想收到：文旦 7.6%、傳統月餅 8.7%、包裝米 9.7%、酒類 10.9%。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+        {"text": "月餅太油太膩（雙黃月餅近 800 大卡）且價格飆漲，公司收到的幾乎都改成餅乾與鳳梨酥。", "source": "https://udn.com/news/story/120912/9740894", "year": 2026},
+        {"text": "員工禮物規格不一致會引發比較；過度裝飾、LOGO 太大像廣告會扣分。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}
+      ],
+      "budget": [
+        {"text": "全體員工禮盒建議 500～800 元／人。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026},
+        {"text": "春節內部員工 500～700 元／人。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025},
+        {"text": "2026 年 44% 企業發中秋獎金，平均 1,349 元；員工期待 1,864 元，落差約 27.6%。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026},
+        {"text": "送同事：易分食、多入數、380～800 元。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}
+      ],
+      "bossView": [
+        {"text": "某科技公司 160 萬月餅預算改電子票券後，行政時間減少 70%；38.4% 使用者曾為禮盒管理困擾。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025},
+        {"text": "送員工的禮品視為員工所得；購入時若已扣抵進項稅額，轉作員工酬勞需開發票。", "source": "https://udn.com/news/story/7243/9275556", "year": 2026},
+        {"text": "CP 值看四點：成分透明、辦公室吃得完、包裝方便提拿、份量真實而非外盒華麗。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}
+      ],
+      "staffView": [
+        {"text": "員工偏好電子票券的三大理由：可依個人需求兌換 32%、領取方便 27%、使用方便 23%。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025},
+        {"text": "企業愛送月餅（2025 年 56.5%）但員工最不想收的前三就有月餅，送收之間有落差。", "source": "https://www.storm.mg/lifestyle/11164308", "year": 2026},
+        {"text": "禮物被留下的三條件：實用、品質不錯、設計不尷尬。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}
+      ],
+      "diy": [
+        {"name": "XR 公司的皮克球開球禮", "items": "迪卡儂入門匹克球拍組＋三顆蛋黃酥（當球）＋手寫卡「下班來打一場」", "why": "2026 台灣匹克球參與人口推估 120 萬、球場破 200 座，梗有時效性又能真的用；蛋黃酥只放三顆不負擔。", "estCost": "約 900～1,200 元／人（估算值）", "source": "https://udn.com/news/story/7266/9545132", "year": 2026},
+        {"name": "連假露營咖啡包", "items": "露營濾掛咖啡 5 包＋印 LOGO 快乾毛巾＋皮克敏月餅 1 顆分裝", "why": "中秋 4 天連假出遊用得到，咖啡不受節慶情境限制；皮克敏月餅是 2026 真實 IP 案例。", "estCost": "約 500～700 元／人（估算值）", "source": "https://www.nownews.com/amp/news/6849010", "year": 2026},
+        {"name": "自己選最有心", "items": "700 元電子票券＋員工名字客製明信片（南瓜暖島風插畫）", "why": "禮券連兩年第一、電子票券滿意度 85%；名字客製補上心意，行政作業最省。", "estCost": "約 750 元／人", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}
+      ],
+      "heart": [
+        {"text": "個人化認可讓員工投入度高 4 倍，但只有 10% 員工曾被問過喜歡怎麼被認可。", "source": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026},
+        {"text": "認可需求被滿足的員工，68% 打算待 5 年以上。", "source": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026},
+        {"text": "手作成品帶回家會被反覆看見，記憶比一頓聚餐長（該站自述 70% 員工一週內展示給家人，原始調查待確認）。", "source": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026},
+        {"text": "專門針對「手寫卡提升員工感受」的 2025–2026 量化研究：無法確認（僅找到 2016 年 Ipsos 調查，已排除）。", "source": "", "year": 2026}
+      ]
+    },
+    "partner": {
+      "title": "合作夥伴",
+      "trends": [
+        {"text": "企業採購從高油高糖月餅轉向手工餅乾、精品咖啡、名茶；「送體驗」與「跨界聯名」是 2026 三大方向。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026},
+        {"text": "客製化（企業色包裝、客製賀卡）與永續（在地小農、可回收包裝）是 2026 企業送禮兩大主軸；茶禮不分宗教年齡。", "source": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025},
+        {"text": "禮盒設計五大趨勢：跨界聯名、永續材質用完不丟、文化轉譯、五感體驗、客製企業禮盒。", "source": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026},
+        {"text": "B 型企業聯名案例：綠藤×茶日子微香沐浴喫茶禮 1,400 元，滿 20 組享企業價，1% 銷售額捐環保組織。", "source": "https://www.greenvines.com.tw/pages/gifts", "year": 2026},
+        {"text": "送客戶重話題性與品牌背景；公益部分收益捐慈善、環保紙材成加分。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026},
+        {"text": "端午也去粽子化：改送茶、雞精、果醋、常溫甜點，標準是「好保存、好配送、好分享」。", "source": "https://city9.tw/blogs/news/dragon-boat-festival-non-zongzi-gift-box", "year": 2026}
+      ],
+      "avoid": [
+        {"text": "送客戶地雷：現金或禮券、刀具時鐘等不吉利物、化妝品等太私人、違反對方業界或宗教禁忌。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026},
+        {"text": "太甜或太小眾口味、需冷鏈的冷藏品、包裝不一致、太晚下單。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "酒類是員工端最不想收的前五（10.9%），送夥伴也要先確認對方喝不喝。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+        {"text": "採購人員依《採購人員倫理準則》只能收 500 元以下餽贈（現行法規，非年度資料；送公部門窗口先問規範）。", "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}
+      ],
+      "budget": [
+        {"text": "重要商務夥伴 900～1,200 元；VIP 核心客戶 1,300～1,800 元。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026},
+        {"text": "600～1,000 元＝重要客戶、主管、長期夥伴；1,000 元以上＝VIP 客戶、關鍵窗口。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "春節：董事／重要長輩客戶 800～1,000 元；一般客戶／合作夥伴 600～800 元。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025},
+        {"text": "104 分法：低 1,000 以下、中 1,000～3,000（客製咖啡、保溫瓶）、高 3,000 以上（酒、皮件、體驗券）。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}
+      ],
+      "bossView": [
+        {"text": "提前 6～8 週詢價索樣；客製 LOGO 燙金／賀卡至少 4 週前下單；2026 中秋早鳥多在 9/8 前截止。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026},
+        {"text": "飯店早鳥：洲際 7/15 前 8 折、國泰 8/10 前最低 7 折、六福 9/7 前 88 折；企業大宗另有專案價。", "source": "https://travel.udn.com/travel/story/7193/9595936", "year": 2026},
+        {"text": "送客戶禮品列交際費，進項稅額不得扣抵。", "source": "https://udn.com/news/story/7243/9275556", "year": 2026},
+        {"text": "全客製禮盒要 8～10 週；500 組約 20～40 萬，單組 80～300 元。", "source": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}
+      ],
+      "staffView": [
+        {"text": "會被記住的：送禮前後有溝通、包裝依對象調整、選對時機（合作週年或專案完成，不只節慶）。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "客戶重「體面、安全、代表門面」，選綜合口味、有提把的精緻盒。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "客製禮物被留下的條件：實用、品質、設計不尷尬；VIP 重質感與專屬感。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}
+      ],
+      "diy": [
+        {"name": "跨界共創禮", "items": "綠藤×茶日子微香禮（1,400 元）＋用 XR 場景做的客製明信片", "why": "B 型企業＋永續是 2026 主軸，明信片把南瓜的專業放進去，不用多花錢就有故事。", "estCost": "約 1,200～1,500 元／份（企業價待詢）", "source": "https://www.greenvines.com.tw/pages/gifts", "year": 2026},
+        {"name": "公益＋話題", "items": "庇護工場咖啡禮盒（500～1,000 元）＋手寫卡說明「這盒幫了誰」", "why": "25 家公益單位一頁選完，價位剛好落在夥伴帶；卡片讓收禮者記住的是理由而非盒子。", "estCost": "約 600～1,000 元／份", "source": "https://harvest365.org/news/2/711", "year": 2026},
+        {"name": "皮克球體驗券", "items": "皮克球場地＋教練體驗 2 人券，附一小盒蛋黃酥", "why": "匹克球已進入 EMBA 商務社交圈，邀對方一起打比送盒子更能延續關係。", "estCost": "約 1,000～1,500 元／份（估算值）", "source": "https://howlife.cna.com.tw/financial/20260504s002.aspx", "year": 2026}
+      ],
+      "heart": [
+        {"text": "送客戶附祝福卡片感謝合作，是端午／中秋的基本禮節。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "禮盒附企業專屬小卡已是標配服務，可多點寄送。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026},
+        {"text": "客製化元素：專屬企業色包裝、客製掛牌／封條／賀卡，讓禮品成為企業文化象徵。", "source": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}
+      ]
+    },
+    "vendor": {
+      "title": "廠商窗口",
+      "trends": [
+        {"text": "300 元以下適合大量發送；300～600 元＝一般客戶／夥伴。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "公關拜訪禮盒建議 500～800 元。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026},
+        {"text": "送同事／窗口強調易分食、多入數、親民價 380～800 元。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026},
+        {"text": "文創商品 2026 首次進入員工最想收到前五，小額文創當窗口禮有機會。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026},
+        {"text": "公益禮盒多數落在 300～900 元，適合窗口帶。", "source": "https://harvest365.org/news/2/711", "year": 2026}
+      ],
+      "avoid": [
+        {"text": "太貴會給對方回禮壓力；新合作關係避免高金額。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026},
+        {"text": "需冷藏的冷鏈品、太小眾口味、包裝不一致。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "中秋前一至兩週是物流高峰，太晚寄會延誤。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026},
+        {"text": "公部門窗口 500 元以上餽贈依《採購人員倫理準則》不能收（現行法規，非年度資料）。", "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}
+      ],
+      "budget": [
+        {"text": "300～600 元／份為標準窗口帶。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "義大企業採購 13 款 346～1,168 元，低價帶選擇多。", "source": "https://n.yam.com/Article/20260825800273", "year": 2026},
+        {"text": "中秋輕巧款 300～500 元、主流款 501～1,000 元。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}
+      ],
+      "bossView": [
+        {"text": "Sweetfull 20 盒以上優惠、最高 8 折、50 盒以上要預留產能。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026},
+        {"text": "GiftU B2B 一萬元以上有專人報價，含客製、配送、發票。", "source": "https://giftub2b.com/", "year": 2026},
+        {"text": "大宗訂購最低可到 68～8 折，主力早鳥期是即日起到 8 月底。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026},
+        {"text": "大量訂單建議提前 3～4 週。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}
+      ],
+      "staffView": [
+        {"text": "獨立包裝、常溫、可放辦公室當提神零嘴的甜點零食最受歡迎。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+        {"text": "咖啡禮盒能融入早餐、下午茶，不受中秋情境限制。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026},
+        {"text": "禮物設計不尷尬、LOGO 不過度凸顯才會被留著用。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}
+      ],
+      "diy": [
+        {"name": "辦公室分享包", "items": "濾掛咖啡 10 入＋獨立包裝堅果，貼公司貼紙", "why": "「請大家一起享用」降低收禮壓力，咖啡與零嘴都在員工最想收前五。", "estCost": "約 400 元／份", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+        {"name": "連假出遊包", "items": "野餐墊小物＋兩顆蛋黃酥", "why": "非食品替代品比月餅更容易被留下來用，蛋黃酥兩顆剛好不膩。", "estCost": "約 500 元／份（估算值）", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026},
+        {"name": "文創小物", "items": "南瓜自家插畫明信片組＋茶包", "why": "文創商品 2026 首次進入員工最想收到前五，自家插畫又能展現 XR 公司的美術實力。", "estCost": "約 300 元／份", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}
+      ],
+      "heart": [
+        {"text": "附公司名片卡與一句手寫謝語，讓分享型禮盒有署名。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+        {"text": "客製小卡 60 字內、7～10 個工作天，要提早排。", "source": "https://www.jsy-tea.com/pages/bulkpurchase", "year": 2026},
+        {"text": "選對時機（專案完成、合作週年）比只在節慶送更會被記住。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}
+      ]
+    }
+  },
+  "calendar": {
+    "2026": {"春節": "2026-02-17", "端午": "2026-06-19", "中秋": "2026-09-25"},
+    "2027": {"春節": "2027-02-06", "端午": "2027-06-09", "中秋": "2027-09-15"},
+    "2028": {"春節": "2028-01-26", "端午": "2028-05-28", "中秋": "2028-10-03"},
+    "2029": {"春節": "2029-02-13", "端午": "2029-06-16", "中秋": "2029-09-22"},
+    "2030": {"春節": "2030-02-03", "端午": "2030-06-05", "中秋": "2030-09-12"}
+  },
+  "sources": [
+    {"title": "今周刊 2026 企業中秋採購指南", "url": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026},
+    {"title": "食力 2026 中秋禮盒懶人包", "url": "https://www.foodnext.net/life/recipes/dessert/paper/6731186952", "year": 2026},
+    {"title": "美麗佳人 2026 中秋禮盒 80+ 品牌", "url": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026},
+    {"title": "品得時光 2026 企業送禮趨勢", "url": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025},
+    {"title": "好心地文創 2026 中秋禮盒設計趨勢", "url": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026},
+    {"title": "善耕365 2026 中秋公益禮盒懶人包", "url": "https://harvest365.org/news/2/711", "year": 2026},
+    {"title": "綠藤生機企業採購（×茶日子）", "url": "https://www.greenvines.com.tw/pages/gifts", "year": 2026},
+    {"title": "city9 2026 端午非粽子禮盒趨勢", "url": "https://city9.tw/blogs/news/dragon-boat-festival-non-zongzi-gift-box", "year": 2026},
+    {"title": "風傳媒 yes123 中秋送禮冠軍", "url": "https://www.storm.mg/lifestyle/11164308", "year": 2026},
+    {"title": "Newtalk yes123 2025 中秋獎金禮品調查", "url": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025},
+    {"title": "自由財經 yes123 2026 中秋禮金調查", "url": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026},
+    {"title": "Edenred 中秋員工禮盒 vs 電子票券", "url": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025},
+    {"title": "Edenred×104 2026 員工福利大調查", "url": "https://www.edenred.com.tw/2026_employee_welfare_survey/", "year": 2026},
+    {"title": "聯合新聞網 月餅快成時代眼淚", "url": "https://udn.com/news/story/120912/9740894", "year": 2026},
+    {"title": "食尚玩家 2026 中秋禮盒推薦 40 間", "url": "https://supertaste.tvbs.com.tw/esg/361015", "year": 2026},
+    {"title": "Shinygoods 2026 中秋禮盒 10 大品牌", "url": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026},
+    {"title": "Cheerful Candy 企業送禮全年攻略", "url": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026},
+    {"title": "萬歲牌 2026 企業過年送禮 CP 值", "url": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025},
+    {"title": "104 職場力 2026 企業送禮策略", "url": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026},
+    {"title": "聯合新聞網 年節送禮報營業稅", "url": "https://udn.com/news/story/7243/9275556", "year": 2026},
+    {"title": "採購人員倫理準則第 8 條（現行法規）", "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026},
+    {"title": "聯合新聞網 台灣 120 萬人瘋匹克球", "url": "https://udn.com/news/story/7266/9545132", "year": 2026},
+    {"title": "中央社 匹克球旋風吹進台灣 EMBA", "url": "https://howlife.cna.com.tw/financial/20260504s002.aspx", "year": 2026},
+    {"title": "JNICE 匹克球拍套組（年份待確認）", "url": "https://www.jnice.com.tw/Pickleball", "year": 2026},
+    {"title": "迪卡儂企業服務中心", "url": "https://grouporder.decathlon.tw/", "year": 2026},
+    {"title": "NOWnews 皮克敏中秋月餅禮盒", "url": "https://www.nownews.com/amp/news/6849010", "year": 2026},
+    {"title": "暖窩咖啡露營系列（年份待確認）", "url": "https://shop.cozyhousecoffee.com/pages/camping", "year": 2026},
+    {"title": "GIFTPARTY 路跑／露營／運動贈品", "url": "https://www.giftparty.com.tw/product-40.html", "year": 2026},
+    {"title": "夏本好 2026 員工福利手作課程", "url": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026},
+    {"title": "Workhuman 員工認可統計", "url": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026},
+    {"title": "禮品PARTY 2026 客製化禮物 TOP 10", "url": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026},
+    {"title": "Sweetfull 2026 中秋企業大量採購指南", "url": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026},
+    {"title": "京盛宇大宗採購（年份待確認）", "url": "https://www.jsy-tea.com/pages/bulkpurchase", "year": 2026},
+    {"title": "聯合新聞網 2026 中秋禮盒飯店早鳥", "url": "https://travel.udn.com/travel/story/7193/9595936", "year": 2026},
+    {"title": "蕃新聞 義大中秋企業採購", "url": "https://n.yam.com/Article/20260825800273", "year": 2026},
+    {"title": "GiftU 禮尚網 B2B", "url": "https://giftub2b.com/", "year": 2026},
+    {"title": "凱哥寫程式 2026 行事曆（轉載官方）", "url": "https://calendar.talllkai.com/2026", "year": 2026},
+    {"title": "104 職場力 2027 行事曆", "url": "https://blog.104.com.tw/2027-taiwan-government-calendar/", "year": 2026},
+    {"title": "PublicHolidays.tw 中秋節", "url": "https://publicholidays.tw/zh/mid-autumn-festival/", "year": 2026},
+    {"title": "PublicHolidays.tw 端午節", "url": "https://publicholidays.tw/zh/dragon-boat-festival/", "year": 2026},
+    {"title": "Wikipedia Chinese New Year 日期表", "url": "https://en.wikipedia.org/wiki/Chinese_New_Year", "year": 2026},
+    {"title": "MoonCal 2028 節日", "url": "https://usemooncal.com/zh-CN/festivals/2028", "year": 2026},
+    {"title": "MoonCal 2029 節日", "url": "https://usemooncal.com/zh-CN/festivals/2029", "year": 2026},
+    {"title": "MoonCal 2030 節日", "url": "https://usemooncal.com/zh-CN/festivals/2030", "year": 2026},
+    {"title": "中國日曆在線 中秋節", "url": "https://www.chinesecalendaronline.com/zh/jieri/zhongqiu/", "year": 2026},
+    {"title": "中國日曆在線 端午節", "url": "https://www.chinesecalendaronline.com/zh/jieri/duanwu/", "year": 2026}
+  ]
+}
