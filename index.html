@@ -433,6 +433,7 @@ body.ig.ig-has-dotfield{position:relative;isolation:isolate;background-image:non
 
 /* ink-gold kit:end */
 
+
 /* ===== 節慶帳本 工作區樣式（墨金延伸） ===== */
 html{scroll-behavior:smooth}
 body.ig{min-height:100vh}
@@ -636,6 +637,7 @@ code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding
     <button class="nav-tab" data-view="settings" role="tab">設定</button>
   </div>
   <div class="ig-nav__right">
+    <span class="sync hide" id="userChip" style="background:rgba(253,195,2,.18);color:#fff"></span>
     <select class="year-sel" id="yearSel" aria-label="年度"></select>
     <span class="sync local" id="syncBadge" title="資料狀態"><i></i><span>本機</span></span>
     <button class="ig-theme-toggle" data-ig-theme-toggle type="button"></button>
@@ -692,7 +694,7 @@ code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding
 
 <!-- ───── 人員 ───── -->
 <section class="view" id="view-people">
-  <div class="page-h"><div><h1>人員</h1><p>員工、外包、夥伴、廠商都放這裡，「＋ 新增人員」或「貼上匯入」整表；「整批加入人員」從這裡挑人。</p></div>
+  <div class="page-h"><div><h1>人員</h1><p>預設只放員工。要送夥伴或廠商時，按「匯入夥伴名錄」或「＋ 新增人員」再加；「整批加入人員」從這裡挑人。</p></div>
     <div class="toolbar"><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnStarter">匯入員工名單</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPartners">匯入夥伴名錄</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnDelType">刪除整個類型</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPCsvOut">匯出 CSV</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="btnPCsvIn">貼上匯入</button><button class="ig-btn ig-btn--gold ig-btn--sm" id="btnAddPerson">＋ 新增人員</button></div></div>
   <div class="card" id="pSummary" style="padding:12px 16px;margin-bottom:12px;font-size:14px"></div>
   <div class="ig-pills" id="pTabs" style="margin-bottom:12px"><button class="ig-pill is-active" data-pt="">全部 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="員工">員工 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="外包">外包 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="夥伴">夥伴 <span class="ig-pill__n"></span></button><button class="ig-pill" data-pt="廠商">廠商 <span class="ig-pill__n"></span></button></div>
@@ -768,16 +770,17 @@ code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding
   <div class="page-h"><div><h1>設定</h1><p>沒接 Google Sheet 也能用（資料存在這台電腦的瀏覽器）。接上之後三人看同一份，並由 Apps Script 每天寄提醒。</p></div></div>
   <div class="grid grid-2">
     <div class="card">
-      <h2>連線 Google Sheet</h2>
+      <div id="sHostedBlock" class="hide"><h2>雲端版</h2><p class="ig-small" id="sHostedInfo" style="line-height:1.9"></p><p class="ig-small" style="margin-top:10px">每天 09:00 自動：節慶前 14 天寄提醒；節慶過後且全部「已發放」就自動歸檔（Sheet＋PDF＋照片）到 Drive。總覽每張節慶卡也可隨時「歸檔到雲端」。</p></div>
+      <div id="sConnBlock"><h2>連線 Google Sheet</h2>
       <div class="fld"><label>Apps Script 網頁應用程式網址（…/exec）</label><input class="f-input" id="sUrl" placeholder="https://script.google.com/macros/s/…/exec"></div>
       <div class="fld"><label>你的名字（寫進「更新者」欄）</label><input class="f-input" id="sUser" placeholder="南瓜"></div>
       <div class="btns"><button class="ig-btn ig-btn--gold ig-btn--sm" id="sTest">測試連線並同步</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sPush">把本機資料推上 Sheet</button><button class="ig-btn ig-btn--ghost ig-btn--sm" id="sDisconnect">斷開（改回本機）</button></div>
       <p class="ig-small" id="sStatus" style="margin-top:10px"></p>
-      <h3>Claude API（賀圖即時生成）</h3>
+      <div id="sKeyBlock"><h3>Claude API（賀圖即時生成）</h3>
       <div class="fld"><label>Claude API 金鑰（sk-ant-…，只存在這台電腦的瀏覽器，不會進 Sheet）</label><input class="f-input" id="sKey" type="password" placeholder="sk-ant-api03-…" autocomplete="off"></div>
       <div class="btns"><button class="ig-btn ig-btn--ink ig-btn--sm" id="sKeySave">儲存金鑰</button></div>
       <p class="ig-small" id="sKeyStatus" style="margin-top:8px"></p>
-      <p class="ig-small">金鑰在 <a class="ig-link" href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">platform.claude.com → API keys</a> 建立；每次產生約 0.1 元美金以內。</p>
+      <p class="ig-small">金鑰在 <a class="ig-link" href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">platform.claude.com → API keys</a> 建立；每次產生約 0.1 元美金以內。</p></div>
       <h3>部署步驟</h3>
       <ol class="steps">
         <li>用公司帳號開新 Google Sheet，命名「南瓜節慶帳本」。</li>
@@ -785,7 +788,7 @@ code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding
         <li>部署 → 新增部署 → 網頁應用程式 → 執行身分「我」、存取權「公司網域」或「任何人」→ 複製網址貼到上面。</li>
         <li>（選）專案設定 → 指令碼屬性 加 <code>TG_TOKEN</code>、<code>TG_CHAT</code> 就會發 Telegram。</li>
         <li>編輯器跑 <code>testReminderNow</code> 收一封測試信，確認 Email／Calendar 都通。</li>
-      </ol>
+      </ol></div>
     </div>
     <div class="card">
       <h2>提醒與預算</h2>
@@ -850,9 +853,10 @@ code{font:400 12px/1.4 var(--ig-font-mono);background:var(--ig-ink-wash);padding
 <div class="toast" id="toast"></div>
 
 <script>
+window.HOSTED = false;
 /* ===== 選禮顧問資料（每年重跑一次研究後整段替換） ===== */
 window.ADVISOR = {"researchDate": "2026-09-25", "dataYears": "2025–2026", "takeaways": ["員工最想收的不是月餅，是「可自選」：禮券連兩年第一（2025 年 55.6%），電子票券滿意度 85%；月餅、文旦、公司自家產品最雷。", "送夥伴／廠商抓 600～1,200 元、送員工 500～800 元最安全；客戶端「現金／禮券」是地雷，員工端則相反。", "中秋 7 月中就有超早鳥 8 折、8 月底主力優惠截止；客製小卡至少提前 4 週、全客製禮盒 8～10 週。", "2026 年輕人吃「有梗＋用得到」：IP 聯名（皮克敏月餅 599 元）、可重複使用的盒子、露營／運動小物。", "「皮克球拍＋蛋黃酥」目前沒找到真實品牌案例（無法確認），但零件都買得到，可以自己組。"], "audiences": {"employee": {"title": "員工", "trends": [{"text": "2025 中秋最想收到前五：百貨／超商禮券 55.6%、冰淇淋月餅 43.8%、甜點零嘴 37.7%、咖啡禮盒 34%、養生保健 32.9%。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "2026 中秋最想收到前五：禮券、冰淇淋月餅、甜點零嘴、咖啡、文創商品（文創首次進前五）。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "企業用電子票券發福利比例 25%→34%，員工滿意度 85%；首要理由是「可依個人需求兌換」32%。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"text": "年輕消費者偏好可重複使用的禮盒、會發光的互動設計、跨界組合、卡通角色聯名。", "source": "https://supertaste.tvbs.com.tw/esg/361015", "year": 2026}, {"text": "體驗型手作課程正取代聚餐成為員工福利新選擇，人均 650～1,680 元。", "source": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026}, {"text": "非食品替代（野餐墊、快乾毛巾、防水手機袋）比月餅更容易被留下來用。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}], "avoid": [{"text": "最不想收到：公司自家產品或服務（墊底 6.4%）。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "最不想收到：文旦 7.6%、傳統月餅 8.7%、包裝米 9.7%、酒類 10.9%。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "月餅太油太膩（雙黃月餅近 800 大卡）且價格飆漲，公司收到的幾乎都改成餅乾與鳳梨酥。", "source": "https://udn.com/news/story/120912/9740894", "year": 2026}, {"text": "員工禮物規格不一致會引發比較；過度裝飾、LOGO 太大像廣告會扣分。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "budget": [{"text": "全體員工禮盒建議 500～800 元／人。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "春節內部員工 500～700 元／人。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}, {"text": "2026 年 44% 企業發中秋獎金，平均 1,349 元；員工期待 1,864 元，落差約 27.6%。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "送同事：易分食、多入數、380～800 元。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}], "bossView": [{"text": "某科技公司 160 萬月餅預算改電子票券後，行政時間減少 70%；38.4% 使用者曾為禮盒管理困擾。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"text": "送員工的禮品視為員工所得；購入時若已扣抵進項稅額，轉作員工酬勞需開發票。", "source": "https://udn.com/news/story/7243/9275556", "year": 2026}, {"text": "CP 值看四點：成分透明、辦公室吃得完、包裝方便提拿、份量真實而非外盒華麗。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}], "staffView": [{"text": "員工偏好電子票券的三大理由：可依個人需求兌換 32%、領取方便 27%、使用方便 23%。", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"text": "企業愛送月餅（2025 年 56.5%）但員工最不想收的前三就有月餅，送收之間有落差。", "source": "https://www.storm.mg/lifestyle/11164308", "year": 2026}, {"text": "禮物被留下的三條件：實用、品質不錯、設計不尷尬。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "diy": [{"name": "XR 公司的皮克球開球禮", "items": "迪卡儂入門匹克球拍組＋三顆蛋黃酥（當球）＋手寫卡「下班來打一場」", "why": "2026 台灣匹克球參與人口推估 120 萬、球場破 200 座，梗有時效性又能真的用；蛋黃酥只放三顆不負擔。", "estCost": "約 900～1,200 元／人（估算值）", "source": "https://udn.com/news/story/7266/9545132", "year": 2026}, {"name": "連假露營咖啡包", "items": "露營濾掛咖啡 5 包＋印 LOGO 快乾毛巾＋皮克敏月餅 1 顆分裝", "why": "中秋 4 天連假出遊用得到，咖啡不受節慶情境限制；皮克敏月餅是 2026 真實 IP 案例。", "estCost": "約 500～700 元／人（估算值）", "source": "https://www.nownews.com/amp/news/6849010", "year": 2026}, {"name": "自己選最有心", "items": "700 元電子票券＋員工名字客製明信片（南瓜暖島風插畫）", "why": "禮券連兩年第一、電子票券滿意度 85%；名字客製補上心意，行政作業最省。", "estCost": "約 750 元／人", "source": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}], "heart": [{"text": "個人化認可讓員工投入度高 4 倍，但只有 10% 員工曾被問過喜歡怎麼被認可。", "source": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026}, {"text": "認可需求被滿足的員工，68% 打算待 5 年以上。", "source": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026}, {"text": "手作成品帶回家會被反覆看見，記憶比一頓聚餐長（該站自述 70% 員工一週內展示給家人，原始調查待確認）。", "source": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026}, {"text": "專門針對「手寫卡提升員工感受」的 2025–2026 量化研究：無法確認（僅找到 2016 年 Ipsos 調查，已排除）。", "source": "", "year": 2026}]}, "partner": {"title": "合作夥伴", "trends": [{"text": "企業採購從高油高糖月餅轉向手工餅乾、精品咖啡、名茶；「送體驗」與「跨界聯名」是 2026 三大方向。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "客製化（企業色包裝、客製賀卡）與永續（在地小農、可回收包裝）是 2026 企業送禮兩大主軸；茶禮不分宗教年齡。", "source": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}, {"text": "禮盒設計五大趨勢：跨界聯名、永續材質用完不丟、文化轉譯、五感體驗、客製企業禮盒。", "source": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}, {"text": "B 型企業聯名案例：綠藤×茶日子微香沐浴喫茶禮 1,400 元，滿 20 組享企業價，1% 銷售額捐環保組織。", "source": "https://www.greenvines.com.tw/pages/gifts", "year": 2026}, {"text": "送客戶重話題性與品牌背景；公益部分收益捐慈善、環保紙材成加分。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}, {"text": "端午也去粽子化：改送茶、雞精、果醋、常溫甜點，標準是「好保存、好配送、好分享」。", "source": "https://city9.tw/blogs/news/dragon-boat-festival-non-zongzi-gift-box", "year": 2026}], "avoid": [{"text": "送客戶地雷：現金或禮券、刀具時鐘等不吉利物、化妝品等太私人、違反對方業界或宗教禁忌。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}, {"text": "太甜或太小眾口味、需冷鏈的冷藏品、包裝不一致、太晚下單。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "酒類是員工端最不想收的前五（10.9%），送夥伴也要先確認對方喝不喝。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "採購人員依《採購人員倫理準則》只能收 500 元以下餽贈（現行法規，非年度資料；送公部門窗口先問規範）。", "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}], "budget": [{"text": "重要商務夥伴 900～1,200 元；VIP 核心客戶 1,300～1,800 元。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "600～1,000 元＝重要客戶、主管、長期夥伴；1,000 元以上＝VIP 客戶、關鍵窗口。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "春節：董事／重要長輩客戶 800～1,000 元；一般客戶／合作夥伴 600～800 元。", "source": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}, {"text": "104 分法：低 1,000 以下、中 1,000～3,000（客製咖啡、保溫瓶）、高 3,000 以上（酒、皮件、體驗券）。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}], "bossView": [{"text": "提前 6～8 週詢價索樣；客製 LOGO 燙金／賀卡至少 4 週前下單；2026 中秋早鳥多在 9/8 前截止。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "飯店早鳥：洲際 7/15 前 8 折、國泰 8/10 前最低 7 折、六福 9/7 前 88 折；企業大宗另有專案價。", "source": "https://travel.udn.com/travel/story/7193/9595936", "year": 2026}, {"text": "送客戶禮品列交際費，進項稅額不得扣抵。", "source": "https://udn.com/news/story/7243/9275556", "year": 2026}, {"text": "全客製禮盒要 8～10 週；500 組約 20～40 萬，單組 80～300 元。", "source": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}], "staffView": [{"text": "會被記住的：送禮前後有溝通、包裝依對象調整、選對時機（合作週年或專案完成，不只節慶）。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "客戶重「體面、安全、代表門面」，選綜合口味、有提把的精緻盒。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "客製禮物被留下的條件：實用、品質、設計不尷尬；VIP 重質感與專屬感。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "diy": [{"name": "跨界共創禮", "items": "綠藤×茶日子微香禮（1,400 元）＋用 XR 場景做的客製明信片", "why": "B 型企業＋永續是 2026 主軸，明信片把南瓜的專業放進去，不用多花錢就有故事。", "estCost": "約 1,200～1,500 元／份（企業價待詢）", "source": "https://www.greenvines.com.tw/pages/gifts", "year": 2026}, {"name": "公益＋話題", "items": "庇護工場咖啡禮盒（500～1,000 元）＋手寫卡說明「這盒幫了誰」", "why": "25 家公益單位一頁選完，價位剛好落在夥伴帶；卡片讓收禮者記住的是理由而非盒子。", "estCost": "約 600～1,000 元／份", "source": "https://harvest365.org/news/2/711", "year": 2026}, {"name": "皮克球體驗券", "items": "皮克球場地＋教練體驗 2 人券，附一小盒蛋黃酥", "why": "匹克球已進入 EMBA 商務社交圈，邀對方一起打比送盒子更能延續關係。", "estCost": "約 1,000～1,500 元／份（估算值）", "source": "https://howlife.cna.com.tw/financial/20260504s002.aspx", "year": 2026}], "heart": [{"text": "送客戶附祝福卡片感謝合作，是端午／中秋的基本禮節。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "禮盒附企業專屬小卡已是標配服務，可多點寄送。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"text": "客製化元素：專屬企業色包裝、客製掛牌／封條／賀卡，讓禮品成為企業文化象徵。", "source": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}]}, "vendor": {"title": "廠商窗口", "trends": [{"text": "300 元以下適合大量發送；300～600 元＝一般客戶／夥伴。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "公關拜訪禮盒建議 500～800 元。", "source": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"text": "送同事／窗口強調易分食、多入數、親民價 380～800 元。", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}, {"text": "文創商品 2026 首次進入員工最想收到前五，小額文創當窗口禮有機會。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "公益禮盒多數落在 300～900 元，適合窗口帶。", "source": "https://harvest365.org/news/2/711", "year": 2026}], "avoid": [{"text": "太貴會給對方回禮壓力；新合作關係避免高金額。", "source": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}, {"text": "需冷藏的冷鏈品、太小眾口味、包裝不一致。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "中秋前一至兩週是物流高峰，太晚寄會延誤。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"text": "公部門窗口 500 元以上餽贈依《採購人員倫理準則》不能收（現行法規，非年度資料）。", "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}], "budget": [{"text": "300～600 元／份為標準窗口帶。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "義大企業採購 13 款 346～1,168 元，低價帶選擇多。", "source": "https://n.yam.com/Article/20260825800273", "year": 2026}, {"text": "中秋輕巧款 300～500 元、主流款 501～1,000 元。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}], "bossView": [{"text": "Sweetfull 20 盒以上優惠、最高 8 折、50 盒以上要預留產能。", "source": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"text": "GiftU B2B 一萬元以上有專人報價，含客製、配送、發票。", "source": "https://giftub2b.com/", "year": 2026}, {"text": "大宗訂購最低可到 68～8 折，主力早鳥期是即日起到 8 月底。", "source": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}, {"text": "大量訂單建議提前 3～4 週。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}], "staffView": [{"text": "獨立包裝、常溫、可放辦公室當提神零嘴的甜點零食最受歡迎。", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"text": "咖啡禮盒能融入早餐、下午茶，不受中秋情境限制。", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"text": "禮物設計不尷尬、LOGO 不過度凸顯才會被留著用。", "source": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}], "diy": [{"name": "辦公室分享包", "items": "濾掛咖啡 10 入＋獨立包裝堅果，貼公司貼紙", "why": "「請大家一起享用」降低收禮壓力，咖啡與零嘴都在員工最想收前五。", "estCost": "約 400 元／份", "source": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"name": "連假出遊包", "items": "野餐墊小物＋兩顆蛋黃酥", "why": "非食品替代品比月餅更容易被留下來用，蛋黃酥兩顆剛好不膩。", "estCost": "約 500 元／份（估算值）", "source": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}, {"name": "文創小物", "items": "南瓜自家插畫明信片組＋茶包", "why": "文創商品 2026 首次進入員工最想收到前五，自家插畫又能展現 XR 公司的美術實力。", "estCost": "約 300 元／份", "source": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}], "heart": [{"text": "附公司名片卡與一句手寫謝語，讓分享型禮盒有署名。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"text": "客製小卡 60 字內、7～10 個工作天，要提早排。", "source": "https://www.jsy-tea.com/pages/bulkpurchase", "year": 2026}, {"text": "選對時機（專案完成、合作週年）比只在節慶送更會被記住。", "source": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}]}}, "calendar": {"2026": {"春節": "2026-02-17", "端午": "2026-06-19", "中秋": "2026-09-25"}, "2027": {"春節": "2027-02-06", "端午": "2027-06-09", "中秋": "2027-09-15"}, "2028": {"春節": "2028-01-26", "端午": "2028-05-28", "中秋": "2028-10-03"}, "2029": {"春節": "2029-02-13", "端午": "2029-06-16", "中秋": "2029-09-22"}, "2030": {"春節": "2030-02-03", "端午": "2030-06-05", "中秋": "2030-09-12"}}, "sources": [{"title": "今周刊 2026 企業中秋採購指南", "url": "https://www.businesstoday.com.tw/article/category/183030/post/202608100035/", "year": 2026}, {"title": "食力 2026 中秋禮盒懶人包", "url": "https://www.foodnext.net/life/recipes/dessert/paper/6731186952", "year": 2026}, {"title": "美麗佳人 2026 中秋禮盒 80+ 品牌", "url": "https://www.marieclaire.com.tw/lifestyle/taste/94315", "year": 2026}, {"title": "品得時光 2026 企業送禮趨勢", "url": "https://www.pickataste.com/blogs/a-sip-of-days/enterprise-gifting-trend-2026-customization-sustainability", "year": 2025}, {"title": "好心地文創 2026 中秋禮盒設計趨勢", "url": "https://howdy-creative.co/mid-autumn-gift-box-2026/", "year": 2026}, {"title": "善耕365 2026 中秋公益禮盒懶人包", "url": "https://harvest365.org/news/2/711", "year": 2026}, {"title": "綠藤生機企業採購（×茶日子）", "url": "https://www.greenvines.com.tw/pages/gifts", "year": 2026}, {"title": "city9 2026 端午非粽子禮盒趨勢", "url": "https://city9.tw/blogs/news/dragon-boat-festival-non-zongzi-gift-box", "year": 2026}, {"title": "風傳媒 yes123 中秋送禮冠軍", "url": "https://www.storm.mg/lifestyle/11164308", "year": 2026}, {"title": "Newtalk yes123 2025 中秋獎金禮品調查", "url": "https://newtalk.tw/news/view/2025-10-01/996641", "year": 2025}, {"title": "自由財經 yes123 2026 中秋禮金調查", "url": "https://ec.ltn.com.tw/article/breakingnews/5582251", "year": 2026}, {"title": "Edenred 中秋員工禮盒 vs 電子票券", "url": "https://blog.edenred.com.tw/2025-mid-autumn-festival-employee-benefits", "year": 2025}, {"title": "Edenred×104 2026 員工福利大調查", "url": "https://www.edenred.com.tw/2026_employee_welfare_survey/", "year": 2026}, {"title": "聯合新聞網 月餅快成時代眼淚", "url": "https://udn.com/news/story/120912/9740894", "year": 2026}, {"title": "食尚玩家 2026 中秋禮盒推薦 40 間", "url": "https://supertaste.tvbs.com.tw/esg/361015", "year": 2026}, {"title": "Shinygoods 2026 中秋禮盒 10 大品牌", "url": "https://www.shinygoods.tw/autumn-gift-box-2026", "year": 2026}, {"title": "Cheerful Candy 企業送禮全年攻略", "url": "https://www.cheerful-candy.com.tw/zh-TW/blogs/taiwan-souvenir/corporate-gift-recommendation", "year": 2026}, {"title": "萬歲牌 2026 企業過年送禮 CP 值", "url": "https://www.thankyounuts.com/blog/posts/預算只有1000元也能很體面？2026企業過年送禮cp值最高的9款精選禮盒", "year": 2025}, {"title": "104 職場力 2026 企業送禮策略", "url": "https://blog.104.com.tw/corporate-gifts-to-customers/", "year": 2026}, {"title": "聯合新聞網 年節送禮報營業稅", "url": "https://udn.com/news/story/7243/9275556", "year": 2026}, {"title": "採購人員倫理準則第 8 條（現行法規）", "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=A0030095&flno=8", "year": 2026}, {"title": "聯合新聞網 台灣 120 萬人瘋匹克球", "url": "https://udn.com/news/story/7266/9545132", "year": 2026}, {"title": "中央社 匹克球旋風吹進台灣 EMBA", "url": "https://howlife.cna.com.tw/financial/20260504s002.aspx", "year": 2026}, {"title": "JNICE 匹克球拍套組（年份待確認）", "url": "https://www.jnice.com.tw/Pickleball", "year": 2026}, {"title": "迪卡儂企業服務中心", "url": "https://grouporder.decathlon.tw/", "year": 2026}, {"title": "NOWnews 皮克敏中秋月餅禮盒", "url": "https://www.nownews.com/amp/news/6849010", "year": 2026}, {"title": "暖窩咖啡露營系列（年份待確認）", "url": "https://shop.cozyhousecoffee.com/pages/camping", "year": 2026}, {"title": "GIFTPARTY 路跑／露營／運動贈品", "url": "https://www.giftparty.com.tw/product-40.html", "year": 2026}, {"title": "夏本好 2026 員工福利手作課程", "url": "https://www.xiabenhow.com/employee-welfare-activity-recommendation-2026/", "year": 2026}, {"title": "Workhuman 員工認可統計", "url": "https://www.workhuman.com/blog/employee-recognition-statistics/", "year": 2026}, {"title": "禮品PARTY 2026 客製化禮物 TOP 10", "url": "https://www.giftparty.com.tw/news-details-83.html", "year": 2026}, {"title": "Sweetfull 2026 中秋企業大量採購指南", "url": "https://www.sweetfull2021.com/blog/posts/mid-autumn-gift-guide", "year": 2026}, {"title": "京盛宇大宗採購（年份待確認）", "url": "https://www.jsy-tea.com/pages/bulkpurchase", "year": 2026}, {"title": "聯合新聞網 2026 中秋禮盒飯店早鳥", "url": "https://travel.udn.com/travel/story/7193/9595936", "year": 2026}, {"title": "蕃新聞 義大中秋企業採購", "url": "https://n.yam.com/Article/20260825800273", "year": 2026}, {"title": "GiftU 禮尚網 B2B", "url": "https://giftub2b.com/", "year": 2026}, {"title": "凱哥寫程式 2026 行事曆（轉載官方）", "url": "https://calendar.talllkai.com/2026", "year": 2026}, {"title": "104 職場力 2027 行事曆", "url": "https://blog.104.com.tw/2027-taiwan-government-calendar/", "year": 2026}, {"title": "PublicHolidays.tw 中秋節", "url": "https://publicholidays.tw/zh/mid-autumn-festival/", "year": 2026}, {"title": "PublicHolidays.tw 端午節", "url": "https://publicholidays.tw/zh/dragon-boat-festival/", "year": 2026}, {"title": "Wikipedia Chinese New Year 日期表", "url": "https://en.wikipedia.org/wiki/Chinese_New_Year", "year": 2026}, {"title": "MoonCal 2028 節日", "url": "https://usemooncal.com/zh-CN/festivals/2028", "year": 2026}, {"title": "MoonCal 2029 節日", "url": "https://usemooncal.com/zh-CN/festivals/2029", "year": 2026}, {"title": "MoonCal 2030 節日", "url": "https://usemooncal.com/zh-CN/festivals/2030", "year": 2026}, {"title": "中國日曆在線 中秋節", "url": "https://www.chinesecalendaronline.com/zh/jieri/zhongqiu/", "year": 2026}, {"title": "中國日曆在線 端午節", "url": "https://www.chinesecalendaronline.com/zh/jieri/duanwu/", "year": 2026}]};
-/* ===== 首批公司名單（來源：【Pumpkin VR】公司信箱_2026；生日／到職日待補） ===== */
+/* ===== 首批公司名單（來源：【Pumpkin VR】公司信箱_2026） ===== */
 window.STARTER_PEOPLE = [];
 /* ===== 合作夥伴與廠商名錄（不預設載入，人員頁按「匯入夥伴名錄」才加） ===== */
 window.PARTNERS = [];
@@ -1031,6 +1035,8 @@ window.PARTNERS = [];
 const $ = (s, el=document) => el.querySelector(s);
 const $$ = (s, el=document) => [...el.querySelectorAll(s)];
 const KEY = 'pgl.v1';
+const HOSTED = !!window.HOSTED;
+function rpc(action,payload){ return new Promise((res,rej)=>{ try{ google.script.run.withSuccessHandler(res).withFailureHandler(e=>rej(new Error(e&&e.message||String(e)))).api(action,payload); }catch(e){ rej(e); } }); }
 const TODAY = new Date(); TODAY.setHours(0,0,0,0);
 const todayStr = fmtDate(TODAY);
 const YEARS = [2026,2027,2028,2029,2030];
@@ -1069,27 +1075,27 @@ function load(){
     festivals: Array.isArray(s.festivals)&&s.festivals.length? s.festivals: JSON.parse(JSON.stringify(DEFAULT_FESTIVALS)),
     people: Array.isArray(s.people)? s.people:[],
     settings: Object.assign({}, DEFAULT_SETTINGS, s.settings||{}),
-    apiUrl: s.apiUrl||'', user: s.user||'', year: s.year||TODAY.getFullYear(), lastSync: s.lastSync||''
+    apiUrl: HOSTED? 'hosted' : (s.apiUrl||''), user: HOSTED? (window.USER||'') : (s.user||''), year: s.year||TODAY.getFullYear(), lastSync: s.lastSync||'', archives: s.archives||[]
   };
 }
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ toast('瀏覽器不允許儲存：'+e.message); } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(HOSTED? {year:S.year} : S)); }catch(e){ toast('瀏覽器不允許儲存：'+e.message); } }
 function lead(){ return Number(S.settings.leadDays)||14; }
 function enabled(f){ return f.enabled===true || f.enabled==='true' || f.enabled==='TRUE'; }
 
 /* ───────── 與 Apps Script 同步 ───────── */
 function badge(state, text){ const b=$('#syncBadge'); b.className='sync '+state; b.querySelector('span').textContent=text; }
-async function apiGet(){ const r=await fetch(S.apiUrl+'?action=all&t='+Date.now(),{method:'GET'}); return r.json(); }
-async function apiPost(action,payload){ const r=await fetch(S.apiUrl,{method:'POST',body:JSON.stringify({action,payload,user:S.user})}); return r.json(); }
+async function apiGet(){ if(HOSTED) return rpc('all',null); const r=await fetch(S.apiUrl+'?action=all&t='+Date.now(),{method:'GET'}); return r.json(); }
+async function apiPost(action,payload){ if(HOSTED) return rpc(action,payload); const r=await fetch(S.apiUrl,{method:'POST',body:JSON.stringify({action,payload,user:S.user})}); return r.json(); }
 function applyServer(d){
   if(!d||!d.ok) throw new Error(d&&d.error||'伺服器回應異常');
   const localPhoto={}; S.records.forEach(r=>{ if(r.photo) localPhoto[r.id]=r.photo; });
   S.records=d.records.map(normRec).map(r=>({...r, photo: r.photoUrl? '' : (localPhoto[r.id]||'')})); S.festivals=d.festivals.length? d.festivals.map(f=>({...f,leadDays:Number(f.leadDays)||14})) : S.festivals;
-  S.people=d.people; S.settings=Object.assign({},DEFAULT_SETTINGS,d.settings||{}); S.lastSync=new Date().toISOString(); save();
+  S.people=d.people; S.settings=Object.assign({},DEFAULT_SETTINGS,d.settings||{}); S.archives=d.archives||[]; S.hasClaude=!!d.hasClaude; S.rootUrl=d.rootUrl||''; if(d.user) S.user=d.user; S.lastSync=new Date().toISOString(); save();
 }
 async function syncFromSheet(silent){
   if(!S.apiUrl){ badge('local','本機'); return false; }
   badge('','同步中…');
-  try{ applyServer(await apiGet()); badge('ok','已同步'); renderAll(); if(!silent) toast('已從 Google Sheet 更新'); return true; }
+  try{ applyServer(await apiGet()); badge('ok',HOSTED?'雲端':'已同步'); renderAll(); if(!silent) toast('已從 Google Sheet 更新'); return true; }
   catch(e){ badge('err','離線·唯讀快取'); if(!silent) toast('連不上 Sheet：'+e.message); return false; }
 }
 function queue(action, rec){
@@ -1195,7 +1201,7 @@ function renderOverview(){
   $('#festCards').innerHTML= keys.length? keys.map(k=>{ const rs=groups[k], ps=prev.filter(r=>festShort(r.festival)===k); const t=sum(rs), tp=sum(ps);
     const items=rs.slice().sort((a,b)=>b.subtotal-a.subtotal).slice(0,6).map(r=>`<li>${esc(r.itemType)}｜${esc(r.itemName||'（未填品名）')} × ${r.qty}${r.targetName?'　→ '+esc(r.targetName):'　→ '+esc(r.targetType)}　<span class="mono muted">${money(r.subtotal)}</span>　<span class="status-${esc(r.status)}">${esc(r.status)}</span></li>`).join('');
     const byT=TYPES.map(tt=>{const n=rs.filter(r=>r.targetType===tt).length; return n?`${tt} ${n}`:null;}).filter(Boolean).join(' · ');
-    return `<div class="card fest"><div><h2 style="margin:0">${esc(k)} <span class="muted mono" style="font-size:13px;font-weight:400">${esc(rs[0].date)}</span></h2><div class="ig-small">${byT||'—'}</div><ul>${items}</ul>${rs.length>6?`<div class="ig-small">…還有 ${rs.length-6} 筆</div>`:''}<span class="cmp">${tp?(t>tp?'▲':t<tp?'▼':'＝')+' 去年 '+money(tp)+'（'+(tp?Math.round((t-tp)/tp*100):0)+'%）':'去年無資料'}</span></div><div><div class="sum">${money(t)}<small>${rs.length} 筆 · ${rs.filter(r=>r.status==='已發放').length} 筆已發放</small></div><div class="btns" style="justify-content:flex-end"><button class="ig-btn ig-btn--ghost ig-btn--sm" data-go="records" data-fest="${esc(k)}">編輯</button></div></div></div>`; }).join('')
+    return `<div class="card fest"><div><h2 style="margin:0">${esc(k)} <span class="muted mono" style="font-size:13px;font-weight:400">${esc(rs[0].date)}</span></h2><div class="ig-small">${byT||'—'}</div><ul>${items}</ul>${rs.length>6?`<div class="ig-small">…還有 ${rs.length-6} 筆</div>`:''}<span class="cmp">${tp?(t>tp?'▲':t<tp?'▼':'＝')+' 去年 '+money(tp)+'（'+(tp?Math.round((t-tp)/tp*100):0)+'%）':'去年無資料'}</span></div><div><div class="sum">${money(t)}<small>${rs.length} 筆 · ${rs.filter(r=>r.status==='已發放').length} 筆已發放</small></div><div class="btns" style="justify-content:flex-end"><button class="ig-btn ig-btn--ghost ig-btn--sm" data-go="records" data-fest="${esc(k)}">編輯</button>${HOSTED?`<button class="ig-btn ig-btn--ink ig-btn--sm" data-act="archive" data-year="${S.year}" data-fest="${esc(k)}">${archiveOf(S.year,k)?'重新歸檔':'歸檔到雲端'}</button>`:''}</div>${archiveLinks(S.year,k)}</div></div>`; }).join('')
     : `<div class="card"><div class="empty">${S.year} 年還沒有任何紀錄。<br>到「紀錄」按「＋ 新增一筆」開始，或用「貼上匯入」整批貼。</div></div>`;
 }
 
@@ -1209,10 +1215,13 @@ function shrinkImage(file, max){ return new Promise((res,rej)=>{ const img=new I
 async function attachPhoto(r, file){
   if(!file||!file.type.startsWith('image/')) return toast('請選圖片檔');
   const thumb=await shrinkImage(file, 640);
-  if(S.apiUrl){ badge('','上傳照片…'); try{ const d=await apiPost('uploadPhoto',{id:r.id,name:file.name,dataUrl:thumb}); if(!d.ok) throw new Error(d.error); r.photoUrl=d.url; r.photo=''; badge('ok','已同步'); }catch(e){ r.photo=thumb; badge('err','照片留在本機'); toast('照片上傳 Drive 失敗，先存本機：'+e.message); } }
+  if(S.apiUrl){ badge('','上傳照片…'); try{ const d=await apiPost('uploadPhoto',{id:r.id,name:file.name,dataUrl:thumb,year:r.year,festival:festShort(r.festival),targetName:r.targetName,itemName:r.itemName}); if(!d.ok) throw new Error(d.error); r.photoUrl=d.url; r.photo=''; badge('ok','已同步'); }catch(e){ r.photo=thumb; badge('err','照片留在本機'); toast('照片上傳 Drive 失敗，先存本機：'+e.message); } }
   else r.photo=thumb;
   upsert(r); renderRecords(); renderOverview(); toast('照片已加上');
 }
+function archiveOf(y,k){ return (S.archives||[]).find(a=>Number(a.year)===Number(y)&&a.festival===k); }
+function archiveLinks(y,k){ const a=archiveOf(y,k); if(!a) return ''; const t=String(a.archivedAt||'').slice(0,16).replace('T',' '); return `<div class="ig-small" style="text-align:right;margin-top:8px;line-height:1.9">已歸檔 ${esc(t)}${a.by?'（'+esc(a.by)+'）':''}<br><a class="ig-link" href="${esc(a.folderUrl)}" target="_blank" rel="noopener">📁 資料夾</a>　<a class="ig-link" href="${esc(a.sheetUrl)}" target="_blank" rel="noopener">📊 Sheet</a>　${a.pdfUrl&&a.pdfUrl.startsWith('http')?`<a class="ig-link" href="${esc(a.pdfUrl)}" target="_blank" rel="noopener">📄 PDF</a>`:'<span class="muted">PDF 未產生</span>'}</div>`; }
+async function archiveNow(y,k,btn){ if(!confirm(`把 ${y} ${k} 的所有紀錄歸檔到 Drive（Sheet＋PDF）？之後可重做。`)) return; btn.disabled=true; btn.textContent='歸檔中…'; badge('','歸檔中…'); try{ clearTimeout(syncTimer); await flush(); const d=await apiPost('archiveFestival',{year:y,festival:k}); if(!d.ok) throw new Error(d.error); await syncFromSheet(true); toast('已歸檔到 Drive：'+y+' '+k); }catch(e){ toast('歸檔失敗：'+e.message); badge('err','歸檔失敗'); btn.disabled=false; btn.textContent='歸檔到雲端'; } }
 function festOptions(sel){ const names=[...new Set([...S.festivals.filter(f=>f.type!=='個人').map(f=>festShort(f.name)),'員工生日','到職週年','其他', ...(sel?[sel]:[])])]; return names.map(n=>`<option ${n===sel?'selected':''}>${esc(n)}</option>`).join(''); }
 function opt(list,sel){ return list.map(n=>`<option ${n===sel?'selected':''}>${n}</option>`).join(''); }
 function filtered(){
@@ -1257,7 +1266,7 @@ function renderPeople(){
     <td><input name="org" value="${esc(p.org||'')}" placeholder="單位／公司"></td><td><input name="title" value="${esc(p.title||'')}" placeholder="職稱／窗口"></td><td><input name="role" value="${esc(p.role||'')}" placeholder="負責什麼"></td>
     <td><input name="email" type="email" value="${esc(p.email||'')}"></td><td><select name="receivesGift">${opt(['是','否'],gift(p)?'是':'否')}</select></td>
     <td><input name="note" value="${esc(p.note||'')}"></td><td class="act-col"><button class="ib danger" data-act="pdel" title="刪除這個人" aria-label="刪除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></td></tr>`).join('')
-    : `<tr><td colspan="10"><div class="empty">${S.people.length?'這個類型還沒有人。':'還沒有人員。按「＋ 新增人員」或「貼上匯入」加入名單。'}</div></td></tr>`;
+    : `<tr><td colspan="10"><div class="empty">${S.people.length?'這個類型還沒有人。':'還沒有人員。按「匯入員工名單」放進公司 16 人，或「＋ 新增人員」。'}</div></td></tr>`;
   renderPeopleList();
 }
 /* 選人清單 */
@@ -1336,7 +1345,8 @@ function cardBrief(){
   return {fest,year,style:st.zh,styleEn:st.en,use:use.zh,useEn:use.en,size:use.size,msg:$('#cMsg').value.trim(),elem:$('#cElem').value.trim(),sign:$('#cSign').value.trim()||'南瓜虛擬科技 全體夥伴'};
 }
 async function genWithAI(){
-  const key=getKey(); if(!key){ toast('先到「設定」貼上 Claude API 金鑰'); go('settings'); $('#sKey').focus(); return; }
+  const key=HOSTED?'hosted':getKey(); if(!HOSTED&&!key){ toast('先到「設定」貼上 Claude API 金鑰'); go('settings'); $('#sKey').focus(); return; }
+  if(HOSTED&&S.hasClaude===false){ toast('後端還沒設定 Claude 金鑰（指令碼屬性 CLAUDE_API_KEY）'); genPrompts(); return; }
   const b=cardBrief(); const btn=$('#cGenAI'); btn.disabled=true; btn.textContent='Claude 思考中…';
   const y=Number(b.year); const recs=S.records.filter(r=>festShort(r.festival)===b.fest&&Number(r.year)===y); const gifts=[...new Set(recs.filter(r=>r.itemType==='禮盒').map(r=>r.itemName).filter(Boolean))];
   const last=S.records.filter(r=>festShort(r.festival)===b.fest&&Number(r.year)===y-1).map(r=>r.itemName).filter(Boolean);
@@ -1354,22 +1364,26 @@ async function genWithAI(){
 去年送過：${last.length?last.join('、'):'（無紀錄）'}
 隨機種子：${Date.now()%1000}（請確保跟上一次不同）`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-opus-5',max_tokens:6000,output_config:{effort:'medium'},system,messages:[{role:'user',content:user}]})});
-    const d=await r.json(); if(!r.ok) throw new Error(d.error?.message||('HTTP '+r.status));
-    if(d.stop_reason==='refusal') throw new Error('模型拒絕了這個請求');
-    const text=(d.content||[]).filter(c=>c.type==='text').map(c=>c.text).join('');
+    let text, modelName='claude-opus-5';
+    if(HOSTED){ const d=await apiPost('claude',{system,user}); if(!d.ok) throw new Error(d.error||'後端錯誤'); text=d.text; modelName=d.model||modelName; }
+    else {
+      const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+        body:JSON.stringify({model:'claude-opus-5',max_tokens:6000,output_config:{effort:'medium'},system,messages:[{role:'user',content:user}]})});
+      const d=await r.json(); if(!r.ok) throw new Error(d.error?.message||('HTTP '+r.status));
+      if(d.stop_reason==='refusal') throw new Error('模型拒絕了這個請求');
+      text=(d.content||[]).filter(c=>c.type==='text').map(c=>c.text).join(''); modelName=d.model||modelName;
+    }
     const m=text.match(/\{[\s\S]*\}/); if(!m) throw new Error('回覆不是 JSON');
     const j=JSON.parse(m[0]);
     const gptFull=`【給 GPT生圖.command 貼的英文咒語，尺寸選 ${b.size}】\n${j.gpt}\n\n（${j.gptNote||''}）`;
-    renderPrompts({gpt:gptFull,canva:j.canva,card:j.card,video:j.video,alt:j.alt||[],by:'Claude（'+(d.model||'claude-opus-5')+'）'});
+    renderPrompts({gpt:gptFull,canva:j.canva,card:j.card,video:j.video,alt:j.alt||[],by:'Claude（'+modelName+'）'});
     toast('Claude 已產生新一組咒語');
   }catch(e){ toast('AI 產生失敗：'+e.message+'，已改用內建範本'); genPrompts(); }
   finally{ btn.disabled=false; btn.textContent='✦ 用 Claude 重新產生'; }
 }
 function renderPrompts(p){
   const sec=(n,t,id,body)=>`<div class="prompt-h"><h3>${n} ${t}</h3><button class="ig-btn ig-btn--ink ig-btn--sm" data-copy="${id}">複製</button></div><div class="prompt-box" id="${id}">${esc(body)}</div>`;
-  $('#cOut').innerHTML=`<p class="ig-small" style="margin:0 0 4px">${p.by?'由 '+esc(p.by)+' 產生，每按一次都不同。':'內建範本（到「設定」貼 Claude API 金鑰，就能每次由 AI 重新想）。'}</p>`+sec('①','GPT 生圖咒語','p1',p.gpt)+sec('②','Canva 排版咒語（貼給 Claude）','p2',p.canva)+sec('③','卡片文案','p3',p.card)+sec('④','影片咒語（南瓜中控 AI 影片工坊）','p4',p.video)+(p.alt&&p.alt.length?`<div class="prompt-h"><h3>⑤ 其他方向</h3></div><ul class="adv-sec" style="list-style:none;padding:0">${p.alt.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>`:'');
+  $('#cOut').innerHTML=`<p class="ig-small" style="margin:0 0 4px">${p.by?'由 '+esc(p.by)+' 產生，每按一次都不同。':(HOSTED?'內建範本（後端尚未設定 Claude 金鑰）。':'內建範本（到「設定」貼 Claude API 金鑰，就能每次由 AI 重新想）。')}</p>`+sec('①','GPT 生圖咒語','p1',p.gpt)+sec('②','Canva 排版咒語（貼給 Claude）','p2',p.canva)+sec('③','卡片文案','p3',p.card)+sec('④','影片咒語（南瓜中控 AI 影片工坊）','p4',p.video)+(p.alt&&p.alt.length?`<div class="prompt-h"><h3>⑤ 其他方向</h3></div><ul class="adv-sec" style="list-style:none;padding:0">${p.alt.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>`:'');
 }
 function genPrompts(){
   const fest=$('#cFest').value, year=$('#cYear').value, st=STYLE[$('#cStyle').value], use=USE[$('#cUse').value];
@@ -1395,13 +1409,15 @@ English prompt: Pixar-style 3D animation, 15s, 16:9. A round fluffy white rabbit
 
 /* 設定 */
 function renderSettings(){
-  $('#sUrl').value=S.apiUrl; $('#sUser').value=S.user; const s=S.settings; $('#sKey').value=getKey(); $('#sKeyStatus').textContent=getKey()?'✅ 已設定，賀圖會由 Claude 即時產生':'尚未設定，賀圖用內建範本';
+  const s=S.settings;
+  if(HOSTED){ $('#sConnBlock').classList.add('hide'); $('#sKeyBlock').classList.add('hide'); $('#sHostedBlock').classList.remove('hide'); $('#sHostedInfo').innerHTML=`登入者：<b>${esc(S.user||window.USER||'')}</b><br>資料：本 Google Sheet（雲端，多人同一份）<br>Drive 資料夾：${S.rootUrl?`<a class="ig-link" href="${esc(S.rootUrl)}" target="_blank" rel="noopener">南瓜節慶帳本（年份／節慶／照片）</a>`:'—'}<br>Claude 賀圖：${S.hasClaude?'✅ 後端已設定':'尚未設定（指令碼屬性 CLAUDE_API_KEY）'}<br>可登入名單：由管理者在指令碼屬性 ALLOWED_EMAILS 維護`; }
+  else { $('#sUrl').value=S.apiUrl; $('#sUser').value=S.user; $('#sKey').value=getKey(); $('#sKeyStatus').textContent=getKey()?'✅ 已設定，賀圖會由 Claude 即時產生':'尚未設定，賀圖用內建範本'; }
   $('#sLead').value=s.leadDays; $('#sBudget').value=s.yearlyBudget; $('#sRecip').value=s.recipients; $('#sBE').value=s.budgetEmployee; $('#sBP').value=s.budgetPartner; $('#sBV').value=s.budgetVendor; $('#sCo').value=s.companyName; $('#sTool').value=s.toolUrl;
-  $('#sStatus').textContent= S.apiUrl? (S.lastSync?'上次同步：'+new Date(S.lastSync).toLocaleString('zh-TW'):'尚未同步') : '目前為本機模式：資料只存在這台電腦的瀏覽器，記得定期匯出 JSON 備份。';
+  $('#sStatus').textContent= HOSTED? '' : (S.apiUrl? (S.lastSync?'上次同步：'+new Date(S.lastSync).toLocaleString('zh-TW'):'尚未同步') : '目前為本機模式：資料只存在這台電腦的瀏覽器，記得定期匯出 JSON 備份。');
   $('#fbody').innerHTML=S.festivals.filter(f=>f.type!=='個人').map((f,i)=>`<tr data-fi="${S.festivals.indexOf(f)}"><td><input name="name" value="${esc(f.name)}"></td>${YEARS.map(y=>`<td><input type="date" name="d${y}" value="${esc(f['d'+y]||'')}"></td>`).join('')}<td><select name="enabled">${opt(['是','否'],enabled(f)?'是':'否')}</select></td></tr>`).join('');
 }
 function saveSettingsForm(){
-  S.user=$('#sUser').value.trim(); Object.assign(S.settings,{leadDays:$('#sLead').value||'14',yearlyBudget:$('#sBudget').value||'0',recipients:$('#sRecip').value,budgetEmployee:$('#sBE').value,budgetPartner:$('#sBP').value,budgetVendor:$('#sBV').value,companyName:$('#sCo').value,toolUrl:$('#sTool').value});
+  if(!HOSTED) S.user=$('#sUser').value.trim(); Object.assign(S.settings,{leadDays:$('#sLead').value||'14',yearlyBudget:$('#sBudget').value||'0',recipients:$('#sRecip').value,budgetEmployee:$('#sBE').value,budgetPartner:$('#sBP').value,budgetVendor:$('#sBV').value,companyName:$('#sCo').value,toolUrl:$('#sTool').value});
   save(); toast('設定已儲存'); renderAll();
   if(S.apiUrl){ apiPost('saveSettings',S.settings).then(()=>apiPost('replaceFestivals',S.festivals)).then(d=>{applyServer(d);badge('ok','已同步');}).catch(e=>toast('設定寫入 Sheet 失敗：'+e.message)); }
 }
@@ -1413,7 +1429,8 @@ function csvOut(){
   const csv='﻿'+[h,...rows].map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');
   dl(csv,`節慶帳本_${S.year}.csv`,'text/csv');
 }
-function dl(text,name,type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
+function dl(text,name,type){ if(HOSTED){ badge('','匯出中…'); apiPost('exportFile',{name,text,mime:type}).then(d=>{ badge('ok','雲端'); if(d.ok){ toast('已存到 Drive「匯出」資料夾'); window.open(d.url,'_blank'); } else toast('匯出失敗：'+d.error); }).catch(e=>{ badge('err','匯出失敗'); toast(e.message); }); return; }
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
 function parseTable(text){
   const sep=text.includes('\t')?'\t':','; const lines=text.replace(/\r/g,'').split('\n').filter(l=>l.trim());
   const split=l=>{ const out=[]; let cur='',q=false; for(let i=0;i<l.length;i++){ const c=l[i]; if(c==='"'){ if(q&&l[i+1]==='"'){cur+='"';i++;} else q=!q; } else if(c===sep&&!q){ out.push(cur); cur=''; } else cur+=c; } out.push(cur); return out.map(s=>s.trim()); };
@@ -1451,7 +1468,7 @@ function maybePopup(){
 function go(view,fest){
   $$('.nav-tab').forEach(b=>b.classList.toggle('is-active',b.dataset.view===view)); $$('.view').forEach(v=>v.classList.toggle('is-active',v.id==='view-'+view));
   if(fest!=null){ filters={key:'',fest,target:'',item:'',status:''}; ['fKey','fTarget','fItem','fStatus'].forEach(id=>$('#'+id).value=''); $('#fFest').value=fest; renderRecords(); }
-  location.hash=view; window.scrollTo({top:0});
+  try{ if(!HOSTED) location.hash=view; }catch(_){} window.scrollTo({top:0});
 }
 document.addEventListener('click',e=>{
   const nav=e.target.closest('.nav-tab'); if(nav) return go(nav.dataset.view);
@@ -1462,6 +1479,7 @@ document.addEventListener('click',e=>{
     const tr=act.closest('tr'); 
     if(act.dataset.act==='del'){ const id=tr.dataset.id; const r=S.records.find(x=>x.id===id); if(confirm(`刪除「${r?.itemName||'這筆'}」？`)){ remove(id); renderAll(); toast('已刪除'); } }
     if(act.dataset.act==='dup'){ const r=S.records.find(x=>x.id===tr.dataset.id); if(r){ upsert(newRec({...r,photo:'',photoUrl:''})); renderAll(); toast('已複製一列'); } }
+    if(act.dataset.act==='archive'){ archiveNow(Number(act.dataset.year), act.dataset.fest, act); return; }
     if(act.dataset.act==='pick'){ const inp=tr.querySelector('input[name=targetName]'); const wasOpen=popInput===inp&&$('#namePop').classList.contains('is-open'); if(wasOpen&&act.dataset.toggled==='1'){ closeNamePop(); act.dataset.toggled=''; } else { inp.focus(); openNamePop(inp,true); act.dataset.toggled='1'; } }
     if(act.dataset.act==='photo-add'){ const r=S.records.find(x=>x.id===tr.dataset.id); const f=$('#photoFile'); f.onchange=()=>{ attachPhoto(r,f.files[0]); f.value=''; }; f.click(); }
     if(act.dataset.act==='photo-del'){ const r=S.records.find(x=>x.id===tr.dataset.id); if(r&&confirm('移除這張照片？')){ r.photo=''; r.photoUrl=''; upsert(r); renderRecords(); } }
@@ -1524,7 +1542,7 @@ $('#fClear').onclick=()=>{ filters={key:'',fest:'',target:'',item:'',status:''};
 document.addEventListener('click',e=>{ const b=e.target.closest('button.yr'); if(b){ S.year=Number(b.dataset.year); save(); renderAll(); } });
 $('#yearSel').addEventListener('change',e=>{ S.year=Number(e.target.value); save(); renderAll(); });
 $('#btnAdvPrompt').onclick=()=>copy(ADV_PROMPT());
-$('#cGen').onclick=()=>{ getKey()? genWithAI() : genPrompts(); };
+$('#cGen').onclick=()=>{ (HOSTED||getKey())? genWithAI() : genPrompts(); };
 $('#cGenAI').onclick=genWithAI;
 $('#sKeySave').onclick=()=>{ const k=$('#sKey').value.trim(); try{ if(k) localStorage.setItem(AI_KEY,k); else localStorage.removeItem(AI_KEY); }catch(_){}; toast(k?'金鑰已存在這台電腦的瀏覽器':'已清除金鑰'); renderSettings(); };
 $('#sTest').onclick=async()=>{ S.apiUrl=$('#sUrl').value.trim().replace(/\/$/,''); S.user=$('#sUser').value.trim(); save(); if(!S.apiUrl){ badge('local','本機'); return toast('請先貼上 Apps Script 網址'); } $('#sStatus').textContent='連線中…'; const ok=await syncFromSheet(); $('#sStatus').textContent= ok? '✅ 連線成功，已改用 Google Sheet 的資料。' : '❌ 連不上。檢查網址是否以 /exec 結尾、部署存取權是否為「任何人」或你已登入公司帳號。'; };
@@ -1540,9 +1558,10 @@ window.addEventListener('online',()=>syncFromSheet(true));
 
 /* ───────── 啟動 ───────── */
 if(!(window.STARTER_PEOPLE||[]).length) $('#btnStarter').classList.add('hide'); if(!(window.PARTNERS||[]).length) $('#btnPartners').classList.add('hide');
+if(HOSTED){ $('#userChip').textContent=(window.USER||'').split('@')[0]; $('#userChip').title=window.USER||''; $('#userChip').classList.remove('hide'); }
 if(S.people.some(p=>!(p.name||'').trim()&&!(p.org||'').trim()&&!(p.email||'').trim())){ S.people=S.people.filter(p=>(p.name||'').trim()||(p.org||'').trim()||(p.email||'').trim()); save(); }
 function mergeStarter(){ const have=new Set(S.people.map(p=>p.name)); let n=0; (window.STARTER_PEOPLE||[]).forEach(p=>{ if(!have.has(p.name)){ S.people.push({...p}); have.add(p.name); n++; } }); return n; }
-(function seed(){ let v=''; try{ v=localStorage.getItem('pgl.seed')||''; }catch(_){}
+(function seed(){ if(HOSTED) return; let v=''; try{ v=localStorage.getItem('pgl.seed')||''; }catch(_){}
   if(v==='v3'){ if(!S.people.length && !S.records.length && !S.apiUrl){ mergeStarter(); save(); } return; }
   // v3（南瓜 2026-09-25 指示）：名單只留員工，外包／夥伴／廠商全部移除；缺的員工補上，不覆蓋南瓜已改過的欄位
   const before=S.people.length; S.people=S.people.filter(p=>p.type==='員工'&&p.name!=='吳沿霖'); const removed=before-S.people.length;
@@ -1551,7 +1570,7 @@ function mergeStarter(){ const have=new Set(S.people.map(p=>p.name)); let n=0; (
 })();
 renderAll();
 const h=location.hash.replace('#',''); if(['overview','records','people','advisor','cards','settings'].includes(h)) go(h);
-if(S.apiUrl){ badge('','同步中…'); syncFromSheet(true).then(()=>maybePopup()); } else { badge('local','本機'); maybePopup(); }
+if(S.apiUrl){ badge('','同步中…'); syncFromSheet(true).then(ok=>{ if(HOSTED&&!ok) toast('讀不到雲端資料，請重新整理'); maybePopup(); }); } else { badge('local','本機'); maybePopup(); }
 })();
 
 </script>

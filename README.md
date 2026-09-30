@@ -19,6 +19,13 @@
 | 賀圖 | 產生 GPT 生圖／Canva 排版／卡片文案／15 秒影片分鏡四段咒語；設定 Claude API 金鑰可由 AI 即時撰寫 |
 | 設定 | 接 Google Sheet、提醒天數、收件人、預算帶、節慶日期、JSON 備份 |
 
+## 雲端版（團隊用，建議）
+把 `apps-script/Code.gs` 與 `apps-script/index.html` 貼進一份 Google Sheet 的 Apps Script，部署成網頁應用程式（步驟見 `apps-script/部署步驟.md`）：
+- Google 帳號登入＋白名單信箱（指令碼屬性 `ALLOWED_EMAILS`）
+- 資料在該 Sheet；每個節慶結束自動歸檔到 Drive `年份/節慶/`（Sheet＋PDF＋照片），總覽也可手動「歸檔到雲端」
+- Claude 金鑰放後端（`CLAUDE_API_KEY`），網頁不出現金鑰欄位
+- 每天 09:00 提醒（Email／Telegram／Calendar）
+
 ## 資料存在哪
 - 本機模式：瀏覽器 localStorage（設定頁可匯出 JSON）。
 - 共用模式：你的 Google Sheet；照片存你 Drive 的「節慶帳本_照片」資料夾。
